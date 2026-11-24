@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Syne:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/hero-atelier.webp" type="image/webp">
-<link rel="stylesheet" href="styles.css?v=20261124k">
+<link rel="stylesheet" href="styles.css?v=20261124m">
 
 </head>
 <body>
@@ -38,6 +38,7 @@
   <search class="topbar-search" id="topbarSearchBox">
     <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
     <input type="search" id="searchInput" placeholder="Search modules…" aria-label="Search modules">
+    <div class="search-suggest" id="searchSuggest" role="listbox" aria-label="Quick module suggestions" hidden></div>
   </search>
   <div class="topbar-spacer"></div>
   <div class="topbar-actions">
@@ -144,7 +145,7 @@
 <script defer src="translations-hi.js?v=20261124j"></script>
 <script defer src="notes-data.js?v=20261124j"></script>
 <script defer src="doubt-capabilities.js?v=20261124j"></script>
-<script defer src="app.js?v=20261124k"></script>
+<script defer src="app.js?v=20261124m"></script>
 
 
 <!-- Studio Tweaks floating control -->
@@ -189,6 +190,26 @@
       </div>
     </div>
   </aside>
+</div>
+
+
+<!-- Peak-End Rule: Plate Mastered Celebration Dialog -->
+<div class="peak-backdrop" id="peakModal" role="dialog" aria-modal="true" aria-labelledby="peakTitle" hidden>
+  <div class="peak-card">
+    <div class="peak-kicker" id="peakKicker">PLATE MASTERED</div>
+    <h2 class="peak-title" id="peakTitle">Module Complete</h2>
+    <div class="peak-rewards">
+      <div class="peak-stat"><b id="peakXp">+50 XP</b><span>Earned</span></div>
+      <div class="peak-stat"><b id="peakArcPct">0%</b><span id="peakArcName">Arc Progress</span></div>
+      <div class="peak-stat"><b id="peakStreak">1d</b><span>Streak</span></div>
+    </div>
+    <div class="peak-bar"><span id="peakBarFill" style="width:0%"></span></div>
+    <p class="peak-sub" id="peakSub"></p>
+    <div class="peak-actions">
+      <button type="button" class="btn btn-primary" id="peakNextBtn">Continue to Next Plate</button>
+      <button type="button" class="btn btn-ghost" id="peakCloseBtn">Stay Here</button>
+    </div>
+  </div>
 </div>
 
 </body>

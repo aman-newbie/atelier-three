@@ -863,6 +863,11 @@ function renderHome(){
   const isHi = STATE.lang === 'hi';
   const pctTotal = allLive.length ? Math.round((doneCount / allLive.length) * 100) : 0;
   const featured = next || (allLive.length ? allLive[0] : null);
+  const activeArcId = STATE.activeHomeArc || (featured ? featured.path.id : (livePaths[0] ? livePaths[0].id : 'all'));
+  const activeArcObj = livePaths.find(p => p.id === activeArcId) || livePaths[0];
+  const activeArcDone = activeArcObj ? activeArcObj.modules.filter(m => STATE.completed.has(m.id)).length : 0;
+  const activeArcLeft = activeArcObj ? Math.max(0, activeArcObj.modules.length - activeArcDone) : 0;
+
   const ctaLabel = STATE.completed.size === 0
     ? (isHi ? 'Start Module 01' : 'Start Module 01')
     : (next ? (isHi ? 'Continue: ' : 'Continue: ') + L(next.m, 'title') : (isHi ? 'All Live Modules Complete' : 'All Live Modules Complete'));
@@ -891,6 +896,10 @@ function renderHome(){
         </div>
         <div class="hero-card-title">${L(featured.m, 'title')}</div>
         <p class="hero-card-hook">${L(featured.m, 'hook') || ''}</p>
+        <div class="hero-card-goal">${activeArcLeft > 0
+          ? `${activeArcLeft} plate${activeArcLeft===1?'':'s'} left to finish ${activeArcObj.title}`
+          : `${activeArcObj ? activeArcObj.title : 'Studio'} mastered`
+        }</div>
         <div class="hero-card-progress">
           <div class="hero-card-bar"><span style="width:${pctTotal}%"></span></div>
           <div class="hero-card-stats">
@@ -907,7 +916,7 @@ function renderHome(){
     <div class="arc-ledger-head">
       <div>
         <h2>${isHi ? 'Studio Curriculum Index' : 'Studio Curriculum Index'}</h2>
-        <p>${isHi ? 'Kisi bhi arc par click karke seedha uske plates par jump karo.' : 'Select any arc to jump directly to its plates and drills.'}</p>
+        <p>${isHi ? 'Kisi bhi arc par click karo — sirf uske plates niche khulenge.' : 'Select any arc to focus on its plates without scrolling all 114 modules.'}</p>
       </div>
       <div class="arc-ledger-meta">
         <span>${livePaths.length} Live Arcs</span>
@@ -923,7 +932,8 @@ function renderHome(){
     const totalInPath = isOpen ? path.modules.length : (path.moduleCount || 0);
     const pct = totalInPath ? Math.round((doneInPath / totalInPath) * 100) : 0;
     const allDone = isOpen && doneInPath === totalInPath && totalInPath > 0;
-    return `<button type="button" class="ledger-row ${isOpen?'is-open':''} ${allDone?'is-done':''}" data-path-jump="${path.id}">
+    const isSelected = activeArcId === path.id;
+    return `<button type="button" class="ledger-row ${isOpen?'is-open':''} ${allDone?'is-done':''} ${isSelected?'is-selected':''}" data-path-jump="${path.id}">
       <span class="ledger-num">${String(path.order).padStart(2,'0')}</span>
       <div class="ledger-main">
         <div class="ledger-top">
@@ -949,28 +959,50 @@ function renderHome(){
   }
   html += '</section>';
 
-  let seenFirstModule = false;
-  livePaths.forEach(path=>{
+  html += `<nav class="arc-switcher" id="arcSwitcher" aria-label="Filter visible arc">
+    <div class="arc-switcher-track" role="tablist">
+      ${livePaths.map(p => `<button type="button" role="tab" aria-selected="${activeArcId === p.id ? 'true' : 'false'}" class="arc-pill ${activeArcId === p.id ? 'is-active' : ''}" data-arc-filter="${p.id}"><span class="arc-pill-num">${String(p.order).padStart(2,'0')}</span>${p.title}</button>`).join('')}
+      <button type="button" role="tab" aria-selected="${activeArcId === 'all' ? 'true' : 'false'}" class="arc-pill arc-pill-all ${activeArcId === 'all' ? 'is-active' : ''}" data-arc-filter="all">All ${allLive.length} Plates</button>
+    </div>
+  </nav>`;
+
+  const pathsToRender = activeArcId === 'all' ? livePaths : livePaths.filter(p => p.id === activeArcId);
+  const nextId = next ? next.m.id : null;
+
+  pathsToRender.forEach(path=>{
     const doneInPath = path.modules.filter(m=>STATE.completed.has(m.id)).length;
+    const leftInPath = Math.max(0, path.modules.length - doneInPath);
+    const pipsHtml = path.modules.map(m => {
+      const done = STATE.completed.has(m.id);
+      const isNext = m.id === nextId;
+      return `<span class="goal-pip ${done?'is-done':''} ${isNext?'is-next':''}" title="${L(m,'title').replace(/"/g,'&quot;')}"></span>`;
+    }).join('');
+
     html += `<section class="arc-section" id="grid-${path.id}">
       <div class="arc-section-head">
         <div class="arc-section-title-wrap">
           <span class="arc-index-num">${String(path.order).padStart(2,'0')}</span>
-          <h2>${path.title}</h2>
+          <div>
+            <h2>${path.title}</h2>
+            <div class="arc-goal-line">${leftInPath > 0 ? `${leftInPath} plate${leftInPath===1?'':'s'} remaining to master this arc` : 'Arc complete'}</div>
+          </div>
         </div>
-        <span class="arc-section-count">${doneInPath} / ${path.modules.length} plates</span>
+        <div class="arc-section-right">
+          <span class="arc-section-count">${doneInPath} / ${path.modules.length} plates</span>
+          <div class="goal-pips" aria-hidden="true">${pipsHtml}</div>
+        </div>
       </div>
       <div class="module-grid">`;
+
     path.modules.forEach(m=>{
       const isDone = STATE.completed.has(m.id);
-      const isStartHere = STATE.completed.size===0 && !seenFirstModule;
-      if(isStartHere) seenFirstModule = true;
+      const isNextUp = m.id === nextId;
       const pct = isDone ? 100 : getChecklistProgress(m.id);
-      html += `<button type="button" class="mcard ${isStartHere?'start-here':''}" data-path="${path.id}" data-module="${m.id}">
+      html += `<button type="button" class="mcard ${isNextUp?'start-here is-next-up':''} ${isDone?'is-done-card':''}" data-path="${path.id}" data-module="${m.id}">
         <div class="mcard-top">
           <span class="plate-id">PLATE ${m.plate}</span>
           ${isDone ? `<span class="stamp">${ICONS.stamp} Mastered</span>` : ''}
-          ${isStartHere ? `<span class="stamp start-stamp">Start here</span>` : ''}
+          ${isNextUp ? `<span class="stamp start-stamp">${STATE.completed.size===0 ? 'Start here' : 'Next up'}</span>` : ''}
         </div>
         <h3>${L(m,'title')}</h3>
         <p class="mcard-hook">${L(m,'hook') || ''}</p>
@@ -1850,11 +1882,11 @@ function openPathOnHome(pathId){
     showToast(path.title + ' isn\u2019t built yet \u2014 ' + getLivePaths().length + ' arcs are live now.');
     return;
   }
+  STATE.activeHomeArc = pathId;
   navigateHome();
   requestAnimationFrame(()=>{
     document.getElementById('grid-' + pathId)?.scrollIntoView({behavior:'smooth', block:'start'});
   });
-  closeMobileSidebar();
 }
 function closeMobileSidebar(){
   const sb = document.getElementById('sidebar');
@@ -1895,7 +1927,7 @@ function toggleChecklistItem(moduleId, index){
 
   saveProgress();
   renderApp();
-  if(justAutoCompleted) showToast('Every box checked \u2014 module marked complete. +50 XP.');
+  if(justAutoCompleted){ if (typeof showPeakEndModal === 'function') showPeakEndModal(moduleId); else showToast('Every box checked \u2014 module marked complete. +50 XP.'); }
   checkAchievements();
 }
 function completeModule(moduleId){
@@ -1914,7 +1946,7 @@ function completeModule(moduleId){
   STATE.route.tab = 'mastery';
   saveProgress();
   renderApp();
-  showToast('Module marked complete. +50 XP.');
+  if (typeof showPeakEndModal === 'function') showPeakEndModal(moduleId); else showToast('Module marked complete. +50 XP.');
   checkAchievements();
 }
 function toggleFavorite(moduleId){
@@ -3546,4 +3578,142 @@ function renderDoubtQuickChips(){
   } else {
     bind();
   }
+})();
+
+
+/* ===== 20 DESIGN LAWS INTERACTIVE ENHANCEMENTS ===== */
+function showPeakEndModal(moduleId){
+  const modal = document.getElementById('peakModal');
+  if (!modal) { showToast('Module marked complete. +50 XP.'); return; }
+  const m = findModule(moduleId);
+  const path = CURRICULUM.find(p => p.modules && p.modules.some(x => x.id === moduleId));
+  const doneInPath = path ? path.modules.filter(x => STATE.completed.has(x.id)).length : 0;
+  const totalInPath = path ? path.modules.length : 1;
+  const pct = Math.round((doneInPath / totalInPath) * 100);
+  const left = Math.max(0, totalInPath - doneInPath);
+  const next = getNextIncompleteModule();
+
+  const titleEl = document.getElementById('peakTitle');
+  const kickerEl = document.getElementById('peakKicker');
+  const arcPctEl = document.getElementById('peakArcPct');
+  const arcNameEl = document.getElementById('peakArcName');
+  const streakEl = document.getElementById('peakStreak');
+  const barFill = document.getElementById('peakBarFill');
+  const subEl = document.getElementById('peakSub');
+  const nextBtn = document.getElementById('peakNextBtn');
+
+  if (kickerEl) kickerEl.textContent = m ? `PLATE ${m.plate} MASTERED` : 'PLATE MASTERED';
+  if (titleEl) titleEl.textContent = m ? L(m, 'title') : 'Module Complete';
+  if (arcPctEl) arcPctEl.textContent = pct + '%';
+  if (arcNameEl) arcNameEl.textContent = path ? path.title : 'Arc Progress';
+  if (streakEl) streakEl.textContent = (STATE.streak || 1) + 'd';
+  if (barFill) barFill.style.width = pct + '%';
+  if (subEl) {
+    subEl.textContent = left > 0
+      ? `${doneInPath} of ${totalInPath} plates done in ${path.title} — ${left} left to complete this arc.`
+      : `You completed every plate in ${path ? path.title : 'this arc'}.`;
+  }
+  if (nextBtn) {
+    if (next) {
+      nextBtn.hidden = false;
+      nextBtn.textContent = `Next: ${L(next.m, 'title')}`;
+      nextBtn.dataset.nextPath = next.path.id;
+      nextBtn.dataset.nextModule = next.m.id;
+    } else {
+      nextBtn.hidden = true;
+    }
+  }
+  modal.hidden = false;
+  requestAnimationFrame(()=> (nextBtn && !nextBtn.hidden ? nextBtn : document.getElementById('peakCloseBtn'))?.focus());
+}
+
+(function initDesignLawsUX(){
+  if (typeof document === 'undefined') return;
+
+  function bindAll(){
+    document.addEventListener('click', (e)=>{
+      const pill = e.target.closest('[data-arc-filter]');
+      if (!pill) return;
+      STATE.activeHomeArc = pill.getAttribute('data-arc-filter');
+      renderHome();
+      const sw = document.getElementById('arcSwitcher');
+      if (sw) sw.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+
+    const peakModal = document.getElementById('peakModal');
+    const peakClose = document.getElementById('peakCloseBtn');
+    const peakNext = document.getElementById('peakNextBtn');
+    const closePeak = ()=>{ if (peakModal) peakModal.hidden = true; };
+    if (peakClose) peakClose.addEventListener('click', closePeak);
+    if (peakModal) peakModal.addEventListener('click', (e)=>{ if (e.target === peakModal) closePeak(); });
+    if (peakNext) peakNext.addEventListener('click', ()=>{
+      const pid = peakNext.dataset.nextPath;
+      const mid = peakNext.dataset.nextModule;
+      closePeak();
+      if (pid && mid) navigateModule(pid, mid);
+    });
+    document.addEventListener('keydown', (e)=>{
+      if (e.key === 'Escape' && peakModal && !peakModal.hidden) closePeak();
+    });
+
+    const input = document.getElementById('searchInput');
+    const suggest = document.getElementById('searchSuggest');
+    if (input && suggest) {
+      const POPULAR_IDS = ['m1', 'm4', 'm16', 'm25', 'm36', 'm51'];
+
+      function renderSuggestions(){
+        const q = (input.value || '').trim();
+        if (q.length >= 2) { suggest.hidden = true; return; }
+        const all = getAllLiveModules();
+        const byId = new Map(all.map(x => [x.m.id, x]));
+        const recent = (STATE.recentlyVisited || []).map(id => byId.get(id)).filter(Boolean).slice(0, 3);
+        const popular = POPULAR_IDS.map(id => byId.get(id)).filter(x => x && !recent.some(r => r.m.id === x.m.id)).slice(0, 5);
+
+        let html = '';
+        if (recent.length) {
+          html += `<div class="suggest-group-label">Recent</div>`;
+          recent.forEach(({path, m})=>{
+            html += `<button type="button" class="suggest-item" role="option" data-suggest-path="${path.id}" data-suggest-module="${m.id}">
+              <span class="suggest-plate">${m.plate}</span>
+              <span class="suggest-title">${L(m, 'title')}</span>
+              <span class="suggest-arc">${path.title}</span>
+            </button>`;
+          });
+        }
+        html += `<div class="suggest-group-label">Popular Studio Plates</div>`;
+        popular.forEach(({path, m})=>{
+          html += `<button type="button" class="suggest-item" role="option" data-suggest-path="${path.id}" data-suggest-module="${m.id}">
+            <span class="suggest-plate">${m.plate}</span>
+            <span class="suggest-title">${L(m, 'title')}</span>
+            <span class="suggest-arc">${path.title}</span>
+          </button>`;
+        });
+        suggest.innerHTML = html;
+        suggest.hidden = false;
+      }
+
+      input.addEventListener('focus', renderSuggestions);
+      input.addEventListener('input', ()=>{
+        if ((input.value || '').trim().length >= 2) suggest.hidden = true;
+        else renderSuggestions();
+      });
+      suggest.addEventListener('mousedown', (e)=>{
+        const btn = e.target.closest('[data-suggest-module]');
+        if (!btn) return;
+        e.preventDefault();
+        suggest.hidden = true;
+        input.blur();
+        navigateModule(btn.getAttribute('data-suggest-path'), btn.getAttribute('data-suggest-module'));
+      });
+      document.addEventListener('click', (e)=>{
+        if (!suggest.hidden && !suggest.contains(e.target) && e.target !== input) suggest.hidden = true;
+      });
+      input.addEventListener('keydown', (e)=>{
+        if (e.key === 'Escape') suggest.hidden = true;
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bindAll);
+  else bindAll();
 })();

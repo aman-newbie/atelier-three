@@ -40,7 +40,7 @@ const STATE = {
   fontScale:1,
   customBgUrl:'',
   customHistory:[],
-  customScrimOpacity:0.55,
+  customScrimOpacity:0.65,
   language:'en',
   xp:0,
   storageBackend:'none',
@@ -527,7 +527,7 @@ function applyState(data){
   if(typeof data.fontScale === 'number') STATE.fontScale = data.fontScale;
   if(typeof data.customBgUrl === 'string') STATE.customBgUrl = data.customBgUrl;
   if(Array.isArray(data.customHistory)) STATE.customHistory = data.customHistory.slice(0, 6);
-  if(typeof data.customScrimOpacity === 'number') STATE.customScrimOpacity = Math.max(0.40, data.customScrimOpacity);
+  if(typeof data.customScrimOpacity === 'number') STATE.customScrimOpacity = Math.min(0.90, Math.max(0.45, data.customScrimOpacity));
   if(data.language === 'hi' || data.language === 'en') STATE.language = data.language;
   STATE.streak = data.streak || 0;
   STATE.lastVisitDate = data.lastVisitDate || null;
@@ -1530,7 +1530,7 @@ function renderThemes(){
       ${STATE.customBgUrl ? `
       <div class="theme-opacity-row">
         <label for="themesOpacitySlider">Background strength</label>
-        <input type="range" id="themesOpacitySlider" min="40" max="85" value="${Math.round(STATE.customScrimOpacity*100)}">
+        <input type="range" id="themesOpacitySlider" min="45" max="90" value="${Math.round(STATE.customScrimOpacity*100)}">
         <span class="theme-opacity-value" id="themesOpacityValue">${Math.round(STATE.customScrimOpacity*100)}%</span>
       </div>
       <p class="theme-opacity-hint">Lower = more of your photo shows through. Higher = stronger scrim, safest for busy or high-contrast photos. Text color adjusts automatically either way.</p>
@@ -2327,31 +2327,36 @@ function sampleImageBands(img, bandCount){
     const data = ctx.getImageData(0, 0, w, h).data;
     const bands = [];
     for(let b = 0; b < bandCount; b++){
-      let total = 0, count = 0;
+      const lums = [];
       for(let y = b*stripH; y < (b+1)*stripH; y++){
         for(let x = 0; x < w; x++){
           const i = (y*w + x) * 4;
-          total += data[i]*0.299 + data[i+1]*0.587 + data[i+2]*0.114;
-          count++;
+          lums.push(data[i]*0.299 + data[i+1]*0.587 + data[i+2]*0.114);
         }
       }
-      bands.push(count ? total/count : 128);
+      lums.sort((a,c)=>a-c);
+      const mean = lums.length ? lums.reduce((s,v)=>s+v,0)/lums.length : 128;
+      const p10 = lums.length ? lums[Math.floor(lums.length * 0.10)] : 128;
+      const p90 = lums.length ? lums[Math.floor(lums.length * 0.90)] : 128;
+      bands.push({mean, p10, p90});
     }
     return bands;
   }catch(e){
-    return new Array(bandCount).fill(128);
+    return Array.from({length: bandCount}, ()=>({mean:128, p10:96, p90:160}));
   }
 }
 
 function buildScrimGradient(bands, dark, baseOpacity){
-  const rgb = dark ? '15,13,10' : '245,243,236';
-  const stops = bands.map((brightness, i)=>{
+  const rgb = dark ? '15,13,10' : '246,244,238';
+  const stops = bands.map((band, i)=>{
     const pct = Math.round((i / (bands.length - 1)) * 100);
-    const norm = brightness / 255; // 0 = dark pixel, 1 = bright pixel
-    // Dark mode uses light text, so bright patches of the photo need MORE scrim to
-    // stay readable; light mode uses dark text, so it's dark patches that need more.
-    const need = dark ? norm : (1 - norm);
-    const alpha = Math.min(0.92, Math.max(0.48, baseOpacity + (need - 0.5) * 0.6));
+    const mean = typeof band === 'number' ? band : band.mean;
+    const extreme = typeof band === 'number' ? band : (dark ? band.p90 : band.p10);
+    const need = dark
+      ? (0.4 * (mean / 255) + 0.6 * (extreme / 255))
+      : (0.4 * (1 - mean / 255) + 0.6 * (1 - extreme / 255));
+    const floor = Math.max(0.45, baseOpacity - 0.03);
+    const alpha = Math.min(0.92, Math.max(floor, baseOpacity + (need - 0.35) * 0.45));
     return `rgba(${rgb},${alpha.toFixed(2)}) ${pct}%`;
   });
   return `linear-gradient(to bottom, ${stops.join(', ')})`;
@@ -2392,11 +2397,11 @@ function applyCustomThemeColors(brightness, bands){
     root.setProperty('--bg', '#17151199');
     root.setProperty('--bg-raised', '#1B1920'); // fully opaque — backs the sidebar; was never updated here, so it stayed stuck at the static light fallback even in dark mode, making sidebar text unreadable against its own nav background
     root.setProperty('--custom-scrim-color', '#0F0D0A');
-    root.setProperty('--surface', 'rgba(30,27,22,0.88)');
-    root.setProperty('--surface-2', 'rgba(40,36,30,0.88)');
-    root.setProperty('--text', '#F2EEE4');
-    root.setProperty('--text-muted', '#C9C3B4');
-    root.setProperty('--text-faint', '#A39C8B');
+    root.setProperty('--surface', 'rgba(24,22,19,0.92)');
+    root.setProperty('--surface-2', 'rgba(34,31,26,0.93)');
+    root.setProperty('--text', '#F7F4EC');
+    root.setProperty('--text-muted', '#DDD7C8');
+    root.setProperty('--text-faint', '#BEB7A6');
     root.setProperty('--border', 'rgba(255,255,255,0.16)');
     root.setProperty('--border-soft', 'rgba(255,255,255,0.10)');
     root.setProperty('--blue', '#6FB2E8');
@@ -2411,11 +2416,11 @@ function applyCustomThemeColors(brightness, bands){
     root.setProperty('--bg', '#EDECE899');
     root.setProperty('--bg-raised', '#F5F3EE'); // fully opaque, matches light mode
     root.setProperty('--custom-scrim-color', '#F5F3EC');
-    root.setProperty('--surface', 'rgba(255,253,246,0.90)');
-    root.setProperty('--surface-2', 'rgba(240,236,224,0.90)');
-    root.setProperty('--text', '#22201B');
-    root.setProperty('--text-muted', '#5C584D');
-    root.setProperty('--text-faint', '#726D5E');
+    root.setProperty('--surface', 'rgba(255,253,248,0.93)');
+    root.setProperty('--surface-2', 'rgba(244,240,230,0.94)');
+    root.setProperty('--text', '#14120F');
+    root.setProperty('--text-muted', '#2E2B24');
+    root.setProperty('--text-faint', '#464238');
     root.setProperty('--border', 'rgba(0,0,0,0.14)');
     root.setProperty('--border-soft', 'rgba(0,0,0,0.08)');
     root.setProperty('--blue', '#2F6CA6');

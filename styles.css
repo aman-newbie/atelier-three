@@ -851,6 +851,7 @@ svg{display:block;}
    the one exception: it's a persistent nav panel, not page content, and a solid panel
    there is a normal, expected pattern rather than a patchwork effect. */
 [data-theme="custom"] .sidebar{background:var(--bg-raised);}
+[data-theme="custom"] .topbar{background:var(--surface);}
 [data-theme="custom"] body, [data-theme="custom"] p, [data-theme="custom"] li, [data-theme="custom"] h1,
 [data-theme="custom"] h2, [data-theme="custom"] h3, [data-theme="custom"] h4, [data-theme="custom"] span,
 [data-theme="custom"] b, [data-theme="custom"] .stat b, [data-theme="custom"] .module-hook{

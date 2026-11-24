@@ -859,94 +859,129 @@ function renderHome(){
   const livePaths = getLivePaths();
   const allLive = getAllLiveModules();
   const doneCount = allLive.filter(({m})=>STATE.completed.has(m.id)).length;
-  const quote = QUOTES[new Date().getDate() % QUOTES.length];
   const next = getNextIncompleteModule();
+  const isHi = STATE.lang === 'hi';
+  const pctTotal = allLive.length ? Math.round((doneCount / allLive.length) * 100) : 0;
+  const featured = next || (allLive.length ? allLive[0] : null);
+  const ctaLabel = STATE.completed.size === 0
+    ? (isHi ? 'Start Module 01' : 'Start Module 01')
+    : (next ? (isHi ? 'Continue: ' : 'Continue: ') + L(next.m, 'title') : (isHi ? 'All Live Modules Complete' : 'All Live Modules Complete'));
 
   let html = `
-  <div class="hero">
-    <div class="eyebrow">Atelier Drawing Curriculum</div>
-    <h1>Structured drawing curriculum, from first stroke to studio work.</h1>
-    <p class="hero-sub">${livePaths.length} arc${livePaths.length===1?'':'s'} (${allLive.length} modules) are fully built and live right now, with every resource checked by hand instead of recalled from memory. The rest of the roadmap below is real and correctly ordered &mdash; it is simply not written yet.</p>
-    <div class="hero-row">
-      <button class="btn btn-primary" id="continueBtn">${ICONS.target} ${STATE.completed.size===0 ? 'Start here: ' + (next ? L(next.m,'title') : 'Mindset & Introduction') : (next ? 'Continue: ' + L(next.m,'title') : 'Everything live is complete')}</button>
-      <button class="btn btn-ghost" id="jumpFoundations">View Foundations</button>
+  <section class="atelier-hero" aria-label="Atelier curriculum overview">
+    <img class="atelier-hero-bg" src="assets/hero-atelier.webp" alt="" loading="eager" decoding="async">
+    <div class="atelier-hero-scrim" aria-hidden="true"></div>
+    <div class="atelier-hero-inner">
+      <div class="atelier-hero-copy">
+        <h1>${isHi ? 'Drawing seekho, pehle stroke se.' : 'Master drawing, from first stroke.'}</h1>
+        <p class="atelier-hero-sub">${isHi
+          ? `${allLive.length} structured modules, ${livePaths.length} studio arcs. Hand-verified references, guided drills, zero filler.`
+          : `${allLive.length} structured modules across ${livePaths.length} studio arcs. Hand-verified references, guided drills, zero filler.`
+        }</p>
+        <div class="atelier-hero-actions">
+          <button type="button" class="btn btn-primary atelier-cta" id="continueBtn">${ctaLabel}</button>
+          <button type="button" class="btn btn-ghost atelier-ghost" id="jumpFoundations">${isHi ? 'Browse 10 Arcs' : 'Browse 10 Arcs'}</button>
+        </div>
+      </div>
+      ${featured ? `
+      <button type="button" class="atelier-hero-card" data-path="${featured.path.id}" data-module="${featured.m.id}" aria-label="Open ${L(featured.m, 'title')}">
+        <div class="hero-card-kicker">
+          <span>${STATE.completed.size === 0 ? 'UP NEXT' : 'RESUME STUDIO'}</span>
+          <span class="hero-card-plate">PLATE ${featured.m.plate}</span>
+        </div>
+        <div class="hero-card-title">${L(featured.m, 'title')}</div>
+        <p class="hero-card-hook">${L(featured.m, 'hook') || ''}</p>
+        <div class="hero-card-progress">
+          <div class="hero-card-bar"><span style="width:${pctTotal}%"></span></div>
+          <div class="hero-card-stats">
+            <span><b>${doneCount}/${allLive.length}</b> complete</span>
+            <span><b>${STATE.xp}</b> XP</span>
+            <span><b>${STATE.streak}d</b> streak</span>
+          </div>
+        </div>
+      </button>` : ''}
     </div>
-    <div class="stat-strip">
-      <div class="stat"><b>${doneCount}/${allLive.length}</b><span>Modules complete</span></div>
-      <div class="stat"><b>${STATE.xp}</b><span>XP earned</span></div>
-      <div class="stat"><b>${STATE.streak}${STATE.streak>0?' <svg class="streak-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2c1 4-4 5-4 9a4 4 0 008 0c0-2-1-3-1-5 2 1 3 3 3 5a6 6 0 01-12 0c0-5 4-6 6-9z"/></svg>':''}</b><span>Day streak</span></div>
-      <div class="stat"><b>${allLive.length}</b><span>Modules live now</span></div>
+  </section>
+
+  <section class="arc-ledger" aria-label="Curriculum index">
+    <div class="arc-ledger-head">
+      <div>
+        <h2>${isHi ? 'Studio Curriculum Index' : 'Studio Curriculum Index'}</h2>
+        <p>${isHi ? 'Kisi bhi arc par click karke seedha uske plates par jump karo.' : 'Select any arc to jump directly to its plates and drills.'}</p>
+      </div>
+      <div class="arc-ledger-meta">
+        <span>${livePaths.length} Live Arcs</span>
+        <span class="ledger-sep">/</span>
+        <span>${allLive.length} Plates</span>
+      </div>
     </div>
-  </div>
+    <div class="ledger-grid">`;
 
-  <div class="quote-card"><p>&ldquo;${quote}&rdquo;</p><cite>Note</cite></div>
-
-  <div class="pathmap-wrap">
-    <div class="pathmap-head">
-      <h2>The full route</h2>
-      <p>Click an open module below. Locked arcs show what is coming, and in what order.</p>
-    </div>
-    <div class="pathmap">`;
-
-  const stationHtml = (path)=>{
+  const ledgerRowHtml = (path)=>{
     const isOpen = path.status === 'live';
     const doneInPath = isOpen ? path.modules.filter(m=>STATE.completed.has(m.id)).length : 0;
-    const allDone = isOpen && doneInPath === path.modules.length;
-    return `<button class="station ${isOpen?'is-open':''} ${allDone?'is-done':''}" data-path-jump="${path.id}">
-      <div class="station-rail">
-        <div class="station-node">${String(path.order).padStart(2,'0')}</div>
-        <div class="station-line"></div>
-      </div>
-      <div class="station-body">
-        <div class="station-top">
-          <span class="station-title">${path.title}</span>
-          <span class="tag ${isOpen?'open':''}">${isOpen ? 'Available now' : 'Coming next'}</span>
+    const totalInPath = isOpen ? path.modules.length : (path.moduleCount || 0);
+    const pct = totalInPath ? Math.round((doneInPath / totalInPath) * 100) : 0;
+    const allDone = isOpen && doneInPath === totalInPath && totalInPath > 0;
+    return `<button type="button" class="ledger-row ${isOpen?'is-open':''} ${allDone?'is-done':''}" data-path-jump="${path.id}">
+      <span class="ledger-num">${String(path.order).padStart(2,'0')}</span>
+      <div class="ledger-main">
+        <div class="ledger-top">
+          <span class="ledger-title">${path.title}</span>
+          <span class="ledger-count">${isOpen ? `${doneInPath}/${totalInPath}` : `${totalInPath} planned`}</span>
         </div>
-        <p class="station-desc">${path.desc}</p>
-        <div class="station-modcount">${isOpen ? `${doneInPath}/${path.modules.length} modules complete` : `${path.moduleCount} modules planned &mdash; ${path.sample.join(', ')}`}</div>
+        <p class="ledger-desc">${path.desc}</p>
+        <div class="ledger-bar"><span style="width:${pct}%"></span></div>
       </div>
     </button>`;
   };
 
   const soonPaths = CURRICULUM.filter(p=>p.status !== 'live');
-  livePaths.forEach(path=>{ html += stationHtml(path); });
+  livePaths.forEach(path=>{ html += ledgerRowHtml(path); });
   html += '</div>';
+
   if(soonPaths.length){
     const soonModuleTotal = soonPaths.reduce((sum,p)=>sum + p.moduleCount, 0);
-    // Collapsed by default — the planned roadmap is still here for anyone curious,
-    // it just doesn't compete with the live lesson content for first-time visitors.
     html += `<details class="soon-arcs-details">
-      <summary>${soonPaths.length} more arc${soonPaths.length===1?'':'s'} planned (${soonModuleTotal} modules) &mdash; see the full roadmap</summary>
-      <div class="pathmap soon-pathmap">${soonPaths.map(stationHtml).join('')}</div>
+      <summary>${soonPaths.length} more arc${soonPaths.length===1?'':'s'} planned (${soonModuleTotal} modules) &mdash; view roadmap</summary>
+      <div class="ledger-grid soon-ledger-grid">${soonPaths.map(ledgerRowHtml).join('')}</div>
     </details>`;
   }
-  html += '</div>';
+  html += '</section>';
 
   let seenFirstModule = false;
   livePaths.forEach(path=>{
-    html += `<div id="grid-${path.id}" style="margin-bottom:var(--sp-8)"><h2 style="font-size:calc(26px * var(--font-scale));margin-bottom:var(--sp-4)">${path.title} modules</h2><div class="module-grid">`;
+    const doneInPath = path.modules.filter(m=>STATE.completed.has(m.id)).length;
+    html += `<section class="arc-section" id="grid-${path.id}">
+      <div class="arc-section-head">
+        <div class="arc-section-title-wrap">
+          <span class="arc-index-num">${String(path.order).padStart(2,'0')}</span>
+          <h2>${path.title}</h2>
+        </div>
+        <span class="arc-section-count">${doneInPath} / ${path.modules.length} plates</span>
+      </div>
+      <div class="module-grid">`;
     path.modules.forEach(m=>{
       const isDone = STATE.completed.has(m.id);
       const isStartHere = STATE.completed.size===0 && !seenFirstModule;
       if(isStartHere) seenFirstModule = true;
       const pct = isDone ? 100 : getChecklistProgress(m.id);
-      html += `<button class="mcard ${isStartHere?'start-here':''}" data-path="${path.id}" data-module="${m.id}">
-        ${DECOR[MODULE_DECOR[m.id]] || ''}
+      html += `<button type="button" class="mcard ${isStartHere?'start-here':''}" data-path="${path.id}" data-module="${m.id}">
         <div class="mcard-top">
           <span class="plate-id">PLATE ${m.plate}</span>
           ${isDone ? `<span class="stamp">${ICONS.stamp} Mastered</span>` : ''}
-          ${isStartHere ? `<span class="stamp start-stamp">${ICONS.target} Start here</span>` : ''}
+          ${isStartHere ? `<span class="stamp start-stamp">Start here</span>` : ''}
         </div>
         <h3>${L(m,'title')}</h3>
-        <p class="mcard-hook">${L(m,'hook') || 'Coming shortly &mdash; being built to the same bar as Module 1.'}</p>
+        <p class="mcard-hook">${L(m,'hook') || ''}</p>
         <div class="mcard-meta">
           <span class="meta-chip">${ICONS.clock} ${m.studyTime || '&mdash;'}</span>
-          <span class="meta-chip">${ICONS.target} ${m.difficulty || 'Beginner'}</span>
+          <span class="meta-chip">${m.difficulty || 'Beginner'}</span>
         </div>
         <div class="mcard-progress"><div class="mcard-progress-fill" style="width:${pct}%"></div></div>
       </button>`;
     });
-    html += '</div></div>';
+    html += '</div></section>';
   });
 
   document.getElementById('main').innerHTML = html;
@@ -3419,3 +3454,96 @@ function renderDoubtQuickChips(){
     bar.appendChild(btn);
   });
 }
+
+
+/* ===== STUDIO TWEAKS LIVE CUSTOMIZER ===== */
+(function initStudioTweaks(){
+  if (typeof document === 'undefined') return;
+  const KEY = 'atelier_tweaks_v1';
+  const root = document.documentElement;
+  let prefs = { font: 'grotesk', density: 'spacious', hero: 'artwork' };
+  try {
+    const saved = JSON.parse(localStorage.getItem(KEY) || '{}');
+    if (saved && typeof saved === 'object') prefs = Object.assign(prefs, saved);
+  } catch (_) {}
+
+  function syncUI(){
+    const curTheme = root.getAttribute('data-theme') || 'dark';
+    document.querySelectorAll('[data-tweak-theme]').forEach(b=>{
+      b.classList.toggle('is-active', b.getAttribute('data-tweak-theme') === curTheme);
+    });
+    document.querySelectorAll('[data-tweak-font]').forEach(b=>{
+      b.classList.toggle('is-active', b.getAttribute('data-tweak-font') === prefs.font);
+    });
+    document.querySelectorAll('[data-tweak-density]').forEach(b=>{
+      b.classList.toggle('is-active', b.getAttribute('data-tweak-density') === prefs.density);
+    });
+    document.querySelectorAll('[data-tweak-hero]').forEach(b=>{
+      b.classList.toggle('is-active', b.getAttribute('data-tweak-hero') === prefs.hero);
+    });
+  }
+
+  function applyPrefs(){
+    root.setAttribute('data-display-font', prefs.font);
+    root.setAttribute('data-density', prefs.density);
+    root.setAttribute('data-hero-mode', prefs.hero);
+    try { localStorage.setItem(KEY, JSON.stringify(prefs)); } catch (_) {}
+    syncUI();
+  }
+
+  function bind(){
+    const fab = document.getElementById('tweaksFab');
+    const panel = document.getElementById('tweaksPanel');
+    const closeBtn = document.getElementById('tweaksClose');
+    if (!fab || !panel) return;
+
+    const setOpen = (open)=>{
+      panel.hidden = !open;
+      fab.setAttribute('aria-expanded', String(open));
+      if (open) syncUI();
+    };
+
+    fab.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      setOpen(panel.hidden);
+    });
+    if (closeBtn) closeBtn.addEventListener('click', ()=> setOpen(false));
+    document.addEventListener('click', (e)=>{
+      if (!panel.hidden && !panel.contains(e.target) && !fab.contains(e.target)) setOpen(false);
+    });
+    document.addEventListener('keydown', (e)=>{
+      if (e.key === 'Escape' && !panel.hidden) { setOpen(false); fab.focus(); }
+    });
+
+    panel.addEventListener('click', (e)=>{
+      const tBtn = e.target.closest('[data-tweak-theme]');
+      if (tBtn) {
+        const theme = tBtn.getAttribute('data-tweak-theme');
+        if (typeof STATE !== 'undefined') {
+          STATE.theme = theme;
+          if (typeof clearCustomThemeOverrides === 'function') clearCustomThemeOverrides();
+          root.setAttribute('data-theme', theme);
+          if (typeof saveState === 'function') saveState();
+        } else {
+          root.setAttribute('data-theme', theme);
+        }
+        syncUI();
+        return;
+      }
+      const fBtn = e.target.closest('[data-tweak-font]');
+      if (fBtn) { prefs.font = fBtn.getAttribute('data-tweak-font'); applyPrefs(); return; }
+      const dBtn = e.target.closest('[data-tweak-density]');
+      if (dBtn) { prefs.density = dBtn.getAttribute('data-tweak-density'); applyPrefs(); return; }
+      const hBtn = e.target.closest('[data-tweak-hero]');
+      if (hBtn) { prefs.hero = hBtn.getAttribute('data-tweak-hero'); applyPrefs(); return; }
+    });
+
+    applyPrefs();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bind);
+  } else {
+    bind();
+  }
+})();

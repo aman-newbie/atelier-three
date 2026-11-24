@@ -8,8 +8,9 @@
 <meta name="description" content="A free, structured art-learning path from drawing fundamentals to digital painting, advanced workflows and professional production.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261124j">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Syne:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/hero-atelier.webp" type="image/webp">
+<link rel="stylesheet" href="styles.css?v=20261124k">
 
 </head>
 <body>
@@ -143,7 +144,52 @@
 <script defer src="translations-hi.js?v=20261124j"></script>
 <script defer src="notes-data.js?v=20261124j"></script>
 <script defer src="doubt-capabilities.js?v=20261124j"></script>
-<script defer src="app.js?v=20261124j"></script>
+<script defer src="app.js?v=20261124k"></script>
+
+
+<!-- Studio Tweaks floating control -->
+<div class="tweaks-root" id="tweaksRoot">
+  <button type="button" class="tweaks-fab" id="tweaksFab" aria-expanded="false" aria-controls="tweaksPanel" title="Studio display tweaks">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="16" height="16"><line x1="4" y1="7" x2="20" y2="7"/><circle cx="9" cy="7" r="2" fill="currentColor"/><line x1="4" y1="12" x2="20" y2="12"/><circle cx="15" cy="12" r="2" fill="currentColor"/><line x1="4" y1="17" x2="20" y2="17"/><circle cx="11" cy="17" r="2" fill="currentColor"/></svg>
+    <span>Tweaks</span>
+  </button>
+  <aside class="tweaks-panel" id="tweaksPanel" role="dialog" aria-label="Studio display tweaks" hidden>
+    <div class="tweaks-head">
+      <span class="tweaks-title">Studio Tweaks</span>
+      <button type="button" class="tweaks-close" id="tweaksClose" aria-label="Close studio tweaks">&times;</button>
+    </div>
+    <div class="tweaks-group">
+      <div class="tweaks-label">Palette</div>
+      <div class="tweaks-row" data-tweak-group="theme">
+        <button type="button" class="tweak-chip" data-tweak-theme="dark">Deep Sea</button>
+        <button type="button" class="tweak-chip" data-tweak-theme="light">Gallery</button>
+        <button type="button" class="tweak-chip" data-tweak-theme="sketchbook">Rose Stone</button>
+      </div>
+    </div>
+    <div class="tweaks-group">
+      <div class="tweaks-label">Display Type</div>
+      <div class="tweaks-row" data-tweak-group="font">
+        <button type="button" class="tweak-chip" data-tweak-font="grotesk">Grotesk</button>
+        <button type="button" class="tweak-chip" data-tweak-font="fraunces">Editorial</button>
+        <button type="button" class="tweak-chip" data-tweak-font="syne">Avant</button>
+      </div>
+    </div>
+    <div class="tweaks-group">
+      <div class="tweaks-label">Layout Density</div>
+      <div class="tweaks-row" data-tweak-group="density">
+        <button type="button" class="tweak-chip" data-tweak-density="spacious">Spacious</button>
+        <button type="button" class="tweak-chip" data-tweak-density="compact">Compact</button>
+      </div>
+    </div>
+    <div class="tweaks-group">
+      <div class="tweaks-label">Hero Stage</div>
+      <div class="tweaks-row" data-tweak-group="hero">
+        <button type="button" class="tweak-chip" data-tweak-hero="artwork">Artwork</button>
+        <button type="button" class="tweak-chip" data-tweak-hero="minimal">Minimal</button>
+      </div>
+    </div>
+  </aside>
+</div>
 
 </body>
 </html>

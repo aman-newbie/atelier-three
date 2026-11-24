@@ -128,7 +128,7 @@ svg{display:block;}
 /* ============================================================
    LAYOUT
    ============================================================ */
-.app{display:grid; grid-template-columns:var(--sidebar-w) 1fr; min-height:calc(100vh - var(--topbar-h));}
+.app{display:grid; grid-template-columns:var(--sidebar-w) 1fr; min-height:calc(100vh - var(--topbar-h)); position:relative; z-index:1;}
 
 /* ---- Sidebar ---- */
 .sidebar{
@@ -561,7 +561,7 @@ svg{display:block;}
 /* ============================================================
    FOOTER + misc floating UI
    ============================================================ */
-.site-footer{border-top:1px solid var(--border-soft); padding:var(--sp-7) var(--sp-7); margin-top:var(--sp-9); font-size:calc(13px * var(--font-scale)); color:var(--text-faint); display:flex; justify-content:space-between; flex-wrap:wrap; gap:var(--sp-4);}
+.site-footer{position:relative; z-index:1; border-top:1px solid var(--border-soft); padding:var(--sp-7) var(--sp-7); margin-top:var(--sp-9); font-size:calc(13px * var(--font-scale)); color:var(--text-faint); display:flex; justify-content:space-between; flex-wrap:wrap; gap:var(--sp-4);}
 .site-footer a{color:var(--text-faint);}
 .footer-actions{display:flex; gap:var(--sp-4);}
 .footer-actions button{background:none; border:none; color:var(--text-faint); font-size:calc(13px * var(--font-scale)); text-decoration:underline; font-family:inherit; padding:0;}
@@ -855,6 +855,9 @@ svg{display:block;}
 [data-theme="custom"] h2, [data-theme="custom"] h3, [data-theme="custom"] h4, [data-theme="custom"] span,
 [data-theme="custom"] b, [data-theme="custom"] .stat b, [data-theme="custom"] .module-hook{
   text-shadow:var(--custom-text-shadow, none);
+}
+[data-theme="custom"] .btn-primary, [data-theme="custom"] .btn-primary *, [data-theme="custom"] .doubt-fab, [data-theme="custom"] .doubt-fab *, [data-theme="custom"] .theme-custom-active-badge, [data-theme="custom"] .theme-custom-active-badge *{
+  text-shadow:none;
 }
 .theme-swatch.custom{background:repeating-linear-gradient(45deg, var(--border), var(--border) 3px, var(--surface) 3px, var(--surface) 6px);}
 .theme-custom-row{display:flex; flex-direction:column; gap:var(--sp-2); padding:var(--sp-2) var(--sp-3); margin-top:2px;}

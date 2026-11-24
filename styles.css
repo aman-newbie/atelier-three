@@ -300,7 +300,7 @@ svg{display:block;}
 .meta-item a{color:var(--blue); font-size:calc(13px * var(--font-scale)); text-decoration:none;}
 
 /* ---- Tabs ---- */
-.tabs{display:flex; gap:var(--sp-2); margin:var(--sp-6) 0 var(--sp-5); border-bottom:1px solid var(--border-soft); overflow-x:auto; min-width:0; max-width:100%;}
+.tabs{display:flex; gap:var(--sp-2); margin:var(--sp-6) 0 var(--sp-5); border-bottom:1px solid var(--border-soft); overflow-x:auto; overflow-y:hidden; min-width:0; max-width:100%;}
 .tab{
   background:none; border:none; padding:var(--sp-3) var(--sp-2); font-size:calc(14px * var(--font-scale)); color:var(--text-muted);
   border-bottom:2px solid transparent; margin-bottom:-1px; white-space:nowrap; font-family:var(--font-body); font-weight:500;
@@ -512,7 +512,7 @@ svg{display:block;}
 .dash-arc-list{display:flex; flex-direction:column; gap:var(--sp-3); margin-bottom:var(--sp-7);}
 .dash-arc-row{
   background:var(--surface); border:1px solid var(--border-soft); border-radius:var(--radius-md); padding:var(--sp-4) var(--sp-5);
-  text-align:left; width:100%; font-family:inherit; cursor:pointer; transition:border-color var(--dur) var(--ease);
+  text-align:left; width:100%; color:var(--text); font-family:inherit; cursor:pointer; transition:border-color var(--dur) var(--ease);
 }
 .dash-arc-row:hover{border-color:var(--blue);}
 .dash-arc-top{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:var(--sp-2); font-size:calc(14.5px * var(--font-scale)); font-weight:500;}

@@ -104,6 +104,7 @@ function renderPremadeNotesView(m){
   const switchLabel = overridden ? (ui.back + ' (' + ui.names[site] + ')') : ui.toOther[other];
   const edited = hasPremadeEdits(m.id, lang);
   const paused = isNotesMotionPaused();
+  const hasAnimatedFigs = data.sections.some(sec => (sec[lang] && sec[lang].figs || []).some(f => f.svg && f.svg.includes('data-dur')));
   const secs = data.sections.map(sec=>{
     const t = sec[lang];
     const items = premadeItems(m.id, lang, sec);
@@ -122,9 +123,9 @@ function renderPremadeNotesView(m){
     + (edited ? `<button class="notes-btn" data-notes-reset>${ui.reset}</button>` : '')
     + `<a class="notes-btn" href="${escapeHtml(data.source.url)}" target="_blank" rel="noopener">${escapeHtml(lang === 'hi' ? data.source.openHi : data.source.openEn)}</a>`;
   return `${notesSubTabsHtml()}
-    <div class="notes-bar"><span class="notes-chip">${escapeHtml(chip)}</span><button class="notes-btn" data-notes-motion>${paused ? ui.play : ui.pause}</button></div>
+    <div class="notes-bar"><span class="notes-chip">${escapeHtml(chip)}</span>${hasAnimatedFigs ? `<button class="notes-btn" data-notes-motion>${paused ? ui.play : ui.pause}</button>` : ''}</div>
     <button class="notes-btn notes-switch" data-notes-lang>${escapeHtml(switchLabel)}</button>
-    ${NOTES_EDITING ? '' : `<p class="notes-hint">${ui.figHint}</p>`}
+    ${(NOTES_EDITING || !hasAnimatedFigs) ? '' : `<p class="notes-hint">${ui.figHint}</p>`}
     <div class="notes-source">${escapeHtml(data.source[lang])}</div>
     ${edited ? `<div class="notes-chip notes-chip-edited">${ui.edited}</div>` : ''}
     ${NOTES_EDITING ? `<p class="notes-hint">${notesMd(ui.hint)}</p>` : ''}
@@ -812,6 +813,7 @@ function renderSidebar(){
     html += '</ul></div>';
   }
 
+  html += '<span class="side-label" style="margin-top:var(--sp-2)">Your path</span>';
   CURRICULUM.forEach(path=>{
     if(path.status === 'live'){
       html += `<div class="side-path-group">
@@ -2485,7 +2487,11 @@ function appendDoubtMessage(role, text){
   if(!wrap) return null;
   const div = document.createElement('div');
   div.className = 'doubt-msg doubt-msg-' + role;
-  div.textContent = text;
+  if(role === 'bot'){
+    div.innerHTML = escapeHtml(text).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  } else {
+    div.textContent = text;
+  }
   wrap.appendChild(div);
   wrap.scrollTop = wrap.scrollHeight;
   return div;

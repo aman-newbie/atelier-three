@@ -154,6 +154,14 @@ const CURRICULUM_3 = [
             "why": "Free lesson from Proko's Figure Drawing Fundamentals course on the bony landmarks of the whole body, a reference for finding landmarks like the ones this module uses.",
             "verified": true,
             "summary": "From Proko's Figure Drawing Fundamentals: bony landmarks are reliable guides because bones change little between body types. The lesson also covers the centerline landmarks that run from the pit of the neck and the sternum down to the belly button and the pubic bone."
+          },
+          {
+            "type": "Video",
+            "title": "How to Draw the Neck - Anatomy for Artists",
+            "creator": "Proko",
+            "url": "https://www.youtube.com/watch?v=TvN71bOfC1Q",
+            "why": "Explains the sternocleidomastoid, trapezius, and neck cylinder insertion into the ribcage and clavicle so heads connect solidly to the torso.",
+            "verified": true
           }
         ],
         "quiz": [
@@ -246,6 +254,14 @@ const CURRICULUM_3 = [
             "why": "Free lesson from Proko's Figure Drawing Fundamentals course on whole-body bony landmarks, a reference for locating shoulder-area landmarks.",
             "verified": true,
             "summary": "From Proko's Figure Drawing Fundamentals: bony landmarks are reliable guides because bones change little between body types. The lesson also covers the centerline landmarks that run from the pit of the neck and the sternum down to the belly button and the pubic bone."
+          },
+          {
+            "type": "Video",
+            "title": "How to Draw Shoulder Muscles - Form",
+            "creator": "Proko",
+            "url": "https://www.youtube.com/watch?v=tNDHVSk2h6o",
+            "why": "Breaks the deltoid into simple 3D forms and shows how the shoulder girdle shifts when the arm raises, twists, or reaches.",
+            "verified": true
           }
         ],
         "quiz": [
@@ -675,6 +691,14 @@ const CURRICULUM_3 = [
             "why": "Revisited from Module 29: a video about clear expressions on faces. Its 'keep it simple and iconic' idea is worth carrying over to hand gestures.",
             "verified": true,
             "summary": "Per its description, the 12th episode of Aaron Blaise's Art Tips: his simple method for creating clear character expressions for animation, character design and illustration, by thinking of the basic iconic faces we drew as children."
+          },
+          {
+            "type": "Video",
+            "title": "How to Draw Expressive Hands",
+            "creator": "Proko",
+            "url": "https://www.youtube.com/watch?v=wmajV4zcXeA",
+            "why": "Focuses specifically on hand gesture, finger grouping, rhythm, and storytelling silhouettes rather than stiff finger-by-finger rendering.",
+            "verified": true
           }
         ],
         "quiz": [
@@ -1282,6 +1306,14 @@ const CURRICULUM_3 = [
             "url": "https://line-of-action.com/practice-tools/app/figure-drawing",
             "why": "Useful for finding genuinely foreshortened poses to practice constructing, beyond the gentler angles most beginner references default to.",
             "verified": true
+          },
+          {
+            "type": "Video",
+            "title": "Extreme Foreshortening Techniques",
+            "creator": "Proko (Peter Han)",
+            "url": "https://www.youtube.com/watch?v=Bpjv5DZLFZ0",
+            "why": "Demonstrates overlapping cylinders, scale jumps, and perspective compression for convincing foreshortened limbs and figures.",
+            "verified": true
           }
         ],
         "quiz": [
@@ -1373,6 +1405,22 @@ const CURRICULUM_3 = [
             "why": "A free, detailed, illustrated tutorial on fold types and the forces behind them (tension points, underlying form and gravity); downloadable posters need a free newsletter sign-up.",
             "verified": true,
             "summary": "GVAAT's tutorial on drawing folds in clothing and fabric. Its short answer: depict the folds accurately (and swiftly simplified), then arrange them more pleasingly than raw reality. It has three step-by-step sections, examples of different fold types, the forces that shape folds (tension points, underlying form, gravity), and process videos. Downloadable posters and PSDs come with a free newsletter sign-up."
+          },
+          {
+            "type": "Video",
+            "title": "Intro to Drawing Drapery",
+            "creator": "Proko (Steven Michael Hampton)",
+            "url": "https://www.youtube.com/watch?v=hMBL4ifwJoo",
+            "why": "Teaches drapery as a tension-and-gravity system anchored to the figure underneath instead of random surface wrinkles.",
+            "verified": true
+          },
+          {
+            "type": "Video",
+            "title": "CLOTH AND DRAPERY 1: Cloth, Folds, Junctions, and Armor",
+            "creator": "moderndayjames",
+            "url": "https://www.youtube.com/watch?v=S1eR1rcPlHc",
+            "why": "Concise breakdown of tension points, the major fold types, and how cloth bunches at joints.",
+            "verified": true
           }
         ],
         "quiz": [
@@ -1677,6 +1725,14 @@ const CURRICULUM_3 = [
             "why": "A concrete example of a stylized convention built directly on top of the realistic hair-massing principles from Module 31, from the same source already used for Legs, Feet, and Clothing.",
             "verified": true,
             "summary": "GVAAT's 4-step method for anime girl hair: see where the head sits under the hair, draw a detailed underdrawing, draw final line art on top, then add basic shading. Six examples, ending with Asuka from Evangelion, each adding a new consideration. It is a beginner tutorial focused on the front view."
+          },
+          {
+            "type": "Video",
+            "title": "Transform ANY Reference into Stylized Art",
+            "creator": "Proko",
+            "url": "https://www.youtube.com/watch?v=QYx9bFUKUIw",
+            "why": "Shows how to push shape language, proportion hierarchy, and simplification on real anatomy references to achieve deliberate stylization.",
+            "verified": true
           }
         ],
         "quiz": [
@@ -2676,6 +2732,14 @@ const CURRICULUM_3 = [
             "url": "https://www.juliahenze.com/post/how-to-draw-doors-and-windows-in-one-point-perspective",
             "why": "Directly addresses the exact gap this module targets: artists who understand how to draw a building's box but lose the perspective logic the moment they add doors and windows.",
             "verified": true
+          },
+          {
+            "type": "Video",
+            "title": "How to Draw Windows & Doors in Perspective: Irregular Spacing",
+            "creator": "Ace Connell",
+            "url": "https://www.youtube.com/watch?v=cNtv04YEY6A",
+            "why": "Demonstrates accurate perspective spacing and depth thickness for doors and windows across receding walls.",
+            "verified": true
           }
         ],
         "quiz": [
@@ -3169,6 +3233,14 @@ const CURRICULUM_3 = [
             "url": "https://www.youtube.com/watch?v=R60e9_ofV68",
             "why": "A free, thorough lecture on perspective construction for designed objects generally, directly transferable to constructing furniture and props from imagination.",
             "verified": true
+          },
+          {
+            "type": "Video",
+            "title": "Simple ROOM Drawing for Beginners | One-Point Perspective",
+            "creator": "Albay Art",
+            "url": "https://www.youtube.com/watch?v=Ch5cNVfyi1Y",
+            "why": "Walks through placing interior furniture, doorways, flooring grids, and props to scale inside a perspective room box.",
+            "verified": true
           }
         ],
         "quiz": [
@@ -3362,6 +3434,14 @@ const CURRICULUM_3 = [
             "creator": "Rachel Wintemberg — The Helpful Art Teacher",
             "url": "https://thehelpfulartteacher.blogspot.com/2011/01/three-point-perspectivethe-really.html",
             "why": "A free, step-by-step tutorial with printable worksheets specifically on constructing bird's-eye three-point perspective, including the angled-horizon approach this module recommends.",
+            "verified": true
+          },
+          {
+            "type": "Video",
+            "title": "How to Draw using 3-Point Perspective: Simple Buildings",
+            "creator": "Circle Line Art School",
+            "url": "https://www.youtube.com/watch?v=T4NBHkWe82k",
+            "why": "Clear step-by-step demonstration of bird's-eye and worm's-eye three-point perspective convergence on architectural volumes.",
             "verified": true
           }
         ],
@@ -3558,6 +3638,14 @@ const CURRICULUM_3 = [
             "creator": "Artof JoseVega",
             "url": "https://www.youtube.com/watch?v=RY2LDAbayPk",
             "why": "A free, full start-to-finish sketching process for an environment illustration — directly matches this capstone's task of combining natural forms, architecture, and materials into one finished piece, replacing a generic blog homepage with a real walkthrough.",
+            "verified": true
+          },
+          {
+            "type": "Video",
+            "title": "See How to Draw a City using Two-Point Perspective Fast",
+            "creator": "Circle Line Art School",
+            "url": "https://www.youtube.com/watch?v=nP19xUWh6gQ",
+            "why": "Shows how to expand single perspective boxes into a cohesive multi-building city block with street-level scale.",
             "verified": true
           }
         ],
@@ -3761,6 +3849,14 @@ const CURRICULUM_3 = [
             "creator": "Monika Zagrobelna — Envato Tuts+",
             "url": "https://design.tutsplus.com/articles/how-to-draw-animals-the-importance-of-drawing-a-pose--vector-24537",
             "why": "A free article on why gesture and overall silhouette, not individual muscle rendering, is what makes an animal drawing read correctly — directly reinforcing this module's core idea.",
+            "verified": true
+          },
+          {
+            "type": "Video",
+            "title": "Drawing Animals: From Anatomy to Rendering : General Animal Anatomy & Proportions",
+            "creator": "Magdalena Kügel",
+            "url": "https://www.youtube.com/watch?v=omdSg_-Nq2k",
+            "why": "Breaks quadrupeds down into major ribcage, pelvis, and shoulder masses so animal silhouettes read solidly from any angle.",
             "verified": true
           }
         ],
@@ -4260,6 +4356,14 @@ const CURRICULUM_3 = [
             "why": "A free, thorough tutorial covering the fused bird skeleton, foot types matched to lifestyle, and beak construction — directly matching this module's core ideas.",
             "verified": true,
             "summary": "Zagrobelna starts from the bird skeleton, where the chest and hips work as one rigid body part because of a fused spine, and builds a pose from that simplified frame. She then covers foot types matched to lifestyle (raptor, perching, webbed, running, scratching, climbing), a circle-and-line method for beaks, simple bird eyes, and how feathers grow in layers whose contours do the job muscles do on a mammal."
+          },
+          {
+            "type": "Video",
+            "title": "Bird Anatomy for Artists",
+            "creator": "austin batchelor",
+            "url": "https://www.youtube.com/watch?v=5P-RegCix7w",
+            "why": "Covers avian skeletal proportions, wing bone structure, and how feather groups layer over the bird's underlying anatomy.",
+            "verified": true
           }
         ],
         "quiz": [

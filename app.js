@@ -2543,12 +2543,13 @@ async function searchCurriculum(query, topK){
       .filter(x=>x.score>0).sort((x,y)=>y.score-x.score).slice(0,topK||4).map(x=>x.c);
   }catch(e){return [];}
 }
-async function searchCurriculumEvidence(query, topK){
+async function searchCurriculumEvidence(query, topK, preferredModuleTitle){
   try{
     const idx=await loadCurriculumIndex(); const qTokens=tokenizeForSearch(query);
     if(!qTokens.length) return [];
     const qNorm=normalizeDoubtText(query);
-    return idx.chunks.map((c,i)=>{const titleNorm=normalizeDoubtText(c.m||'');const titleBoost=titleNorm.length>3 && qNorm.includes(titleNorm)?100:0;return {chunk:c,score:bm25Score(qTokens,idx.docsTokens[i],idx.df,idx.N,idx.avgdl,1.5,0.75)+titleBoost};})
+    const prefNorm=normalizeDoubtText(preferredModuleTitle||'');
+    return idx.chunks.map((c,i)=>{const titleNorm=normalizeDoubtText(c.m||'');const titleBoost=titleNorm.length>3 && qNorm.includes(titleNorm)?100:0;const prefBoost=prefNorm && prefNorm.length>3 && titleNorm===prefNorm?25:0;return {chunk:c,score:bm25Score(qTokens,idx.docsTokens[i],idx.df,idx.N,idx.avgdl,1.5,0.75)+titleBoost+prefBoost};})
       .filter(x=>x.score>0).sort((a,b)=>b.score-a.score).slice(0,topK||3);
   }catch(e){return [];}
 }
@@ -2755,7 +2756,7 @@ async function sendDoubtMessage(){
       const related=getDoubtRelatedTitles(entry.modules,replyLanguage);
       if(related.length) answer += '\n\nRelated lessons: '+related.join(' · ');
     }else{
-      const evidence=await searchCurriculumEvidence(question,3);
+      const activeMod=(typeof STATE!=='undefined'&&STATE.currentModule)?findModule(STATE.currentModule):null;const activeModTitle=activeMod?(activeMod.title||L(activeMod,'title')||''):'';const evidence=await searchCurriculumEvidence(question,3,activeModTitle);
       const strong=evidence.filter(x=>x.score>=2.8);
       if(strong.length){
         const lines=[]; const seen=new Set();

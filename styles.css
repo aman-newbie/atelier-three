@@ -48,7 +48,7 @@
 }
 
 *,*::before,*::after{box-sizing:border-box;}
-html{scroll-behavior:smooth;}
+html{scroll-behavior:auto;}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto;}
   *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important;}
@@ -1002,7 +1002,8 @@ ol.note-list{list-style:decimal;}
   --shadow-lg: 0 18px 44px rgba(27, 24, 18, 0.14), 0 4px 12px rgba(27, 24, 18, 0.06);
   --shadow-inset: none;
 }
-html, body { overflow-x: clip; }
+html { overflow-x: visible; }
+body { overflow-x: clip; overscroll-behavior-y: auto; -webkit-overflow-scrolling: touch; }
 .skip-link, .recovery-banner { background: var(--red-solid, var(--red)); color: #FFFFFF; }
 .recovery-banner button { background: #FFFFFF; color: var(--red-solid, var(--red)); }
 .side-locked { opacity: 1; color: var(--text-faint); }
@@ -2085,3 +2086,25 @@ h1, h2, h3, h4, .hero h1, .section-title, .note-sec h3, .confirm-title {
 
 .module-head { padding-bottom: 24px; border-bottom: 1px solid var(--border); margin-bottom: 28px; }
 .tabs { border-bottom: 1px solid var(--border); gap: 6px; }
+
+/* === REFRESH & SCROLL POLISH === */
+[id^="grid-"], #arcLedger, #arcSwitcher {
+  scroll-margin-top: calc(var(--topbar-actual-h, var(--topbar-h)) + 20px);
+}
+.arc-switcher-track {
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+}
+@media (max-width: 900px) {
+  .sidebar {
+    top: var(--topbar-actual-h, var(--topbar-h)) !important;
+    height: calc(100dvh - var(--topbar-actual-h, var(--topbar-h))) !important;
+  }
+  .sidebar-backdrop {
+    top: var(--topbar-actual-h, var(--topbar-h)) !important;
+  }
+  body.sidebar-open {
+    overflow: hidden;
+    touch-action: none;
+  }
+}

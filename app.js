@@ -912,7 +912,7 @@ function renderHome(){
     </div>
   </section>
 
-  <section class="arc-ledger" aria-label="Curriculum index">
+  <section class="arc-ledger" id="arcLedger" aria-label="Curriculum index">
     <div class="arc-ledger-head">
       <div>
         <h2>${isHi ? 'Studio Curriculum Index' : 'Studio Curriculum Index'}</h2>
@@ -1841,6 +1841,57 @@ ${resActions(r, m)}
 /* ============================================================
    NAVIGATION
    ============================================================ */
+
+/* ===== URL HASH ROUTING (PRESERVES PAGE/MODULE/TAB ON REFRESH) ===== */
+let _suppressHashSync = false;
+function routeToHash(route){
+  if (!route || route.view === 'home') {
+    return STATE.activeHomeArc ? '#arc/' + encodeURIComponent(STATE.activeHomeArc) : '#home';
+  }
+  if (route.view === 'module' && route.pathId && route.moduleId) {
+    const t = route.tab && route.tab !== 'overview' ? '/' + encodeURIComponent(route.tab) : '';
+    return `#module/${encodeURIComponent(route.pathId)}/${encodeURIComponent(route.moduleId)}${t}`;
+  }
+  return '#' + encodeURIComponent(route.view);
+}
+function syncHashFromState(replace){
+  if (_suppressHashSync || typeof window === 'undefined') return;
+  const target = routeToHash(STATE.route);
+  if (window.location.hash === target) return;
+  try {
+    if (replace) history.replaceState(null, '', target);
+    else history.pushState(null, '', target);
+  } catch (_) {
+    window.location.hash = target;
+  }
+}
+function applyHashToState(hash){
+  const raw = (hash || '').replace(/^#/, '').trim();
+  if (!raw || raw === 'home') {
+    STATE.route = { view: 'home', pathId: null, moduleId: null, tab: 'overview' };
+    return true;
+  }
+  const parts = raw.split('/').map(s => { try { return decodeURIComponent(s); } catch(_) { return s; } });
+  if (parts[0] === 'module' && parts[1] && parts[2]) {
+    const exists = findModule(parts[2]);
+    if (exists) {
+      STATE.route = { view: 'module', pathId: parts[1], moduleId: parts[2], tab: parts[3] || 'overview' };
+      return true;
+    }
+  }
+  if (parts[0] === 'arc' && parts[1]) {
+    STATE.activeHomeArc = parts[1];
+    STATE.route = { view: 'home', pathId: null, moduleId: null, tab: 'overview' };
+    return true;
+  }
+  const validViews = new Set(['practice', 'achievements', 'bookmarks', 'library', 'themes', 'search']);
+  if (validViews.has(parts[0])) {
+    STATE.route = { view: parts[0], pathId: null, moduleId: null, tab: 'overview' };
+    return true;
+  }
+  return false;
+}
+
 function scrollPageTop(){
   document.documentElement.scrollTop = 0;
   document.body.scrollTop = 0;
@@ -1855,6 +1906,7 @@ function navigateHome(){
   pauseTimer();
   flushNotesSave();
   STATE.route = {view:'home', pathId:null, moduleId:null, tab:'overview'};
+  syncHashFromState();
   renderApp();
   scrollPageTop();
 }
@@ -1862,6 +1914,7 @@ function navigateView(view){
   if(view !== 'practice') pauseTimer();
   flushNotesSave();
   STATE.route = {view, pathId:null, moduleId:null, tab:'overview'};
+  syncHashFromState();
   renderApp();
   scrollPageTop();
   closeMobileSidebar();
@@ -1870,6 +1923,7 @@ function navigateModule(pathId, moduleId, tab){
   pauseTimer();
   flushNotesSave();
   STATE.route = {view:'module', pathId, moduleId, tab: tab || 'overview'};
+  syncHashFromState();
   renderApp();
   scrollPageTop();
   closeMobileSidebar();
@@ -3150,7 +3204,7 @@ function initEvents(){
     }
 
     const jumpFound = e.target.closest('#jumpFoundations');
-    if(jumpFound){ document.getElementById('grid-foundations')?.scrollIntoView({behavior:'smooth'}); return; }
+    if(jumpFound){ (document.getElementById('arcLedger') || document.getElementById('arcSwitcher'))?.scrollIntoView({behavior:'smooth', block:'start'}); return; }
 
     // module/path buttons (cards, sidebar items, nav prev/next) — check last, broadest match
     const modBtn = e.target.closest('[data-module]');
@@ -3424,8 +3478,10 @@ async function init(){
   await loadProgress();
   migrateOversizedHistory();
   updateStreak();
+  if (window.location.hash) applyHashToState(window.location.hash);
   initEvents();
   renderApp();
+  syncHashFromState(true);
   loadDoubtHistory();
   updateStorageStatus();
   checkAchievements();
@@ -3635,6 +3691,7 @@ function showPeakEndModal(moduleId){
       const pill = e.target.closest('[data-arc-filter]');
       if (!pill) return;
       STATE.activeHomeArc = pill.getAttribute('data-arc-filter');
+      syncHashFromState(true);
       renderHome();
       const sw = document.getElementById('arcSwitcher');
       if (sw) sw.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -3716,4 +3773,41 @@ function showPeakEndModal(moduleId){
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', bindAll);
   else bindAll();
+})();
+
+
+/* ===== REFRESH & MOBILE/DESKTOP SCROLL FIXES ===== */
+(function initScrollAndRefreshFixes(){
+  if (typeof window === 'undefined') return;
+
+  window.addEventListener('hashchange', ()=>{
+    _suppressHashSync = true;
+    try {
+      if (applyHashToState(window.location.hash)) {
+        renderApp();
+        scrollPageTop();
+      }
+    } finally {
+      _suppressHashSync = false;
+    }
+  });
+
+  function syncTopbarHeight(){
+    const tb = document.querySelector('.topbar');
+    if (tb) {
+      const h = Math.round(tb.getBoundingClientRect().height);
+      if (h > 40) document.documentElement.style.setProperty('--topbar-actual-h', h + 'px');
+    }
+  }
+  window.addEventListener('resize', syncTopbarHeight, { passive: true });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', syncTopbarHeight);
+  else syncTopbarHeight();
+
+  // Lock background body scroll only when mobile sidebar drawer is open
+  const sb = document.getElementById('sidebar');
+  if (sb && typeof MutationObserver !== 'undefined') {
+    new MutationObserver(()=>{
+      document.body.classList.toggle('sidebar-open', sb.classList.contains('open'));
+    }).observe(sb, { attributes: true, attributeFilter: ['class'] });
+  }
 })();

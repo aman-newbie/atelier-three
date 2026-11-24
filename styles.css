@@ -1158,3 +1158,167 @@ body:has(.sidebar.open) .doubt-fab { pointer-events: none; opacity: 0; }
   border-color: var(--blue);
   color: var(--blue);
 }
+
+/* =====================================================================
+   Atelier Anti-Slop & Complementary Color-Wheel Redesign
+   - Zero Instrument Serif, zero cream AI-slop, zero card-soup, zero left-border callouts
+   - Complementary palettes: Deep Sea Slate + Foam White + Sunset Vermilion (Dark),
+     Gallery Chalk + Ink + Electric Cobalt/Vermilion (Light),
+     Rose Stone + Oxblood + Jade Green (Studio/Sketchbook)
+   ===================================================================== */
+:root, [data-theme="dark"] {
+  --font-display: "Space Grotesk", "IBM Plex Sans", system-ui, sans-serif;
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  /* Deep Sea Slate + Foam White + Complementary Sunset Orange */
+  --bg: #0B1219;
+  --bg-raised: #0F1822;
+  --surface: #131E2A;
+  --surface-2: #192635;
+  --border: #243649;
+  --border-soft: #1B2A3A;
+  --text: #EEF4F8;
+  --text-muted: #A7BACB;
+  --text-faint: #7E96AC;
+
+  /* Complementary Sunset Orange accent against Deep Sea Blue */
+  --blue: #F97324;
+  --blue-ink: #0B1219;
+  --blue-soft: rgba(249, 115, 36, 0.14);
+  --red: #F97324;
+  --red-solid: #D9530F;
+  --red-ink: #0B1219;
+  --red-soft: rgba(249, 115, 36, 0.14);
+  --green: #34D399;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+}
+
+[data-theme="light"] {
+  /* Crisp Gallery Paper + Charcoal Ink + Complementary Cobalt & Vermilion */
+  --bg: #F8F9FA;
+  --bg-raised: #FFFFFF;
+  --surface: #FFFFFF;
+  --surface-2: #F1F3F5;
+  --border: #DCE1E7;
+  --border-soft: #E9ECEF;
+  --text: #11161B;
+  --text-muted: #495461;
+  --text-faint: #5C6875;
+
+  --blue: #1D4ED8;
+  --blue-ink: #FFFFFF;
+  --blue-soft: rgba(29, 78, 216, 0.09);
+  --red: #EA580C;
+  --red-solid: #C2410C;
+  --red-ink: #FFFFFF;
+  --red-soft: rgba(234, 88, 12, 0.10);
+  --green: #0F766E;
+}
+
+[data-theme="sketchbook"] {
+  /* Editorial Rose-Stone + Oxblood Ink + Complementary Jade Green */
+  --bg: #F5ECEA;
+  --bg-raised: #FAF4F2;
+  --surface: #FFFDFC;
+  --surface-2: #EFE2DF;
+  --border: #D9C4BF;
+  --border-soft: #E6D6D2;
+  --text: #2B1216;
+  --text-muted: #5F383E;
+  --text-faint: #6D464C;
+
+  --blue: #0D8A5F;
+  --blue-ink: #FFFFFF;
+  --blue-soft: rgba(13, 138, 95, 0.11);
+  --red: #8B1E2B;
+  --red-solid: #7A1824;
+  --red-ink: #FFFFFF;
+  --red-soft: rgba(139, 30, 43, 0.10);
+  --green: #0D8A5F;
+}
+
+/* Sharp, editorial typography — no thin AI serif, no italic gimmick */
+h1, h2, h3, h4, .hero h1, .section-title, .note-sec h3, .confirm-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--blue);
+}
+.hero-eyebrow {
+  display: none !important;
+}
+
+/* Remove AI-slop colored left-borders and heavy SaaS card-soup */
+.quote-card {
+  border-left: none !important;
+  border: none;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  background: transparent;
+  padding: var(--sp-4) 0;
+  box-shadow: none;
+}
+.mcard, .res-card, .practice-block, .quiz-card, .dash-stat-card, .cal-card {
+  border-radius: var(--radius-md);
+  box-shadow: none;
+  border: 1px solid var(--border-soft);
+}
+.mcard:hover {
+  border-color: var(--blue);
+  transform: translateY(-2px);
+}
+.mcard-deco {
+  display: none !important;
+}
+
+/* Complementary CTA pop — crisp, sharp, high contrast */
+.btn-primary {
+  background: var(--blue);
+  color: var(--blue-ink);
+  border-color: var(--blue);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+}
+.btn-primary:hover {
+  filter: brightness(1.08);
+}
+.btn {
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+}
+.doubt-fab {
+  background: var(--blue);
+  color: var(--blue-ink);
+  border: 1px solid transparent;
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+.doubt-msg-user {
+  background: var(--blue);
+  color: var(--blue-ink);
+  font-weight: 500;
+}
+.mcard-progress-fill, .dash-arc-fill {
+  background: var(--blue);
+}
+.tab[aria-selected="true"] {
+  color: var(--blue);
+  border-bottom-color: var(--blue);
+  font-weight: 600;
+}
+.xp-pill {
+  border-color: var(--border);
+  background: var(--surface);
+}
+.xp-pill b {
+  color: var(--blue);
+}

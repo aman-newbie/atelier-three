@@ -138,7 +138,7 @@ function resActions(r, m){
   const hasNotes = r.hasNotes && hasPremadeNotes(m);
   if(!hasNotes && !r.lessonUrl) return '';
   const hi = STATE.language === 'hi';
-  return `<div class="res-actions">${hasNotes ? `<button type="button" class="notes-btn" data-notes-open="${m.id}">Study notes</button>` : ''}${r.lessonUrl ? `<a class="res-lesson-link" href="${escapeHtml(r.lessonUrl)}" target="_blank" rel="noopener">${hi?'Original lesson kholo \u2197':'Open original lesson \u2197'}</a>` : ''}</div>`;
+  return `<div class="res-actions">${hasNotes ? `<button type="button" class="notes-btn" data-notes-open="${m.id}">Study notes</button>` : ''}${r.lessonUrl ? `<a class="res-lesson-link" href="${escapeHtml(r.lessonUrl)}" target="_blank" rel="noopener">${hi?'Original lesson kholo':'Open original lesson'}</a>` : ''}</div>`;
 }
 function rerenderNotesTab(){
   if(STATE.route.view !== 'module' || STATE.route.tab !== 'notes') return;
@@ -864,8 +864,8 @@ function renderHome(){
 
   let html = `
   <div class="hero">
-    <div class="eyebrow">A complete, honestly-scoped drawing path</div>
-    <h1>From your first line to <em>professional</em> fundamentals.</h1>
+    <div class="eyebrow">Atelier Drawing Curriculum</div>
+    <h1>Structured drawing curriculum, from first stroke to studio work.</h1>
     <p class="hero-sub">${livePaths.length} arc${livePaths.length===1?'':'s'} (${allLive.length} modules) are fully built and live right now, with every resource checked by hand instead of recalled from memory. The rest of the roadmap below is real and correctly ordered &mdash; it is simply not written yet.</p>
     <div class="hero-row">
       <button class="btn btn-primary" id="continueBtn">${ICONS.target} ${STATE.completed.size===0 ? 'Start here: ' + (next ? L(next.m,'title') : 'Mindset & Introduction') : (next ? 'Continue: ' + L(next.m,'title') : 'Everything live is complete')}</button>
@@ -879,7 +879,7 @@ function renderHome(){
     </div>
   </div>
 
-  <div class="quote-card"><p>&ldquo;${quote}&rdquo;</p><cite>Studio note</cite></div>
+  <div class="quote-card"><p>&ldquo;${quote}&rdquo;</p><cite>Note</cite></div>
 
   <div class="pathmap-wrap">
     <div class="pathmap-head">
@@ -1215,7 +1215,7 @@ function renderAchievements(){
   <div class="breadcrumb"><button data-nav-home>Atelier</button> ${ICONS.chevronRight} <span>Achievements</span></div>
   <div class="hero">
     <div class="eyebrow">${current.size}/${ACHIEVEMENTS.length} unlocked</div>
-    <h1>Small, honest milestones.</h1>
+    <h1>Course Milestones</h1>
     <p class="hero-sub">Every one of these reads directly off real progress &mdash; modules finished, XP earned, days returned, notes written. Nothing here is busywork.</p>
   </div>
   <div class="module-grid">`;
@@ -3190,7 +3190,7 @@ function initEvents(){
     document.documentElement.setAttribute('data-theme', STATE.theme);
     saveProgress();
     if(STATE.route.view === 'themes') renderThemes();
-    showToast('Theme: ' + STATE.theme.charAt(0).toUpperCase() + STATE.theme.slice(1));
+    const tNames = {dark:'Deep Sea & Sunset', light:'Gallery Ink & Cobalt', sketchbook:'Rose Stone & Jade'}; showToast('Theme: ' + (tNames[STATE.theme] || STATE.theme));
   });
   document.getElementById('langToggle').addEventListener('click', ()=>{
     STATE.language = STATE.language === 'hi' ? 'en' : 'hi';

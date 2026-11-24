@@ -66,10 +66,10 @@ const NOTES_UI = {
       toOther:{en:'Show these notes in English', hi:'Translate these notes to Hinglish'}, back:'Back to site language', pause:'Pause motion', play:'Play motion', figPause:'Pause this diagram', figPlay:'Play this diagram', figHint:'Tap a diagram to pause or play it.',
       edit:'Edit these notes', done:'Done editing', reset:'Reset to original', edited:'Edited by you \u00b7 saved on this device', saved:'Saved on this device',
       hint:'One point per line. Use **bold** for emphasis. Your edits stay on this device only.', confirm:'Reset these notes to the original? Your edits for this language will be removed.'},
-  hi:{premade:'Premade notes', mine:'My notes', follow:'Site ki language follow ho rahi hai: ', only:'Sirf notes: ', names:{en:'English', hi:'Hinglish'},
+  hi:{premade:'Study notes (Tayaar)', mine:'Mere notes', follow:'Site ki language follow ho rahi hai: ', only:'Sirf notes: ', names:{en:'English', hi:'Hinglish'},
       toOther:{en:'Notes English mein dekho', hi:'Notes ko Hinglish mein badlo'}, back:'Site ki language pe wapas', pause:'Motion roko', play:'Motion chalao', figPause:'Is diagram ko roko', figPlay:'Is diagram ko chalao', figHint:'Kisi bhi diagram pe tap karke use roko ya chalao.',
-      edit:'Notes edit karo', done:'Edit ho gaya', reset:'Original pe wapas', edited:'Aapne edit kiya \u00b7 is device pe saved', saved:'Is device pe saved',
-      hint:'Har point alag line mein. Zor dene ke liye **bold** use karo. Edits sirf is device pe rehte hain.', confirm:'In notes ko original pe wapas laayein? Is language ke aapke edits hat jaayenge.'}
+      edit:'Notes edit karo', done:'Edit ho gaya', reset:'Original pe wapas', edited:'Tumne edit kiya \u00b7 is device pe saved', saved:'Is device pe saved',
+      hint:'Har point alag line mein. Zor dene ke liye **bold** use karo. Edits sirf is device pe rehte hain.', confirm:'In notes ko original pe wapas laayein? Is language ke tumhare edits hat jaayenge.'}
 };
 
 function hasPremadeNotes(m){ return !!(m && typeof PREMADE_NOTES !== 'undefined' && PREMADE_NOTES[m.id]); }
@@ -77,7 +77,8 @@ function getNotesLang(){ return STATE.notesLangOverride || STATE.language || 'en
 function notesMd(s){ return escapeHtml(String(s)).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>'); }
 function premadeItems(mid, lang, sec){
   const e = STATE.premadeEdits[mid] && STATE.premadeEdits[mid][lang];
-  return (e && Array.isArray(e[sec.id])) ? e[sec.id] : sec[lang].items;
+  const block = sec[lang] || sec.en || sec.hi || {items:[]};
+  return (e && Array.isArray(e[sec.id])) ? e[sec.id] : block.items;
 }
 function hasPremadeEdits(mid, lang){
   const e = STATE.premadeEdits[mid] && STATE.premadeEdits[mid][lang];
@@ -235,12 +236,7 @@ function updateMotionButtons(){
   document.querySelectorAll('[data-notes-motion]').forEach(b=>{ b.textContent = label; });
 }
 function initPremadeNotes(){
-  let raf = 0;
-  const mo = new MutationObserver(()=>{
-    if(raf) return;
-    raf = requestAnimationFrame(()=>{ raf = 0; if(document.querySelector('.note-fig svg[data-dur]')){ applyNotesMotion(true); updateMotionButtons(); } });
-  });
-  mo.observe(document.body, {childList:true, subtree:true});
+  if(document.querySelector('.note-fig svg[data-dur]')){ applyNotesMotion(true); updateMotionButtons(); }
 }
 
 function getLivePaths(){
@@ -703,7 +699,7 @@ function renderApp(){
   if(route.view === 'module'){
     renderModule(route.pathId, route.moduleId, route.tab);
   } else if(route.view === 'search'){
-    // search results were already rendered directly by handleSearch
+    handleSearch(STATE.searchQuery || (document.getElementById('searchInput') && document.getElementById('searchInput').value) || '', true);
   } else if(route.view === 'practice'){
     renderPractice();
   } else if(route.view === 'achievements'){
@@ -738,11 +734,17 @@ function applyCustomBackground(url){
   /* Preload fully before it ever becomes a CSS background, so it can't pop in
      mid-scroll — by the time it's assigned, the browser has already decoded it. */
   const img = new Image();
-  img.crossOrigin = 'anonymous';
   img.onload = ()=>{
     if(STATE.customBgUrl === url){
       document.documentElement.style.setProperty('--custom-bg-image', `url("${url.replace(/"/g,'')}")`);
-      applyCustomThemeColors(sampleImageBrightness(img), sampleImageBands(img, 5));
+      let brightness = 128, bands = null;
+      try {
+        const probe = new Image();
+        probe.crossOrigin = 'anonymous';
+        probe.onload = ()=>{ try{ applyCustomThemeColors(sampleImageBrightness(probe), sampleImageBands(probe, 5)); }catch(e){} };
+        probe.src = url;
+      } catch(e){}
+      applyCustomThemeColors(brightness, bands);
       lastAppliedCustomBg = url;
     }
   };
@@ -1384,7 +1386,7 @@ function renderResourceCard(r, ri, m, also){
 ${resActions(r, m)}
       ${ytId ? `
       <div class="video-embed-wrap" data-yt-id="${ytId}" data-res-module="${m.id}" data-res-idx="${ri}">
-        <img src="https://img.youtube.com/vi/${ytId}/hqdefault.jpg" alt="" loading="lazy">
+        <img src="https://img.youtube.com/vi/${ytId}/mqdefault.jpg" alt="" loading="lazy">
         <button class="video-play-btn" aria-label="Play video inline" data-yt-id="${ytId}" data-res-module="${m.id}" data-res-idx="${ri}">${ICONS.play}</button>
       </div>` : ''}
       ${playlistId ? `
@@ -1662,7 +1664,7 @@ function renderTabContent(m, tab, checkedSet){
 ${resActions(r, m)}
           ${ytId ? `
           <div class="video-embed-wrap" data-yt-id="${ytId}" data-res-module="${m.id}" data-res-idx="${ri}">
-            <img src="https://img.youtube.com/vi/${ytId}/hqdefault.jpg" alt="" loading="lazy">
+            <img src="https://img.youtube.com/vi/${ytId}/mqdefault.jpg" alt="" loading="lazy">
             <button class="video-play-btn" aria-label="Play video inline" data-yt-id="${ytId}" data-res-module="${m.id}" data-res-idx="${ri}">${ICONS.play}</button>
           </div>` : ''}
           ${playlistId ? `
@@ -1889,7 +1891,9 @@ function escapeHtml(str){
   return String(str==null?'':str)
     .replace(/&/g,'&amp;')
     .replace(/</g,'&lt;')
-    .replace(/>/g,'&gt;');
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#39;');
 }
 
 /* Pulls the 11-character video ID out of a youtube.com/watch or youtu.be
@@ -1941,6 +1945,7 @@ function handleNotesInput(moduleId, value){
 function flushNotesSave(){
   clearTimeout(notesSaveTimer);
   clearTimeout(fpNotesSaveTimer);
+  if(typeof premadeSaveTimer !== 'undefined') clearTimeout(premadeSaveTimer);
   clearTimeout(saveTimer);
   persistNow();
 }
@@ -1990,7 +1995,8 @@ function clampFloatingPlayerToViewport(){
   if(fp.hidden) return;
   const rect = fp.getBoundingClientRect();
   let left = rect.left, top = rect.top;
-  left = Math.min(Math.max(left, 4), window.innerWidth - rect.width - 4);
+  const maxLeft = Math.max(4, window.innerWidth - rect.width - 4);
+  left = Math.min(Math.max(left, 4), maxLeft);
   const maxTop = Math.max(4, window.innerHeight - rect.height - 4);
   top = Math.min(Math.max(top, 4), maxTop);
   fp.style.left = left + 'px';
@@ -2189,18 +2195,32 @@ function setTimerPreset(mins, btn){
 function startTimer(){
   if(timerRunning || timerSeconds<=0) return;
   timerRunning = true;
+  const endAt = Date.now() + timerSeconds * 1000;
+  const startBtn = document.getElementById('timerStart');
+  const disp = document.getElementById('timerDisplay');
+  if(startBtn) startBtn.classList.add('is-running');
+  if(disp) disp.classList.add('is-running');
   timerInterval = setInterval(()=>{
-    timerSeconds--;
+    timerSeconds = Math.max(0, Math.ceil((endAt - Date.now()) / 1000));
     updateTimerDisplay();
     if(timerSeconds<=0){
       clearInterval(timerInterval);
       timerRunning = false;
+      if(startBtn) startBtn.classList.remove('is-running');
+      if(disp) disp.classList.remove('is-running');
       playChime();
       showToast("Time's up. Nice work.");
     }
-  }, 1000);
+  }, 250);
 }
-function pauseTimer(){ clearInterval(timerInterval); timerRunning=false; }
+function pauseTimer(){
+  clearInterval(timerInterval);
+  timerRunning = false;
+  const startBtn = document.getElementById('timerStart');
+  const disp = document.getElementById('timerDisplay');
+  if(startBtn) startBtn.classList.remove('is-running');
+  if(disp) disp.classList.remove('is-running');
+}
 function resetTimer(){
   pauseTimer();
   const activeBtn = document.querySelector('.timer-presets button.active');
@@ -2221,6 +2241,7 @@ function playChime(){
     g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime+0.6);
     o.start();
     o.stop(ctx.currentTime+0.6);
+    o.onended = ()=>{ try{ ctx.close(); }catch(e){} };
   }catch(e){ /* audio unavailable — silent, the toast still shows */ }
 }
 
@@ -2489,11 +2510,16 @@ function toggleDoubtPanel(open){
   if(!fab || !panel) return;
   doubtOpen = open;
   fab.hidden = open;
+  fab.setAttribute('aria-expanded', String(open));
   panel.hidden = !open;
   if(backdrop) backdrop.hidden = !open;
   if(open){
+    const wrap = document.getElementById('doubtMessages');
+    if(wrap) wrap.scrollTop = wrap.scrollHeight;
     const input = document.getElementById('doubtInput');
     if(input) input.focus();
+  } else {
+    fab.focus();
   }
 }
 
@@ -2503,7 +2529,33 @@ function appendDoubtMessage(role, text){
   const div = document.createElement('div');
   div.className = 'doubt-msg doubt-msg-' + role;
   if(role === 'bot'){
-    div.innerHTML = escapeHtml(text).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    let html = escapeHtml(text)
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>');
+    div.innerHTML = html;
+    const modMatches = String(text || '').match(/\bM(\d{1,3})\b/g);
+    if(modMatches && modMatches.length){
+      const seen = new Set();
+      const chips = document.createElement('div');
+      chips.className = 'doubt-module-chips';
+      modMatches.forEach(tok=>{
+        const id = tok.toLowerCase();
+        if(seen.has(id)) return;
+        const m = findModule(id);
+        if(!m || m.stub) return;
+        seen.add(id);
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'doubt-module-chip';
+        btn.textContent = tok + ' · ' + L(m, 'title');
+        btn.addEventListener('click', ()=>{
+          const p = CURRICULUM.find(x=>x.modules && x.modules.some(mm=>mm.id===id));
+          if(p){ navigateToModule(p.id, id); toggleDoubtPanel(false); }
+        });
+        chips.appendChild(btn);
+      });
+      if(chips.children.length) div.appendChild(chips);
+    }
   } else {
     div.textContent = text;
   }
@@ -2515,7 +2567,7 @@ function appendDoubtMessage(role, text){
 // Offline retrieval: curated answers + the complete course search index.
 // This is intentionally not presented as a generative AI model.
 let curriculumIndexPromise = null;
-const DOUBT_STOP_WORDS = new Set(['the','a','an','is','are','am','i','me','my','you','your','to','for','of','in','on','at','and','or','do','does','did','can','could','should','would','what','how','why','when','where','which','please','tell','explain','about','with','from','it','this','that','be','as','if','then','ki','ka','ke','hai','hain','ho','kya','kaise','kyu','kyun','mujhe','mera','meri','mere','bata','bta','samjha','samjhao','karu','karo','kare','karna','kya','aur','se','par','mein','me','ko','ye','yeh','woh','wo','zaroori','jaruri','chahiye','mere','paas','pass','sirf','bas','hai','hain','kya','kaise','mujhe','mere','tum','kya','kar','sakta','sakti','hoon','hun','bina','agar','aur','nahi','nhi','kharid','lena','laga','lagta','kitna','kaun','konsa','kaunsa','kuch','sab','mere']);
+const DOUBT_STOP_WORDS = new Set(['the','a','an','is','are','am','i','me','my','you','your','to','for','of','in','on','at','and','or','do','does','did','can','could','should','would','what','how','why','when','where','which','please','tell','explain','about','with','from','it','this','that','be','as','if','then','ki','ka','ke','hai','hain','ho','kya','kaise','kyu','kyun','mujhe','mera','meri','mere','bata','bta','samjha','samjhao','karu','karo','kare','karna','kya','kyaa','aur','se','par','mein','me','ko','ye','yeh','woh','wo','zaroori','jaruri','chahiye','mere','paas','pass','sirf','bas','hai','hain','kya','kaise','mujhe','mere','tum','kya','kar','sakta','sakti','hoon','hun','bina','agar','aur','nahi','nhi','kharid','lena','laga','lagta','kitna','kaun','konsa','kaunsa','kuch','sab','mere']);
 const DOUBT_EXPANSIONS = {
   'shading':['shade','value','tone'], 'shade':['shading','value'], 'shadow':['light','shading'],
   'chhaya':['shadow','shading'], 'roshni':['light'], 'rang':['color','colour'], 'colour':['color'],
@@ -2714,86 +2766,107 @@ function shouldSearchExternalKnowledge(query){
   const q=normalizeDoubtText(query);
   const words=q.split(' ').filter(w=>w.length>1);
   if(words.length<3) return false;
-  return /^(what|who|when|where|why|how|define|explain|tell me about|kya|kaun|kab|kahan|kyun|kaise|samjhao|batao)\b/.test(q);
+  return /\b(what|who|when|where|why|how|define|explain|tell me about|kya|kyaa|kaun|kab|kahan|kyun|kyu|kaise|samjhao|batao)\b/.test(q);
 }
 
-function answerCurrentLessonQuestion(query){
+function answerCurrentLessonQuestion(query, isHi){
   const route=STATE.route;
   if(route.view!=='module'||!route.moduleId) return null;
   const m=findModule(route.moduleId); if(!m) return null;
   const q=normalizeDoubtText(query);
   const title=normalizeDoubtText(L(m,'title')||m.title||'');
   const titleMentioned=title.length>3&&q.includes(title);
-  const asksCurrent=asksAboutCurrentLesson(query)||titleMentioned||q.includes('mistake')||q.includes('tip')||q.includes('practice')||q.includes('practise')||q.includes('exercise')||['why does this matter','core idea','key takeaway','main takeaway','professional habit','how should i practice','what should i focus on'].some(p=>q.includes(p));
+  const explicitCurrent=asksAboutCurrentLesson(query)||titleMentioned;
+  if(!explicitCurrent){
+    const kbHit = typeof matchDoubtKnowledge === 'function' ? matchDoubtKnowledge(query) : null;
+    if(kbHit && (!kbHit.modules || !kbHit.modules.includes(m.id))) return null;
+  }
+  const asksCurrent=explicitCurrent||q.includes('mistake')||q.includes('tip')||q.includes('practice')||q.includes('practise')||q.includes('exercise')||['why does this matter','core idea','key takeaway','main takeaway','professional habit','how should i practice','what should i focus on'].some(p=>q.includes(p));
   if(!asksCurrent) return null;
   const field=(name)=>L(m,name);
   const clean=(v)=>String(v||'').replace(/<[^>]*>/g,'').replace(/&amp;/g,'&').replace(/&quot;/g,'"');
   const list=(name,n)=>{const v=field(name);if(Array.isArray(v))return v.slice(0,n||5).map(x=>'• '+clean(x)).join('\n');if(typeof v==='string'&&v)return clean(v);return '';};
   const heading='Module '+String(m.plate||m.id.replace('m','')).padStart(2,'0')+' — '+(field('title')||m.title);
-  if(q.includes('mistake')){const x=list('mistakes',6);if(x)return '**'+heading+' — Common mistakes**\n'+x;}
+  if(q.includes('mistake')){const x=list('mistakes',6);if(x)return '**'+heading+(isHi?' — Aam galtiyan**\n':' — Common mistakes**\n')+x;}
   if(q.includes('tip')||q.includes('professional habit')){const x=list('proTips',6);if(x)return '**'+heading+' — Pro tips**\n'+x;}
-  if(q.includes('practice')||q.includes('practise')||q.includes('exercise')){const p=field('practice');if(p&&typeof p==='object')return '**'+heading+' — Practice**\n'+Object.entries(p).map(([k,v])=>'• '+k+': '+clean(v)).join('\n');}
-  if(q.includes('core idea')||q.includes('takeaway')||q.includes('focus')){const x=list('coreIdea',6);if(x)return '**'+heading+' — Core ideas**\n'+x;}
-  if(q.includes('why')||q.includes('matter')||q.includes('important')){const x=list('whyItMatters',4);if(x)return '**'+heading+' — Why it matters**\n'+x;}
-  const parts=[];const hook=field('hook');if(hook)parts.push(clean(hook));const why=list('whyItMatters',1);if(why)parts.push(why);const core=list('coreIdea',3);if(core)parts.push('**Core ideas**\n'+core);
-  return '**'+heading+'**\n'+parts.join('\n\n')+'\n\nSource: current Atelier lesson.';
+  if(q.includes('practice')||q.includes('practise')||q.includes('exercise')){const p=field('practice');if(p&&typeof p==='object')return '**'+heading+(isHi?' — Abhyaas**\n':' — Practice**\n')+Object.entries(p).map(([k,v])=>'• '+k+': '+clean(v)).join('\n');}
+  if(q.includes('core idea')||q.includes('takeaway')||q.includes('focus')){const x=list('coreIdea',6);if(x)return '**'+heading+(isHi?' — Mukhya baatein**\n':' — Core ideas**\n')+x;}
+  if(q.includes('why')||q.includes('matter')||q.includes('important')){const x=list('whyItMatters',4);if(x)return '**'+heading+(isHi?' — Kyun zaroori hai**\n':' — Why it matters**\n')+x;}
+  const parts=[];const hook=field('hook');if(hook)parts.push(clean(hook));const why=list('whyItMatters',1);if(why)parts.push(why);const core=list('coreIdea',3);if(core)parts.push((isHi?'**Mukhya baatein**\n':'**Core ideas**\n')+core);
+  return '**'+heading+'**\n'+parts.join('\n\n')+(isHi?'\n\nSource: abhi ka Atelier lesson.':'\n\nSource: current Atelier lesson.');
 }
 
 async function sendDoubtMessage(){
+  if(sendDoubtMessage._busy) return;
   const input=document.getElementById('doubtInput'); if(!input) return;
+  const sendBtn=document.getElementById('doubtSendBtn');
   const question=input.value.trim(); if(!question) return;
+  sendDoubtMessage._busy = true;
+  if(sendBtn) sendBtn.disabled = true;
   appendDoubtMessage('user',question); input.value='';
   doubtHistory.push({role:'user',text:question}); saveDoubtHistory();
   const isHi=isHinglishDoubt(question)||STATE.language==='hi';
-  let answer='';
-  const conversationReply=getConversationReply(question,isHi);
-  if(conversationReply){
-    appendDoubtMessage('bot',conversationReply);
-    doubtHistory.push({role:'bot',text:conversationReply}); saveDoubtHistory();
-    return;
-  }
-  const currentLessonAnswer=answerCurrentLessonQuestion(question);
-  if(currentLessonAnswer){
-    answer=currentLessonAnswer;
-  }else{
-    const capability=window.ATELIER_DOUBT_CAPABILITIES && window.ATELIER_DOUBT_CAPABILITIES.answer(question,findModule,m=>L(m,'title'),STATE.language);
-    const entry=matchDoubtKnowledge(question);
-    if(capability){
-      answer=capability;
-    }else if(entry){
-      answer=isHi?entry.hi:entry.en;
-      const related=getDoubtRelatedTitles(entry.modules);
-      if(related.length) answer += '\n\nRelated lessons: '+related.join(' · ');
+  let loadingEl = null;
+  try{
+    let answer='';
+    const conversationReply=getConversationReply(question,isHi);
+    if(conversationReply){
+      appendDoubtMessage('bot',conversationReply);
+      doubtHistory.push({role:'bot',text:conversationReply}); saveDoubtHistory();
+      return;
+    }
+    const currentLessonAnswer=answerCurrentLessonQuestion(question, isHi);
+    if(currentLessonAnswer){
+      answer=currentLessonAnswer;
     }else{
-      const evidence=await searchCurriculumEvidence(question,3);
-      const strong=evidence.filter(x=>x.score>=1.15);
-      if(strong.length){
-        const lines=[]; const seen=new Set();
-        strong.slice(0,2).forEach(item=>{
-          const m=findModuleForSearchChunk(item.chunk);
-          const title=m ? (m.id.toUpperCase()+' '+L(m,'title')) : String(item.chunk.m||'Course lesson');
-          if(seen.has(title)) return; seen.add(title);
-          const excerpt=String(item.chunk.t||'').replace(/\s+/g,' ').trim().slice(0,650);
-          lines.push('**'+title+'**\n'+excerpt);
-        });
-        answer=(isHi?'Atelier course mein is sawaal se related material mila:\n\n':'I found relevant material in the Atelier course:\n\n')+lines.join('\n\n')+'\n\nThese are retrieved lesson excerpts, not a generated explanation. Open the cited module for the complete context.';
+      const capability=window.ATELIER_DOUBT_CAPABILITIES && window.ATELIER_DOUBT_CAPABILITIES.answer(question,findModule,m=>L(m,'title'),isHi?'hi':'en');
+      const entry=matchDoubtKnowledge(question);
+      if(capability){
+        answer=capability;
+      }else if(entry){
+        answer=isHi?entry.hi:entry.en;
+        const related=getDoubtRelatedTitles(entry.modules);
+        if(related.length) answer += '\n\nRelated lessons: '+related.join(' · ');
       }else{
-        const external=shouldSearchExternalKnowledge(question) ? await searchExternalKnowledge(question,isHi) : null;
-        if(external) answer=external;
-        else{
-          const hits=evidence.length?evidence:await searchCurriculumEvidence(question,3);
-          const titles=[]; const seen=new Set();
-          hits.forEach(hit=>{const m=findModuleForSearchChunk(hit.chunk);if(m&&!seen.has(m.id)){seen.add(m.id);titles.push(m.id.toUpperCase()+' '+L(m,'title'));}});
-          answer=isHi
-            ? 'Is sawaal ka reliable answer Atelier knowledge ya external reference se confirm nahi ho paya. Thoda context ya exact topic batao; main galat jawab guess nahi karunga.'
-            : 'I could not verify a reliable answer in the Atelier knowledge base or external reference search. Add a little context or a more specific topic; I will not guess.';
-          if(titles.length) answer+='\n\nClosest course modules: '+titles.join(' · ');
+        loadingEl = appendDoubtMessage('bot', isHi ? 'Course mein dhoondh raha hoon…' : 'Searching course lessons…');
+        if(loadingEl) loadingEl.classList.add('doubt-msg-loading');
+        const evidence=await searchCurriculumEvidence(question,3);
+        const strong=evidence.filter(x=>x.score>=1.15);
+        if(strong.length){
+          const lines=[]; const seen=new Set();
+          strong.slice(0,2).forEach(item=>{
+            const m=findModuleForSearchChunk(item.chunk);
+            const title=m ? (m.id.toUpperCase()+' '+L(m,'title')) : String(item.chunk.m||'Course lesson');
+            if(seen.has(title)) return; seen.add(title);
+            const excerpt=String(item.chunk.t||'').replace(/\s+/g,' ').trim().slice(0,650);
+            lines.push('**'+title+'**\n'+excerpt);
+          });
+          answer=(isHi?'Atelier course mein is sawaal se related material mila:\n\n':'I found relevant material in the Atelier course:\n\n')+lines.join('\n\n')+(isHi?'\n\nYe course lesson ke retrieved excerpts hain. Poora context dekhne ke liye upar diye module ko kholo.':'\n\nThese are retrieved lesson excerpts, not a generated explanation. Open the cited module for the complete context.');
+        }else{
+          const external=shouldSearchExternalKnowledge(question) ? await searchExternalKnowledge(question,isHi) : null;
+          if(external) answer=external;
+          else{
+            const hits=evidence.length?evidence:await searchCurriculumEvidence(question,3);
+            const titles=[]; const seen=new Set();
+            hits.forEach(hit=>{const m=findModuleForSearchChunk(hit.chunk);if(m&&!seen.has(m.id)){seen.add(m.id);titles.push(m.id.toUpperCase()+' '+L(m,'title'));}});
+            answer=isHi
+              ? 'Is sawaal ka reliable answer Atelier knowledge ya external reference se confirm nahi ho paya. Thoda context ya exact topic batao; main galat jawab guess nahi karunga.'
+              : 'I could not verify a reliable answer in the Atelier knowledge base or external reference search. Add a little context or a more specific topic; I will not guess.';
+            if(titles.length) answer+=(isHi?'\n\nSabse kareebi course modules: ':'\n\nClosest course modules: ')+titles.join(' · ');
+          }
         }
       }
     }
+    if(loadingEl && loadingEl.parentNode) loadingEl.parentNode.removeChild(loadingEl);
+    appendDoubtMessage('bot',answer);
+    doubtHistory.push({role:'bot',text:answer}); saveDoubtHistory();
+  }catch(err){
+    if(loadingEl && loadingEl.parentNode) loadingEl.parentNode.removeChild(loadingEl);
+    appendDoubtMessage('bot', isHi ? 'Abhi search mein dikkaat aayi, dobara try karo.' : 'Something went wrong while searching. Please try again.');
+  }finally{
+    sendDoubtMessage._busy = false;
+    if(sendBtn) sendBtn.disabled = false;
   }
-  appendDoubtMessage('bot',answer);
-  doubtHistory.push({role:'bot',text:answer}); saveDoubtHistory();
 }
 function initEvents(){
   try{ localStorage.removeItem('atelier_doubt_engine'); }catch(e){}
@@ -3069,19 +3142,27 @@ function initEvents(){
   document.getElementById('homeLink').addEventListener('click', (e)=>{ e.preventDefault(); navigateHome(); });
 
   document.getElementById('themeToggle').addEventListener('click', ()=>{
-    // Simple toggle now, not a menu: tap once to preview the site's original theme,
-    // tap again to go back to whatever you've actually chosen on the Themes page.
-    // This preview never gets saved — a fresh reload always shows your real preference.
-    showingOriginalTheme = !showingOriginalTheme;
-    const btn = document.getElementById('themeToggle');
-    btn.setAttribute('aria-pressed', String(showingOriginalTheme));
-    if(showingOriginalTheme){
-      clearCustomThemeOverrides();
-      document.documentElement.setAttribute('data-theme', ORIGINAL_THEME);
-    } else {
-      document.documentElement.setAttribute('data-theme', STATE.theme);
-      applyCustomBackground(STATE.theme === 'custom' ? STATE.customBgUrl : '');
+    const order = ['dark', 'light', 'sketchbook'];
+    if(STATE.theme === 'custom'){
+      showingOriginalTheme = !showingOriginalTheme;
+      document.getElementById('themeToggle').setAttribute('aria-pressed', String(showingOriginalTheme));
+      if(showingOriginalTheme){
+        clearCustomThemeOverrides();
+        document.documentElement.setAttribute('data-theme', ORIGINAL_THEME);
+        showToast('Previewing dark theme');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'custom');
+        applyCustomBackground(STATE.customBgUrl || '');
+      }
+      return;
     }
+    const idx = order.indexOf(STATE.theme);
+    STATE.theme = order[(idx + 1) % order.length];
+    clearCustomThemeOverrides();
+    document.documentElement.setAttribute('data-theme', STATE.theme);
+    saveProgress();
+    if(STATE.route.view === 'themes') renderThemes();
+    showToast('Theme: ' + STATE.theme.charAt(0).toUpperCase() + STATE.theme.slice(1));
   });
   document.getElementById('langToggle').addEventListener('click', ()=>{
     STATE.language = STATE.language === 'hi' ? 'en' : 'hi';
@@ -3124,12 +3205,20 @@ function initEvents(){
       STATE.notesMotionPaused = null;
       STATE.resourcesOpened = {};
       doubtHistory = [];
-      try{ localStorage.removeItem(DOUBT_HISTORY_KEY); }catch(e){}
+      try{ localStorage.removeItem(DOUBT_HISTORY_KEY); localStorage.removeItem('atelier_fp_width'); }catch(e){}
+      const dm = document.getElementById('doubtMessages');
+      if(dm) dm.innerHTML = '<div class="doubt-msg doubt-msg-bot">Hi! I\u2019m Atelier Mentor, your learning assistant for Atelier Art Course. Ask about drawing, art fundamentals, tools, or any course lesson. I use prepared course knowledge and lesson material, not a generative AI model. For clear general factual questions, I may search public Wikipedia; your question text is sent there. Do not include private information.</div>';
       STATE.streak = 0;
       STATE.lastVisitDate = null;
       STATE.activityLog = {};
       STATE.unlockedAchievements = new Set();
-      saveProgress();
+      STATE.theme = 'dark';
+      STATE.customBgUrl = '';
+      STATE.fontScale = 1;
+      STATE.language = 'en';
+      clearCustomThemeOverrides();
+      document.documentElement.setAttribute('data-theme', 'dark');
+      persistNow();
       navigateHome();
       showToast('Progress reset.');
     }
@@ -3151,22 +3240,26 @@ function initEvents(){
 
   initFloatingPlayerDrag();
 
-  const scrollTopBtn = document.getElementById('scrollTop');
-  window.addEventListener('scroll', ()=>{ scrollTopBtn.classList.toggle('show', window.scrollY > 500); });
-  scrollTopBtn.addEventListener('click', ()=>window.scrollTo({top:0, behavior:'smooth'}));
-  scrollTopBtn.addEventListener('keydown', (e)=>{
-    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); window.scrollTo({top:0, behavior:'smooth'}); }
-  });
-
-  const doubtFabEl = document.getElementById('doubtFab');
-  if(doubtFabEl){
-    doubtFabEl.addEventListener('keydown', (e)=>{
-      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggleDoubtPanel(true); }
+  const doubtClearBtn = document.getElementById('doubtClearBtn');
+  if(doubtClearBtn){
+    doubtClearBtn.addEventListener('click', ()=>{
+      doubtHistory = [];
+      try{ localStorage.removeItem(DOUBT_HISTORY_KEY); }catch(e){}
+      const dm = document.getElementById('doubtMessages');
+      if(dm) dm.innerHTML = '<div class="doubt-msg doubt-msg-bot">Chat cleared. Ask anything about drawing, tools, or any Atelier lesson!</div>';
     });
   }
 
+  const scrollTopBtn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', ()=>{ scrollTopBtn.classList.toggle('show', window.scrollY > 500); }, {passive: true});
+  scrollTopBtn.addEventListener('click', ()=>window.scrollTo({top:0, behavior:'smooth'}));
+
   document.addEventListener('keydown', (e)=>{
     if(e.key === 'Escape'){ closeMobileSidebar(); closeMobileSearch(); if(doubtOpen) toggleDoubtPanel(false); }
+    if((e.key === '/' || ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k')) && !e.target.matches('input, textarea, select')){
+      const si = document.getElementById('searchInput');
+      if(si){ e.preventDefault(); si.focus(); }
+    }
   });
 }
 

@@ -45,8 +45,8 @@ const TRANSLATIONS_HI = {
       {
         "q": "Apni pehli drawings ko kisi professional ke current kaam se compare karna, goals set karne ka achha tarika hai.",
         "options": [
-          "True",
-          "False"
+          "Sahi",
+          "Galat"
         ],
         "correct": 1,
         "explain": "Isse tum apna month one, unka year ten se compare kar rahe ho. Uske month one se compare karo."
@@ -117,8 +117,8 @@ const TRANSLATIONS_HI = {
       {
         "q": "Warm-up drills apne best sketchbook paper pe karne chahiye.",
         "options": [
-          "True",
-          "False"
+          "Sahi",
+          "Galat"
         ],
         "correct": 1,
         "explain": "Achha paper bachana matlab hesitant marks banana. Cheap paper jaanbujh kar warm-ups ke liye sahi hai."
@@ -187,8 +187,8 @@ const TRANSLATIONS_HI = {
       {
         "q": "Genuinely relaxed grip zyada tar beginners ki expectation se looser feel honi chahiye.",
         "options": [
-          "True",
-          "False"
+          "Sahi",
+          "Galat"
         ],
         "correct": 0,
         "explain": "Agar koi gently pencil tumhare haath se slide kar sake, to ye almost sahi hai."
@@ -259,8 +259,8 @@ const TRANSLATIONS_HI = {
       {
         "q": "Ellipse draw karte waqt, usse ek slow, careful pass mein perfect karna chahiye.",
         "options": [
-          "True",
-          "False"
+          "Sahi",
+          "Galat"
         ],
         "correct": 1,
         "explain": "Do-teen baar draw-through karna wo smoothness deta hai jo ek slow pass nahi de sakta."
@@ -331,8 +331,8 @@ const TRANSLATIONS_HI = {
       {
         "q": "Blind contour drawing ka goal ek polished, accurate final image banana hota hai.",
         "options": [
-          "True",
-          "False"
+          "Sahi",
+          "Galat"
         ],
         "correct": 1,
         "explain": "Ye eye-hand connection ke liye ek training drill hai — messy results expected aur theek hain."
@@ -402,8 +402,8 @@ const TRANSLATIONS_HI = {
       {
         "q": "Silhouette readability sirf cartoon ya simplified art styles ke liye matter karti hai.",
         "options": [
-          "True",
-          "False"
+          "Sahi",
+          "Galat"
         ],
         "correct": 1,
         "explain": "Realistic work bhi isi pe utna hi rely karta hai; realism bas is step ko final rendering mein achhe se hide karta hai."
@@ -473,8 +473,8 @@ const TRANSLATIONS_HI = {
       {
         "q": "Cross-contour lines bina kisi shading ke bhi form ki rotation aur volume dikha sakti hain.",
         "options": [
-          "True",
-          "False"
+          "Sahi",
+          "Galat"
         ],
         "correct": 0,
         "explain": "Ye globe pe latitude lines jaisi kaam karti hain — volume sirf structure se hi readable ho jaata hai."
@@ -546,8 +546,8 @@ const TRANSLATIONS_HI = {
       {
         "q": "One-point perspective mein horizon pe do vanishing points hote hain.",
         "options": [
-          "True",
-          "False"
+          "Sahi",
+          "Galat"
         ],
         "correct": 1,
         "explain": "One-point perspective mein sirf ek vanishing point hota hai; two-point mein do hote hain."
@@ -616,8 +616,8 @@ const TRANSLATIONS_HI = {
       {
         "q": "Short 30-second gesture drawings ka rough aur unfinished dikhna expected hai.",
         "options": [
-          "True",
-          "False"
+          "Sahi",
+          "Galat"
         ],
         "correct": 0,
         "explain": "Wahi roughness poora point hai — ye drill tumhe pose ki energy fast dhoondhna sikhati hai, polished result banana nahi."
@@ -687,8 +687,8 @@ const TRANSLATIONS_HI = {
       {
         "q": "Construction lines ko banate hi turant erase kar dena chahiye.",
         "options": [
-          "True",
-          "False"
+          "Sahi",
+          "Galat"
         ],
         "correct": 1,
         "explain": "Ye poori drawing mein use hone wala ek running diagnostic tool hai, turant chhupaane wali scaffolding nahi."
@@ -758,8 +758,8 @@ const TRANSLATIONS_HI = {
       {
         "q": "Form ke shadow side ko usually pure black hona chahiye, bina kisi reflected light ke.",
         "options": [
-          "True",
-          "False"
+          "Sahi",
+          "Galat"
         ],
         "correct": 1,
         "explain": "Shadowed areas mein usually faint reflected light aati hai nearby surfaces se, sivaye occlusion points ke."
@@ -829,8 +829,8 @@ const TRANSLATIONS_HI = {
       {
         "q": "Bade light, mid, aur dark value masses establish karne se pehle fine detail add karna best hai.",
         "options": [
-          "True",
-          "False"
+          "Sahi",
+          "Galat"
         ],
         "correct": 1,
         "explain": "Value structure pehle settle honi chahiye — bahut jaldi add ki gayi detail baad mein structural value errors se undermine ho jaati hai."
@@ -899,8 +899,8 @@ const TRANSLATIONS_HI = {
       {
         "q": "Texture detail scene mein object ki distance ki parwaah kiye bina same rehni chahiye.",
         "options": [
-          "True",
-          "False"
+          "Sahi",
+          "Galat"
         ],
         "correct": 1,
         "explain": "Texture density aur contrast distance ke saath decrease honi chahiye, matching karte hue ki aankh real surfaces ko kaise perceive karti hai."
@@ -970,8 +970,8 @@ const TRANSLATIONS_HI = {
       {
         "q": "Rule of thirds aur golden ratio strict laws hain jo hamesha follow karni chahiye.",
         "options": [
-          "True",
-          "False"
+          "Sahi",
+          "Galat"
         ],
         "correct": 1,
         "explain": "Ye placement guides hain jo default se subject ko dead-center karne se bachane ke liye hain, fixed rules nahi."
@@ -1689,7 +1689,7 @@ const TRANSLATIONS_HI = {
       {
         "q": "Mouth ke saath, eyebrows ko is module mein kya describe kiya gaya hai?",
         "options": [
-          "Sabse least expressive facial feature",
+          "Sabse kam expressive facial feature",
           "Legible facial expression ke do sabse bade drivers mein se ek",
           "Expression se irrelevant",
           "Sirf cartoon styles mein relevant"
@@ -3688,7 +3688,7 @@ const TRANSLATIONS_HI = {
       {
         "q": "Foreground aur background terrain layers ke beech value contrast ko kaise manage karna chahiye?",
         "options": [
-          "Background layers ka black-and-white contrast sabse highest hona chahiye",
+          "Background layers ka black-and-white contrast sabse zyada hona chahiye",
           "Foreground terrain ka high value contrast aur crisp edges hona chahiye, jabki background layers ka reduced contrast aur lighter values ho atmospheric perspective ki wajah se",
           "Consistency ensure karne ke liye sabhi layers ka identical value range hona chahiye",
           "Contrast sirf man-made objects pe apply hona chahiye"
@@ -4499,7 +4499,7 @@ const TRANSLATIONS_HI = {
     "nextStep": "Ek full street ek shared perspective system pe built hone ke baad, agla module camera ko upar aur peeche kheenchta hai — aerial views mein, jahan wahi street three-point perspective use karke upar se dekhi jaati hai."
   },
   "m64": {
-    "hook": "Camera ko street se upar khींcho aur sab kuch badal jaata hai: horizon ke neeche ek teesra vanishing point appear hota hai, verticals downward converge karna shuru karte hain, aur poora city rooftops aur foreshortened figures ka ek pattern ban jaata hai.",
+    "hook": "Camera ko street se upar kheencho aur sab kuch badal jaata hai: horizon ke neeche ek teesra vanishing point appear hota hai, verticals downward converge karna shuru karte hain, aur poora city rooftops aur foreshortened figures ka ek pattern ban jaata hai.",
     "whyItMatters": [
       "Beginners jo one- aur two-point perspective mein comfortable hain, often us moment freeze ho jaate hain jab ek scene upar ya neeche se viewed ho, kyunki verticals ke liye ek teesra vanishing point ek poori tarah nayi system jaisa feel hota hai.",
       "Ye module Module 56 wale box-aur-perspective construction ko ek teesre vanishing point se extend karta hai, isliye Module 63 mein build ki gayi wahi street ab convincingly ek rooftop, ek drone, ya ek tall window se draw ki ja sakti hai."
@@ -4654,7 +4654,7 @@ const TRANSLATIONS_HI = {
       "<b>Professional order</b> mein kaam karo: pehle perspective grid aur horizon block karo, phir large masses (buildings, tree canopies, terrain), phir construction detail (windows, branching, materials), phir wear, aur light aur atmosphere sabse last.",
       "<b>Ek light source poori scene ko govern karta hai</b> — wahi sun position jo ek building ka shadow cast karti hai, use ye bhi explain karna chahiye ki light ek tree ki canopy ke through aur street ki surface ke across kaise girti hai.",
       "<b>Nature aur architecture same depth cues share karte hain</b>: ek street ke end mein ek tree, uske around ki buildings wale hi atmospheric fading aur linear convergence obey karta hai, koi separate set of rules nahi.",
-      "Ek finished scene <b>choices ka ek record hai, tumhe jo kuch bhi aata hai uska accumulation nahi</b> — sabse strongest capstone pieces ek clear viewpoint, ek clear light, aur detail aur wear ke ek ya do focal points choose karte hain, arc ki har skill ko ek saath maximize karne ke bajaye."
+      "Ek finished scene <b>choices ka ek record hai, tumhe jo kuch bhi aata hai uska accumulation nahi</b> — sabse strong capstone pieces ek clear viewpoint, ek clear light, aur detail aur wear ke ek ya do focal points choose karte hain, arc ki har skill ko ek saath maximize karne ke bajaye."
     ],
     "mistakes": [
       "Architecture aur natural elements ko aise build karna jaise wo do separate drawings hon jo saath mein paste ki gayi hon, alag perspective systems ya light directions ke saath.",
@@ -4698,7 +4698,7 @@ const TRANSLATIONS_HI = {
         "explain": "Ek light source poori scene ko govern karta hai — agar ek building ke shadows tree canopy wali lighting se alag sun position imply karein, to scene paste kiya hua lagta hai, ek coherent moment ki jagah."
       },
       {
-        "q": "Is module ke hisaab se, sabse strongest capstone compositions ko weaker wali se kya distinguish karta hai?",
+        "q": "Is module ke hisaab se, sabse strong capstone compositions ko weaker wali se kya distinguish karta hai?",
         "options": [
           "Scene mein everywhere arc ki har skill ko full intensity pe maximize karna",
           "Ek clear viewpoint, ek light source, aur detail aur wear ke ek ya do focal points choose karna",
@@ -7552,10 +7552,10 @@ const TRANSLATIONS_HI = {
       }
     ],
     "checklist": [
-      "Main samjha sakta hoon ki subsurface scattering kya hota hai aur skin par yeh sabse zyada kahan dikhta hai.",
-      "Main light se shadow ke transition par subsurface scattering simulate karne ke liye warm terminator glaze add kar sakta hoon.",
-      "Realistic result ke liye main shadow saturation ko mid-tone saturation se zyada muted rakh sakta hoon (ya stylized look ke liye jaan-boojhkar is rule ko tod sakta hoon).",
-      "Figure ko uske environment se jodne ke liye main paas ki surface se bounce light lekar uske shadow areas mein add kar sakta hoon."
+      "Main samjha sakta/sakti hoon ki subsurface scattering kya hota hai aur skin par yeh sabse zyada kahan dikhta hai.",
+      "Main light se shadow ke transition par subsurface scattering simulate karne ke liye warm terminator glaze add kar sakta/sakti hoon.",
+      "Realistic result ke liye main shadow saturation ko mid-tone saturation se zyada muted rakh sakta/sakti hoon (ya stylized look ke liye jaan-boojhkar is rule ko tod sakta/sakti hoon).",
+      "Figure ko uske environment se jodne ke liye main paas ki surface se bounce light lekar uske shadow areas mein add kar sakta/sakti hoon."
     ],
     "nextStep": "Ab tum samajhte ho ki ek specific material (skin), Module 97 ke generic shadow logic ko kaise badalta hai. Module 99 mein isi logic ko badalne wale approach ko hard surfaces — metal, glass aur stone — par apply karoge, jo organic materials se bilkul alag tarah behave karte hain."
   },
@@ -7648,10 +7648,10 @@ const TRANSLATIONS_HI = {
       }
     ],
     "checklist": [
-      "Main hard-surface render mein environment ke colors (aasman, zameen, paas ki cheezein) reflect kar sakta hoon.",
-      "Reflective surface par main value contrast ko apni pehli comfort level se aage push kar sakta hoon.",
-      "Main soft, dheere-dheere banaye gaye highlight ke bajay confident, narrow aur hard-edged highlight paint kar sakta hoon.",
-      "Main believable wajah wale wear marks add kar sakta hoon, jinmein light-and-dark paired edge ho."
+      "Main hard-surface render mein environment ke colors (aasman, zameen, paas ki cheezein) reflect kar sakta/sakti hoon.",
+      "Reflective surface par main value contrast ko apni pehli comfort level se aage push kar sakta/sakti hoon.",
+      "Main soft, dheere-dheere banaye gaye highlight ke bajay confident, narrow aur hard-edged highlight paint kar sakta/sakti hoon.",
+      "Main believable wajah wale wear marks add kar sakta/sakti hoon, jinmein light-and-dark paired edge ho."
     ],
     "nextStep": "Ab tumhare paas organic surfaces (skin) aur hard-reflective surfaces (metal, glass) dono ke liye material-rendering approaches hain. Module 100 mein edge control par kaam hoga — poore piece mein hard aur soft edges ka jaan-boojhkar use, jisse focus direct hota hai aur form samajh aati hai. Yeh skill tumhare ab tak render kiye har material par kaam aati hai."
   },
@@ -8320,10 +8320,10 @@ const TRANSLATIONS_HI = {
       }
     ],
     "checklist": [
-      "Main Curves adjustment mein midpoint add kar sakta hoon aur samajhta hoon ki yeh Levels se kaise alag hai.",
-      "Main flat image mein contrast badhane ke liye simple S-curve bana sakta hoon.",
-      "Main color cast theek karne ke liye white/black/gray point eyedroppers use kar sakta hoon.",
-      "Main complete color grade banane ke liye kai adjustment layers stack kar sakta hoon."
+      "Main Curves adjustment mein midpoint add kar sakta/sakti hoon aur samajhta/samajhti hoon ki yeh Levels se kaise alag hai.",
+      "Main flat image mein contrast badhane ke liye simple S-curve bana sakta/sakti hoon.",
+      "Main color cast theek karne ke liye white/black/gray point eyedroppers use kar sakta/sakti hoon.",
+      "Main complete color grade banane ke liye kai adjustment layers stack kar sakta/sakti hoon."
     ],
     "nextStep": "Ab tumhare paas non-destructive adjustment layers par bana ek practical color-grading toolkit hai. Module 107 mein hum photobashing dekhenge — real photographic elements ko milaakar ek cohesive concept art ya illustration banana. Yeh technique isi module mein seekhe color aur tone matching skills par kaafi depend karti hai."
   },
@@ -8416,10 +8416,10 @@ const TRANSLATIONS_HI = {
       }
     ],
     "checklist": [
-      "Main photobashing aur simple photo editing ke beech ka farq samjha sakta hoon.",
-      "Main baad ka integration work kam karne ke liye saaf, achhi lighting wali aur aasani se cut out hone wali photos chun sakta hoon.",
-      "Main photographic element ki lighting aur color adjust karke use painted ya photographic scene ke saath blend kar sakta hoon.",
-      "Main photobashing ke liye free aur legitimate photo sources aur software use kar sakta hoon."
+      "Main photobashing aur simple photo editing ke beech ka farq samjha sakta/sakti hoon.",
+      "Main baad ka integration work kam karne ke liye saaf, achhi lighting wali aur aasani se cut out hone wali photos chun sakta/sakti hoon.",
+      "Main photographic element ki lighting aur color adjust karke use painted ya photographic scene ke saath blend kar sakta/sakti hoon.",
+      "Main photobashing ke liye free aur legitimate photo sources aur software use kar sakta/sakti hoon."
     ],
     "nextStep": "Ab tum real photographic elements ko milaakar ek cohesive artwork bana sakte ho. Module 108 mein hum isse ek kadam aage 3D-assisted art dekhenge — free 3D software se blockouts, lighting studies aur reference geometry banana, jin par baad mein paint kiya ja sake. Concept work mein speed aur accuracy badhane ka yeh ek aur bada tool hai."
   },
@@ -8512,10 +8512,10 @@ const TRANSLATIONS_HI = {
       }
     ],
     "checklist": [
-      "Main rough, messy 3D blockout bana sakta hoon jismein focus sirf perspective aur proportion par ho, detail par nahi.",
-      "Main pehchaan sakta hoon ki koi subject (hard-surface ya organic) 3D assistance ke liye sahi hai ya nahi.",
-      "Main strict one-way pipeline follow karne ke bajaye 2D aur 3D stages ke beech flexibility se aa-ja sakta hoon.",
-      "Main 3D render ko deliberate texture aur imperfection ke saath paint over kar sakta hoon, taaki woh sterile na lage."
+      "Main rough, messy 3D blockout bana sakta/sakti hoon jismein focus sirf perspective aur proportion par ho, detail par nahi.",
+      "Main pehchaan sakta/sakti hoon ki koi subject (hard-surface ya organic) 3D assistance ke liye sahi hai ya nahi.",
+      "Main strict one-way pipeline follow karne ke bajaye 2D aur 3D stages ke beech flexibility se aa-ja sakta/sakti hoon.",
+      "Main 3D render ko deliberate texture aur imperfection ke saath paint over kar sakta/sakti hoon, taaki woh sterile na lage."
     ],
     "nextStep": "Ab tumhare toolkit mein ek asli 3D-to-2D workflow hai. Module 109 ek naye aur abhi bhi bahas ka vishay bane hue tool ki taraf badhta hai—AI-assisted workflows. Ismein dekhenge ki kaam karne wale artist ke liye responsible aur disclosed use asal mein kaisa dikhta hai."
   },
@@ -8608,10 +8608,10 @@ const TRANSLATIONS_HI = {
       }
     ],
     "checklist": [
-      "Main training-data consent ki central behas ko artist aur AI company—dono nazariyon se samjha sakta hoon, bina ise suljha hua maane.",
-      "Main bata sakta hoon ki current U.S. guidance mein copyright mil sakne wale AI-assisted work aur copyright na milne wale purely AI-generated work mein aam taur par kya farq hota hai.",
-      "Main pehchaan sakta hoon ki clients/audience ko AI use disclose karna optional extra nahi, balki basic professional practice hai.",
-      "Main un do practices ke naam bata sakta hoon jin par sabse lagataar sanjeeda concern uthta hai: living artist ki style copy karna aur AI work ko hand-made batana."
+      "Main training-data consent ki central behas ko artist aur AI company—dono nazariyon se samjha sakta/sakti hoon, bina ise suljha hua maane.",
+      "Main bata sakta/sakti hoon ki current U.S. guidance mein copyright mil sakne wale AI-assisted work aur copyright na milne wale purely AI-generated work mein aam taur par kya farq hota hai.",
+      "Main pehchaan sakta/sakti hoon ki clients/audience ko AI use disclose karna optional extra nahi, balki basic professional practice hai.",
+      "Main un do practices ke naam bata sakta/sakti hoon jin par sabse lagataar sanjeeda concern uthta hai: living artist ki style copy karna aur AI work ko hand-made batana."
     ],
     "nextStep": "Ab tumhare paas sach mein vivaadit maamle ko samajhne ke liye ek grounded, practical framework hai—koi bina jaanche maan li hui ek hi rai nahi. Module 110 speed painting ki taraf badhta hai: real time constraints ke andar mazboot kaam jaldi banane ki ek purely technical skill, jo is arc ke poore toolkit par aage kaam karti hai."
   },
@@ -9280,10 +9280,10 @@ const TRANSLATIONS_HI = {
       }
     ],
     "checklist": [
-      "Main comic page ka reading path trace kar sakta hoon aur samjha sakta hoon ki nazar ko kya guide karta hai.",
-      "Main gutter size aur overlaps se panels ko jaan-bujhkar group ya separate kar sakta hoon.",
-      "Main page ki pacing control karne ke liye panel size aur count use kar sakta hoon.",
-      "Main page ka thumbnail bana sakta hoon aur word balloons ko sahi order mein rakh sakta hoon."
+      "Main comic page ka reading path trace kar sakta/sakti hoon aur samjha sakta/sakti hoon ki nazar ko kya guide karta hai.",
+      "Main gutter size aur overlaps se panels ko jaan-bujhkar group ya separate kar sakta/sakti hoon.",
+      "Main page ki pacing control karne ke liye panel size aur count use kar sakta/sakti hoon.",
+      "Main page ka thumbnail bana sakta/sakti hoon aur word balloons ko sahi order mein rakh sakta/sakti hoon."
     ],
     "nextStep": "Ab tum page ko aise layout kar sakte ho ki woh sahi order aur sahi speed se padhe. Module 117 comics ko kai pages tak kaamyaab banane ke doosre pehlu par jaata hai: characters ko consistent rakhna aur lettering ko clear banana."
   },
@@ -9376,10 +9376,10 @@ const TRANSLATIONS_HI = {
       }
     ],
     "checklist": [
-      "Main matching guidelines, expression sheet aur color palette ke saath character ka turnaround bana sakta hoon.",
-      "Main nayi drawing ko model sheet se compare karke bata sakta hoon ki kya badal gaya.",
-      "Main balloon tails ko muh ki taraf point kar sakta hoon aur double dash, ellipsis aur crossbar I sahi use kar sakta hoon.",
-      "Main balloons, sound effects aur art ke beech ke tangents pehchaan kar theek kar sakta hoon."
+      "Main matching guidelines, expression sheet aur color palette ke saath character ka turnaround bana sakta/sakti hoon.",
+      "Main nayi drawing ko model sheet se compare karke bata sakta/sakti hoon ki kya badal gaya.",
+      "Main balloon tails ko muh ki taraf point kar sakta/sakti hoon aur double dash, ellipsis aur crossbar I sahi use kar sakta/sakti hoon.",
+      "Main balloons, sound effects aur art ke beech ke tangents pehchaan kar theek kar sakta/sakti hoon."
     ],
     "nextStep": "Ab tum characters ko on model rakh sakte ho aur page ko clean lettering de sakte ho. Module 118 Western comics se manga ki taraf jaata hai, jahan reading direction, screentones aur storytelling conventions alag hain."
   },
@@ -9472,10 +9472,10 @@ const TRANSLATIONS_HI = {
       }
     ],
     "checklist": [
-      "Main page ko right-to-left order mein padh aur compose kar sakta hoon.",
-      "Main script, storyboard, pencils, inks, fills aur final touches ko sahi order mein kar sakta hoon.",
-      "Main pacing control karne ke liye panel sizes aur shot distances mein variety la sakta hoon.",
-      "Main finish ke hissa ke taur par speed lines, screentone aur white correction use kar sakta hoon."
+      "Main page ko right-to-left order mein padh aur compose kar sakta/sakti hoon.",
+      "Main script, storyboard, pencils, inks, fills aur final touches ko sahi order mein kar sakta/sakti hoon.",
+      "Main pacing control karne ke liye panel sizes aur shot distances mein variety la sakta/sakti hoon.",
+      "Main finish ke hissa ke taur par speed lines, screentone aur white correction use kar sakta/sakti hoon."
     ],
     "nextStep": "Ab tum manga ki reading direction, workflow aur visual shorthand jaante ho. Module 119 mein webtoons par jaoge, jahan page vertical scroll ban jaata hai aur layout ke rules phir badal jaate hain."
   },
@@ -9568,10 +9568,10 @@ const TRANSLATIONS_HI = {
       }
     ],
     "checklist": [
-      "Main samjha sakta hoon ki webtoon ki pacing page layout ke bajay panel placement aur spacing se kyun banti hai.",
-      "Main panel ke rules of thumb use kar sakta hoon: ek screen par lagbhag two panels, har panel mein lagbhag three dialogue balloons, aur panels ke beech khuli spacing.",
-      "Main vertical episode ke liye layout, composition, expressions aur dialogue ka storyboard bana sakta hoon.",
-      "Main pause, climax ya detail jaise kaam ke hisaab se panel type chun sakta hoon."
+      "Main samjha sakta/sakti hoon ki webtoon ki pacing page layout ke bajay panel placement aur spacing se kyun banti hai.",
+      "Main panel ke rules of thumb use kar sakta/sakti hoon: ek screen par lagbhag two panels, har panel mein lagbhag three dialogue balloons, aur panels ke beech khuli spacing.",
+      "Main vertical episode ke liye layout, composition, expressions aur dialogue ka storyboard bana sakta/sakti hoon.",
+      "Main pause, climax ya detail jaise kaam ke hisaab se panel type chun sakta/sakti hoon."
     ],
     "nextStep": "Ab tum page, manga aur vertical-scroll formats ke liye comics plan kar sakte ho. Module 120 mein visual development ki taraf lautoge: production shuru hone se pehle characters, environments aur mood ka look design karna."
   },

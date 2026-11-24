@@ -989,7 +989,7 @@ const CURRICULUM_1 = [
           "I have completed at least one full timed gesture session of 20 minutes or more, using varied durations.",
           "I can explain why a technically accurate but ungestured figure often reads as lifeless."
         ],
-        "nextStep": "Construction Method — the professional workflow for building any complex object out of the primitive forms from Module 7."
+        "nextStep": "Construction Method — the professional workflow for building any complex object out of the primitive forms from Module 10."
       },
       {
         "id": "m10",
@@ -1002,7 +1002,7 @@ const CURRICULUM_1 = [
           "m7",
           "m9"
         ],
-        "hook": "The professional workflow for building any object — simple or absurdly complex — out of nothing but the primitive forms from Module 7.",
+        "hook": "The professional workflow for building any object — simple or absurdly complex — out of nothing but the primitive forms from Module 10.",
         "whyItMatters": [
           "This module is the synthesis point for everything so far: shapes, forms, perspective, and even the loose energy of gesture all combine here into a single repeatable process professionals use on literally anything, from a doorknob to a dragon. Once this workflow is internalized, \"how do I draw X\" stops being a question with a memorized answer and becomes a question you can always work out yourself.",
           "This is also the direct bridge into every subject-specific arc later in this roadmap — heads, hands, animals, vehicles, environments. All of them are taught as applications of this same construction process, not as separate memorized skills."

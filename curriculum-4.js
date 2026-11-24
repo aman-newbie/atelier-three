@@ -1342,7 +1342,7 @@ const CURRICULUM_4 = [
           "I can explain why a more reflective material shows more value contrast than a matte one under the same light.",
           "I can deliberately place the strongest value contrast at my intended focal point."
         ],
-        "nextStep": "You can now plan and control value independent of color. Module 97 moves into lighting specifically for rendering — form shadow, cast shadow, core shadow, and occlusion, the physical logic behind the value relationships you've been studying here."
+        "nextStep": "You can now plan and control value independent of color. Module 93 moves into lighting specifically for rendering — form shadow, cast shadow, core shadow, and occlusion, the physical logic behind the value relationships you've been studying here."
       },
       {
         "id": "m93",
@@ -1481,8 +1481,8 @@ const CURRICULUM_4 = [
         ],
         "hook": "Skin isn't just a colored surface — light actually enters it, bounces around beneath the surface, and comes back out somewhere else, which is exactly why flat, single-tone skin always looks like plastic no matter how carefully it's shaded.",
         "whyItMatters": [
-          "Module 97 gave you the universal shadow logic for any form. This module is the first of several that show how a specific material modifies that generic logic — skin is one of the most common and most demanding surfaces you'll render, since human eyes are extremely sensitive to anything that looks slightly wrong about a face.",
-          "Subsurface scattering, the core skin-specific effect covered here, is genuinely different from anything in Module 97: it's not a shadow type at all, but a property of the material itself letting light penetrate and re-emerge, which is why skin needs its own dedicated rendering approach rather than just generic shadow logic."
+          "Module 93 gave you the universal shadow logic for any form. This module is the first of several that show how a specific material modifies that generic logic — skin is one of the most common and most demanding surfaces you'll render, since human eyes are extremely sensitive to anything that looks slightly wrong about a face.",
+          "Subsurface scattering, the core skin-specific effect covered here, is genuinely different from anything in Module 93: it's not a shadow type at all, but a property of the material itself letting light penetrate and re-emerge, which is why skin needs its own dedicated rendering approach rather than just generic shadow logic."
         ],
         "coreIdea": [
           "Subsurface scattering is light entering skin, bouncing around beneath the surface, and exiting nearby, rather than reflecting straight off the surface like a hard material would. This is why thin areas like ears, nostrils, and fingertips often show a warm reddish glow when strongly backlit — light is passing partway through them.",
@@ -1592,7 +1592,7 @@ const CURRICULUM_4 = [
           "I can keep shadow saturation more muted than mid-tone saturation for a realistic result (or deliberately break this for a stylized look).",
           "I can add bounce light from a nearby surface into a figure's shadow areas to integrate it with its environment."
         ],
-        "nextStep": "You now understand how one specific material (skin) modifies the generic shadow logic from Module 97. Module 99 applies the same modify-the-logic approach to hard surfaces — metal, glass, and stone — which behave very differently from organic material."
+        "nextStep": "You now understand how one specific material (skin) modifies the generic shadow logic from Module 93. Module 95 applies the same modify-the-logic approach to hard surfaces — metal, glass, and stone — which behave very differently from organic material."
       },
       {
         "id": "m95",
@@ -1606,7 +1606,7 @@ const CURRICULUM_4 = [
         ],
         "hook": "Metal doesn't have a color of its own — a polished sword isn't really silver-gray, it's a distorted mirror showing you the sky, the ground, and everything else in the scene, which is exactly why painting it from imagination alone is so hard.",
         "whyItMatters": [
-          "Module 98 showed how one material (skin) modifies the generic shadow logic from Module 97. This module applies that same modify-the-logic approach to the opposite extreme: hard, reflective surfaces that behave almost nothing like organic materials, completing your range across the two most common material categories in illustration.",
+          "Module 98 showed how one material (skin) modifies the generic shadow logic from Module 93. This module applies that same modify-the-logic approach to the opposite extreme: hard, reflective surfaces that behave almost nothing like organic materials, completing your range across the two most common material categories in illustration.",
           "Metal, glass, and stone appear constantly in character and environment art — armor, weapons, windows, architecture — and getting them wrong (usually by under-committing to contrast) is one of the fastest ways a rendered piece reads as amateurish, even when everything else in the piece is strong."
         ],
         "coreIdea": [
@@ -1740,7 +1740,7 @@ const CURRICULUM_4 = [
         ],
         "hook": "A painting where every single edge is perfectly sharp is, paradoxically, one of the fastest ways to make it feel amateurish — real depth comes from knowing exactly which edges to let go of.",
         "whyItMatters": [
-          "You've now rendered skin (Module 98) and hard surfaces (Module 99), each with their own edge qualities. Edge control is the skill that governs how those edges behave across an entire piece, deciding not just what a surface looks like up close, but where the viewer's eye actually travels.",
+          "You've now rendered skin (Module 98) and hard surfaces (Module 95), each with their own edge qualities. Edge control is the skill that governs how those edges behave across an entire piece, deciding not just what a surface looks like up close, but where the viewer's eye actually travels.",
           "Working painters describe edge control as a foundational skill, not a finishing touch — it determines how light wraps around form, how space reads as deep or flat, and how confidently the eye moves through a composition, tying directly back to the focal-point work from Module 79."
         ],
         "coreIdea": [
@@ -1997,7 +1997,7 @@ const CURRICULUM_4 = [
           "A subtle noise or grain layer added near the end of a piece breaks up overly smooth digital gradients, which otherwise read as artificial or plastic — this is a fast, software-native technique (a noise filter) rather than something that needs to be hand-painted.",
           "Different fabric types call for genuinely different rendering approaches: smooth, slippery fabrics (silk, satin) are rendered mostly through soft blended value shifts with almost no separate texture pass, while rough, textured fabrics (denim, tweed) benefit from a textured brush and more visible, broken brushwork.",
           "Overlapping texture (also called photobashing for this purpose) — placing a desaturated, contrast-adjusted photo of a real texture on top of already-rendered form, then adjusting blend mode and opacity — is a legitimate, efficient technique for highly detailed textures like lace, chainmail, or close-up fabric weave, not a shortcut to be ashamed of.",
-          "Texture should follow the same wear-with-a-cause logic established for hard-surface scratches in Module 99: applied sparingly, concentrated where physical contact or stress would logically occur, rather than scattered evenly across a whole surface."
+          "Texture should follow the same wear-with-a-cause logic established for hard-surface scratches in Module 95: applied sparingly, concentrated where physical contact or stress would logically occur, rather than scattered evenly across a whole surface."
         ],
         "mistakes": [
           "Adding heavy texture uniformly across an entire piece regardless of material, when smooth or slippery materials should stay relatively textureless and let value do the work instead.",
@@ -2010,7 +2010,7 @@ const CURRICULUM_4 = [
           "Save a subtle noise/grain pass for near the very end of a piece, after color and value are otherwise finished, as a fast way to unify smooth digital gradients into something more textured and alive.",
           "Match your rendering approach to the fabric: minimal separate texture work for smooth/slippery materials, visible textured brushwork for rough/stiff materials, and overlapping texture (photo reference) for extremely fine, detailed patterns like lace or chainmail.",
           "When using a photo texture, always adjust its contrast and desaturate it first, then experiment with blend modes (Multiply for light fabrics, Lighten or Screen for dark ones) rather than pasting it in at full opacity and Normal blend mode.",
-          "Concentrate texture and wear detail at logical contact points (where a bag is gripped, where fabric stretches over a joint) rather than spreading it evenly, using the same wear-with-a-cause logic from Module 99's scratches."
+          "Concentrate texture and wear detail at logical contact points (where a bag is gripped, where fabric stretches over a joint) rather than spreading it evenly, using the same wear-with-a-cause logic from Module 95's scratches."
         ],
         "practice": {
           "warmup": "Render three small identical shapes as three different fabric types (silk, denim, lace) using the appropriate technique for each: soft blending, textured brushwork, and overlapping photo texture.",
@@ -2087,7 +2087,7 @@ const CURRICULUM_4 = [
             "q": "According to the module, how should texture and wear detail generally be distributed across a surface?",
             "options": [
               "Spread perfectly evenly across the entire surface",
-              "Concentrated at logical contact points or stress areas, following the same wear-with-a-cause logic as Module 99's scratches",
+              "Concentrated at logical contact points or stress areas, following the same wear-with-a-cause logic as Module 95's scratches",
               "Applied randomly with no consideration of cause",
               "Texture should never be applied selectively"
             ],
@@ -2264,7 +2264,7 @@ const CURRICULUM_4 = [
           "Treating the finished piece as the end of the process instead of using it to honestly identify which of the nine arc skills is currently weakest."
         ],
         "proTips": [
-          "Write your light direction down before shading begins, and physically check it against every shadow and highlight you place, the same discipline from Module 97.",
+          "Write your light direction down before shading begins, and physically check it against every shadow and highlight you place, the same discipline from Module 93.",
           "Limit your palette of materials in the piece (skin, one hard surface, one fabric) so you can apply each one's specific rendering logic with real care rather than rushing several materials shallowly.",
           "After finishing, go back through Modules 95–99 one at a time and honestly check your piece against each one's checklist — this turns the capstone into a genuine diagnostic, not just a finished picture.",
           "Get outside feedback if you can (a critique community, a paint-over channel, a friend) — you lose the ability to see your own piece's problems clearly after staring at it for hours."
@@ -2308,7 +2308,7 @@ const CURRICULUM_4 = [
             "explain": "The capstone has no new theory; it asks you to combine color, value, light, material, edges, depth, and texture in one piece, which reveals which specific skill is currently your weakest."
           },
           {
-            "q": "What should be decided before shading begins on the capstone piece, based on Module 97?",
+            "q": "What should be decided before shading begins on the capstone piece, based on Module 93?",
             "options": [
               "The final export file format",
               "The light direction, checked against every shadow and highlight placed afterward",
@@ -5035,7 +5035,7 @@ const CURRICULUM_4 = [
           "I can build a short animatic with timing and scratch sound.",
           "I can test boards on a fresh viewer and fix the first point of confusion."
         ],
-        "nextStep": "You can now plan an animated sequence before production starts. Module 130 turns to print production: preparing artwork for printing, from resolution and color to bleed and file setup."
+        "nextStep": "You can now plan an animated sequence before production starts. your finished portfolio turns to print production: preparing artwork for printing, from resolution and color to bleed and file setup."
       }
     ]
   },

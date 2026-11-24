@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261124g">
+<link rel="stylesheet" href="styles.css?v=20261124h">
 
 </head>
 <body>
@@ -68,7 +68,7 @@
   <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </button>
 
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
 <div class="floating-player" id="floatingPlayer" hidden role="dialog" aria-modal="false" aria-label="Video player">
   <div class="fp-header" id="fpHeader">
@@ -115,25 +115,34 @@
   </div>
 </div>
 
+<dialog id="confirmDialog" class="confirm-dialog" aria-labelledby="confirmTitle" aria-describedby="confirmDesc">
+  <h2 id="confirmTitle" class="confirm-title">Confirm</h2>
+  <p id="confirmDesc" class="confirm-desc"></p>
+  <div class="confirm-actions">
+    <button type="button" class="btn" id="confirmCancelBtn">Cancel</button>
+    <button type="button" class="btn btn-primary" id="confirmOkBtn">Confirm</button>
+  </div>
+</dialog>
+
 <footer class="site-footer">
-  <span>Atelier — a free art education project. 114 lessons are live across ten learning arcs; nine Professional Production lessons are marked as coming soon.<br><span id="storageStatus" class="storage-status"></span></span>
+  <span><span id="footerTagline">Atelier — a free art education project. 114 lessons are live across ten learning arcs; nine Professional Production lessons are marked as coming soon.</span><br><span id="storageStatus" class="storage-status"></span></span>
   <span class="footer-actions">
     <button type="button" id="exportBtn">Export progress</button>
     <button type="button" id="importBtn">Import progress</button>
-    <input type="file" id="importFile" accept="application/json" class="visually-hidden">
+    <input type="file" id="importFile" accept="application/json" class="visually-hidden" tabindex="-1" aria-hidden="true">
     <button type="button" id="resetBtn">Reset progress</button>
   </span>
 </footer>
 
-<script defer src="doubt-knowledge.js?v=20261124g"></script>
-<script defer src="curriculum-1.js?v=20261124g"></script>
-<script defer src="curriculum-2.js?v=20261124g"></script>
-<script defer src="curriculum-3.js?v=20261124g"></script>
-<script defer src="curriculum-4.js?v=20261124g"></script>
-<script defer src="translations-hi.js?v=20261124g"></script>
-<script defer src="notes-data.js?v=20261124g"></script>
-<script defer src="doubt-capabilities.js?v=20261124g"></script>
-<script defer src="app.js?v=20261124g"></script>
+<script defer src="doubt-knowledge.js?v=20261124h"></script>
+<script defer src="curriculum-1.js?v=20261124h"></script>
+<script defer src="curriculum-2.js?v=20261124h"></script>
+<script defer src="curriculum-3.js?v=20261124h"></script>
+<script defer src="curriculum-4.js?v=20261124h"></script>
+<script defer src="translations-hi.js?v=20261124h"></script>
+<script defer src="notes-data.js?v=20261124h"></script>
+<script defer src="doubt-capabilities.js?v=20261124h"></script>
+<script defer src="app.js?v=20261124h"></script>
 
 </body>
 </html>

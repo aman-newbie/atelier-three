@@ -134,7 +134,7 @@ window.ATELIER_DOUBT_CAPABILITIES = (function(){
     const explicitSupplyPhrase=hasSubAny(q,['tool','tools','auzaar','aujaar','samaan','saaman','supply','supplies','material','materials','equipment','gear','drawing app','art kit','tools needed','tools required','mere paas','mere pass','i have','i only have']);
     const toolIntent=(matchedTools.length>0 && (asksNeed||asksCan||asksWithout||explicitSupplyPhrase||['pencil','paper','eraser','ruler','sharpener','tablet','stylus','phone','laptop','krita','photoshop','procreate','clip-studio','ink-pen'].includes(matchedTools[0].id))) || explicitSupplyPhrase || asksNeed || asksCan || asksWithout;
 
-    if(moduleNumber && (toolIntent || moduleNumber===2 || moduleNumber===3)) {
+    if(moduleNumber) {
       const m=findModule('m'+moduleNumber);
       if(m){
         const title=getTitle(m)||m.title||('Module '+moduleNumber);
@@ -182,7 +182,7 @@ window.ATELIER_DOUBT_CAPABILITIES = (function(){
     if(!found.length) return null;
     const names=found.map(t=>t.label);
     let out=hi?'**Tumhare tools: '+names.join(', ')+'**\n':'**Your tools: '+names.join(', ')+'**\n';
-    const hasPencil=found.some(t=>t.id==='pencil');
+    const hasPencil=found.some(t=>t.id==='pencil' || t.id==='ink-pen');
     const hasPaper=found.some(t=>t.id==='paper');
     if(hasPencil&&hasPaper){
       out+=hi?'Tum abhi traditional drawing start kar sakte ho: lines, ellipses, basic shapes, simple forms aur observation studies. Foundations ke liye HB ya 2B kaafi hai.\n':'You can begin traditional drawing practice now: lines, ellipses, basic shapes, simple forms and observation studies. HB or 2B is enough for the Foundations arc.\n';
@@ -198,7 +198,7 @@ window.ATELIER_DOUBT_CAPABILITIES = (function(){
     if(asksShade){out+=hi?'\nShading ke liye pehle light, mid aur dark value map banao. Hatching, cross-hatching ya contour hatching practice karo. Blending stump optional hai; har jagah blending mat karo. 4B/6B baad ke shading module mein kaam aayenge.\n':'\nFor shading: begin with a value map and practise hatching, cross-hatching or contour hatching. A blending stump is optional; do not blend everything by default. 4B/6B are not needed until the shading module.\n';}
     if(asksDigital){out+=hi?'\nDigital art ke liye canvas, brush, layers panel aur colour picker locate karo. Default round brush aur sketch/line/colour ki simple layer structure se shuru karo; extra tools tab seekho jab actual kaam mein zaroorat ho.\n':'\nFor digital work, the core setup is a canvas, brush, layers panel and colour picker. Start with a default round brush and a simple sketch/line/colour layer structure; learn extra tools only when a real task requires them.\n';}
     if(asksNeed && found.some(t=>['pencil','paper'].includes(t.id))){out+=hi?'\n**Aur tools chahiye?** Start karne ke liye expensive kit ki zaroorat nahi. Jo basic cheez missing ho, use dheere-dheere add karo; advanced accessories pehle mat kharido.\n':'\n**Do you need more?** No expensive kit is needed to start. Add only the missing basics gradually; do not buy advanced accessories before a lesson calls for them.\n';}
-    if(asksCan && found.length===1 && !['pencil','paper'].includes(found[0].id)){out+=hi?'\nYe tool useful hai, par akela baaki basic setup ki jagah nahi le sakta.\n':'\nThis tool is useful, but by itself it does not replace the rest of the basic setup.\n';}
+    if(asksCan && found.length===1 && !['pencil','paper','ink-pen'].includes(found[0].id)){out+=hi?'\nYe tool useful hai, par akela baaki basic setup ki jagah nahi le sakta.\n':'\nThis tool is useful, but by itself it does not replace the rest of the basic setup.\n';}
     out+=hi?'\nCourse references: Module 2 — Materials & Tools; Module 3 — How to Hold a Pencil; Module 12 — Shading Systems; Module 83–85 — Digital Art Fundamentals.':'\nCourse references: Module 2 — Materials & Tools; Module 3 — How to Hold a Pencil; Module 12 — Shading Systems; Module 83–85 — Digital Art Fundamentals.';
     return out;
   }

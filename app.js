@@ -137,7 +137,8 @@ function renderPremadeNotesView(m){
 function resActions(r, m){
   const hasNotes = r.hasNotes && hasPremadeNotes(m);
   if(!hasNotes && !r.lessonUrl) return '';
-  return `<div class="res-actions">${hasNotes ? `<button class="notes-btn" data-notes-open="${m.id}">Study notes</button>` : ''}${r.lessonUrl ? `<a class="res-lesson-link" href="${escapeHtml(r.lessonUrl)}" target="_blank" rel="noopener">Open original lesson \u2197</a>` : ''}</div>`;
+  const hi = STATE.language === 'hi';
+  return `<div class="res-actions">${hasNotes ? `<button type="button" class="notes-btn" data-notes-open="${m.id}">Study notes</button>` : ''}${r.lessonUrl ? `<a class="res-lesson-link" href="${escapeHtml(r.lessonUrl)}" target="_blank" rel="noopener">${hi?'Original lesson kholo \u2197':'Open original lesson \u2197'}</a>` : ''}</div>`;
 }
 function rerenderNotesTab(){
   if(STATE.route.view !== 'module' || STATE.route.tab !== 'notes') return;
@@ -184,10 +185,11 @@ function handlePremadeNotesClick(e){
   if(t.dataset.notesEdit !== undefined){ NOTES_EDITING = !NOTES_EDITING; NOTES_EDIT_MOD = mid; rerenderNotesTab(); return true; }
   if(t.dataset.notesReset !== undefined){
     const lang = getNotesLang();
-    if(window.confirm(NOTES_UI[lang].confirm)){
+    openConfirmDialog({title: lang==='hi'?'Notes reset karein?':'Reset notes?', message: NOTES_UI[lang].confirm, confirmLabel: 'Reset', onConfirm: ()=>{
       if(STATE.premadeEdits[mid]) delete STATE.premadeEdits[mid][lang];
-      saveProgress(); rerenderNotesTab();
-    }
+      if(STATE.premadeEdits[mid] && !Object.keys(STATE.premadeEdits[mid]).length) delete STATE.premadeEdits[mid];
+      NOTES_EDITING = false; saveProgress(); rerenderNotesTab();
+    }});
     return true;
   }
   return false;
@@ -431,7 +433,8 @@ const PRACTICE_PROMPTS = [
 function findModule(moduleId){
   for(const path of CURRICULUM){
     if(!path.modules) continue;
-    const m = path.modules.find(mm=>mm.id===moduleId);
+    if(!path || path.status !== 'live' || !Array.isArray(path.modules)){ renderHome(); return; }
+  const m = path.modules.find(mm=>mm.id===moduleId);
     if(m) return m;
   }
   return null;
@@ -505,8 +508,8 @@ function serializeState(){
 }
 
 function applyState(data){
-  if(!data) return;
-  STATE.completed = new Set(data.completed || []);
+  if(!data || typeof data !== 'object' || Array.isArray(data)) return false;
+  STATE.completed = new Set(Array.isArray(data.completed) ? data.completed.filter(x=>typeof x==='string') : []);
   STATE.favorites = new Set(data.favorites || []);
   STATE.checklist = {};
   Object.entries(data.checklist || {}).forEach(([k,v])=>{ STATE.checklist[k] = new Set(v); });
@@ -518,14 +521,14 @@ function applyState(data){
   STATE.resourcesOpened = {};
   Object.entries(data.resourcesOpened || {}).forEach(([k,v])=>{ STATE.resourcesOpened[k] = new Set(v); });
   STATE.recentlyVisited = data.recentlyVisited || [];
-  STATE.xp = data.xp || 0;
+  STATE.xp = (Number.isFinite(data.xp) && data.xp >= 0) ? data.xp : 0;
   if(data.theme) STATE.theme = data.theme;
-  if(typeof data.fontScale === 'number') STATE.fontScale = data.fontScale;
+  if(Number.isFinite(data.fontScale)) STATE.fontScale = Math.min(1.25, Math.max(0.875, data.fontScale));
   if(typeof data.customBgUrl === 'string') STATE.customBgUrl = data.customBgUrl;
   if(Array.isArray(data.customHistory)) STATE.customHistory = data.customHistory.slice(0, 6);
-  if(typeof data.customScrimOpacity === 'number') STATE.customScrimOpacity = Math.min(0.90, Math.max(0.45, data.customScrimOpacity));
+  if(Number.isFinite(data.customScrimOpacity)) STATE.customScrimOpacity = Math.min(0.90, Math.max(0.45, data.customScrimOpacity));
   if(data.language === 'hi' || data.language === 'en') STATE.language = data.language;
-  STATE.streak = data.streak || 0;
+  STATE.streak = (Number.isFinite(data.streak) && data.streak >= 0) ? data.streak : 0;
   STATE.lastVisitDate = data.lastVisitDate || null;
   STATE.activityLog = data.activityLog || {};
   STATE.unlockedAchievements = new Set(data.unlockedAchievements || []);
@@ -594,19 +597,22 @@ async function loadProgress(){
 
 let oversizeWarned = false;
 async function persistNow(){
-  const payload = JSON.stringify(serializeState());
+  let payload = JSON.stringify(serializeState());
   if(payload.length > 3500000){
-    /* Something is carrying much more data than it should (a stray full-size
-       photo that slipped past thumbnailing, for instance). Writing several
-       MB to localStorage synchronously on every interaction is what causes
-       the whole page to lock up, so refuse rather than repeat that. */
+    STATE.customHistory = STATE.customHistory.slice(0, 2);
+    payload = JSON.stringify(serializeState());
+    if(payload.length > 3500000){
+      STATE.customHistory = [];
+      payload = JSON.stringify(serializeState());
+    }
     if(!oversizeWarned){
       oversizeWarned = true;
       showToast("Your theme photo history got too large to save smoothly \u2014 trimming it down.");
-      STATE.customHistory = STATE.customHistory.slice(0, 2);
       if(STATE.route.view === 'themes') renderThemes();
     }
-    return;
+    if(payload.length > 3500000) return;
+  } else {
+    oversizeWarned = false;
   }
   if(STATE.storageBackend === 'claude'){
     try{ await window.storage.set(STORAGE_KEY, payload, false); return; }
@@ -626,8 +632,8 @@ function updateStorageStatus(){
   const el = document.getElementById('storageStatus');
   if(!el) return;
   const labels = {
-    claude:'Progress saves automatically here.',
-    local:'Progress saves automatically in this browser.',
+    claude:(STATE.language==='hi'?'Progress yahan apne aap save hota hai.':'Progress saves automatically here.'),
+    local:(STATE.language==='hi'?'Progress is browser mein apne aap save hota hai.':'Progress saves automatically in this browser.'),
     none:'Not saving automatically on this device \u2014 use Export below before closing.'
   };
   el.textContent = labels[STATE.storageBackend] || '';
@@ -643,7 +649,7 @@ function exportProgress(){
   document.body.appendChild(a);
   a.click();
   a.remove();
-  URL.revokeObjectURL(url);
+  const _u = url; setTimeout(()=>URL.revokeObjectURL(_u), 5000);
   showToast('Progress file downloaded.');
 }
 
@@ -763,6 +769,13 @@ function updateChrome(){
   document.documentElement.style.setProperty('--custom-scrim-opacity', STATE.customScrimOpacity);
   applyCustomBackground(STATE.theme === 'custom' ? STATE.customBgUrl : '');
   document.documentElement.style.setProperty('--font-scale', STATE.fontScale);
+  const hiChrome = STATE.language === 'hi';
+  const ft = document.getElementById('footerTagline');
+  if(ft) ft.textContent = hiChrome ? 'Atelier — ek free art education project. 10 learning arcs mein 114 lessons live hain; Professional Production ke 9 lessons jald aa rahe hain.' : 'Atelier — a free art education project. 114 lessons are live across ten learning arcs; nine Professional Production lessons are marked as coming soon.';
+  const eb = document.getElementById('exportBtn'); if(eb) eb.textContent = hiChrome ? 'Progress export karo' : 'Export progress';
+  const ib = document.getElementById('importBtn'); if(ib) ib.textContent = hiChrome ? 'Progress import karo' : 'Import progress';
+  const rb = document.getElementById('resetBtn'); if(rb) rb.textContent = hiChrome ? 'Progress reset karo' : 'Reset progress';
+  updateStorageStatus();
   const langBtn = document.getElementById('langToggle');
   if(langBtn){
     langBtn.textContent = STATE.language === 'hi' ? 'HI' : 'EN';
@@ -1140,7 +1153,7 @@ function handleCalendarReminder(type){
     document.body.appendChild(a);
     a.click();
     a.remove();
-    URL.revokeObjectURL(a.href);
+    const _u = a.href; setTimeout(()=>URL.revokeObjectURL(_u), 5000);
     showToast('Reminder file downloaded - open it to add to your calendar.');
   }
 }
@@ -1809,11 +1822,16 @@ function openPathOnHome(pathId){
   closeMobileSidebar();
 }
 function closeMobileSidebar(){
-  document.getElementById('sidebar').classList.remove('open');
-  document.getElementById('sidebarBackdrop').classList.remove('show');
+  const sb = document.getElementById('sidebar');
+  const bd = document.getElementById('sidebarBackdrop');
   const menuBtn = document.getElementById('menuBtn');
-  menuBtn.setAttribute('aria-expanded','false');
-  menuBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg>';
+  if(sb) sb.classList.remove('open');
+  if(bd) bd.classList.remove('show');
+  if(menuBtn){
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuBtn.setAttribute('aria-label', 'Open navigation');
+    menuBtn.innerHTML = '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg>';
+  }
 }
 
 function closeMobileSearch(){
@@ -1977,8 +1995,10 @@ function openFloatingPlayer(ytId, moduleId, resIdx, title, playlistId){
   if(!fp.style.left && !fp.style.top){
     const w = fp.offsetWidth || 340;
     const h = fp.offsetHeight || 372;
+    const fab = document.getElementById('doubtFab');
+    const bottomClearance = (fab && !fab.hidden) ? Math.max(20, window.innerHeight - fab.getBoundingClientRect().top + 12) : 20;
     fp.style.left = Math.max(12, window.innerWidth - w - 20) + 'px';
-    fp.style.top = Math.max(12, window.innerHeight - h - 20) + 'px';
+    fp.style.top = Math.max(76, window.innerHeight - h - bottomClearance) + 'px';
   }
   clampFloatingPlayerToViewport();
 }
@@ -2031,7 +2051,7 @@ function initFloatingPlayerDrag(){
     const rect = fp.getBoundingClientRect();
     offsetX = e.clientX - rect.left;
     offsetY = e.clientY - rect.top;
-    header.setPointerCapture(e.pointerId);
+    try{ header.setPointerCapture(e.pointerId); }catch(err){}
   });
   header.addEventListener('pointermove', (e)=>{
     if(!dragging) return;
@@ -2052,13 +2072,13 @@ function initFloatingPlayerDrag(){
   // main progress save, since it's a UI preference rather than course data).
   const handle = document.getElementById('fpResizeHandle');
   let resizing = false, startX = 0, startWidth = 0;
-  const savedWidth = parseInt(localStorage.getItem('atelier_fp_width') || '', 10);
+  const savedWidth = parseInt((()=>{try{return localStorage.getItem('atelier_fp_width');}catch(e){return null;}})() || '', 10);
   if(savedWidth && savedWidth >= 280) fp.style.width = Math.min(savedWidth, window.innerWidth - 8) + 'px';
   handle.addEventListener('pointerdown', (e)=>{
     resizing = true;
     startX = e.clientX;
     startWidth = fp.getBoundingClientRect().width;
-    handle.setPointerCapture(e.pointerId);
+    try{ handle.setPointerCapture(e.pointerId); }catch(err){}
     e.preventDefault();
   });
   handle.addEventListener('pointermove', (e)=>{
@@ -2380,7 +2400,7 @@ function sampleImageBands(img, bandCount){
 function buildScrimGradient(bands, dark, baseOpacity){
   const rgb = dark ? '15,13,10' : '246,244,238';
   const stops = bands.map((band, i)=>{
-    const pct = Math.round((i / (bands.length - 1)) * 100);
+    const pct = bands.length <= 1 ? 0 : Math.round((i / (bands.length - 1)) * 100);
     const mean = typeof band === 'number' ? band : band.mean;
     const extreme = typeof band === 'number' ? band : (dark ? band.p90 : band.p10);
     const need = dark
@@ -2550,7 +2570,7 @@ function appendDoubtMessage(role, text){
         btn.textContent = tok + ' · ' + L(m, 'title');
         btn.addEventListener('click', ()=>{
           const p = CURRICULUM.find(x=>x.modules && x.modules.some(mm=>mm.id===id));
-          if(p){ navigateToModule(p.id, id); toggleDoubtPanel(false); }
+          if(p){ navigateModule(p.id, id); toggleDoubtPanel(false); }
         });
         chips.appendChild(btn);
       });
@@ -2743,11 +2763,12 @@ function getConversationReply(query,isHi){
   const raw=String(query||'').trim();
   const q=normalizeDoubtText(raw).replace(/\s+/g,' ').trim();
   const hi=!!isHi||/[\u0900-\u097f]/.test(raw);
-  const greetings=new Set(['hi','hello','hey','hey there','hiya','yo','namaste','namaskar','good morning','good afternoon','good evening']);
+  if(/^(?:\?{2,}|\.{3,})$/.test(String(query||'').trim())) return hi ? 'Kya unclear laga? Apna sawaal thoda aur context ke saath likho, main help karunga.' : 'Not sure what you mean yet. Did something seem unclear? Add a little context and I’ll help.';
+  const greetings=new Set(['hi','hello','hey','hey there','hiya','yo','namaste','namaskar','good morning','good afternoon','good evening','hey mentor','hi mentor','hello mentor']);
   if(greetings.has(q)) return hi
     ? 'Namaste! Main Atelier Mentor hoon. Drawing, art concepts ya course ke kisi bhi lesson ke baare mein poochho.'
     : 'Hi! I’m Atelier Mentor. Ask me about drawing, art concepts, or any Atelier lesson.';
-  const identity=new Set(['who are you','who are u','who r you','who r u','what are you','what r you','are you ai','are you an ai','are you a bot','are you an ai bot','what is your name','whats your name','your name','tum kaun ho','tum kon ho','aap kaun ho','aap kon ho','aapa kauna ho','aapa kona ho','tuma kauna ho','tuma kona ho','tu kaun hai','tu kon hai','tum kaun ho bhai','aapka naam kya hai','tumhara naam kya hai','tera naam kya hai']);
+  const identity=new Set(['who are you','who are u','who r you','who r u','what are you','what r you','are you ai','are you an ai','are you a bot','are you an ai bot','what is your name','whats your name','your name','tum kaun ho','tum kon ho','aap kaun ho','aap kon ho','aapa kauna ho','aapa kona ho','tuma kauna ho','tuma kona ho','tu kaun hai','tu kon hai','tum kaun ho bhai','aapka naam kya hai','tumhara naam kya hai','tera naam kya hai','who made you','who created you','who built you','kisne banaya','tumhe kisne banaya']);
   if(identity.has(q)) return hi
     ? 'Main Atelier Mentor hoon — Atelier Art Course ka built-in learning assistant. Main prepared course knowledge aur lesson material se guidance deta hoon; main generative AI model nahi hoon.'
     : 'I’m Atelier Mentor, the built-in learning assistant for Atelier Art Course. I guide you using prepared course knowledge and lesson material; I’m not a generative AI model.';
@@ -2755,7 +2776,7 @@ function getConversationReply(query,isHi){
   if(thanks.has(q)) return hi ? 'Koi baat nahi! Art ya course se related kuch bhi pooch sakte ho.' : 'You’re welcome! Ask whenever you need help with art or an Atelier lesson.';
   const goodbyes=new Set(['bye','goodbye','see you','see ya','later','alvida','phir milte hain']);
   if(goodbyes.has(q)) return hi ? 'Phir milte hain! Practice ke liye all the best.' : 'See you next time. Happy practicing!';
-  const unclear=new Set(['eh','ehh','huh','what','hmm','hm','umm','um','uh','??','???','...','ok?','okay?']);
+  const unclear=new Set(['eh','ehh','huh','what','hmm','hm','umm','um','uh','ok','okay']);
   if(unclear.has(q)) return hi
     ? 'Kya unclear laga? Apna sawaal thoda aur context ke saath likho, main help karunga.'
     : 'Not sure what you mean yet. Did something seem unclear? Add a little context and I’ll help.';
@@ -3192,7 +3213,7 @@ function initEvents(){
     e.target.value = '';
   });
   document.getElementById('resetBtn').addEventListener('click', ()=>{
-    if(confirm('Clear all progress on this device? This cannot be undone unless you exported a backup file first.')){
+    openConfirmDialog({title: STATE.language==='hi'?'Progress clear karein?':'Reset progress?', message: STATE.language==='hi'?'Is device ka saara progress clear ho jayega. Pehle backup export na kiya ho toh wapas nahi aayega.':'Clear all progress on this device? This cannot be undone unless you exported a backup file first.', confirmLabel: STATE.language==='hi'?'Reset':'Reset all', onConfirm: ()=>{
       STATE.completed = new Set();
       STATE.favorites = new Set();
       STATE.checklist = {};
@@ -3218,10 +3239,12 @@ function initEvents(){
       STATE.language = 'en';
       clearCustomThemeOverrides();
       document.documentElement.setAttribute('data-theme', 'dark');
+      STATE.customHistory = [];
+      STATE.customScrimOpacity = 0.65;
       persistNow();
       navigateHome();
       showToast('Progress reset.');
-    }
+    }});
   });
 
   const sidebar = document.getElementById('sidebar');
@@ -3231,9 +3254,10 @@ function initEvents(){
     const open = sidebar.classList.toggle('open');
     backdrop.classList.toggle('show', open);
     menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
     menuBtn.innerHTML = open
-      ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg>'
-      : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg>';
+      ? '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg>'
+      : '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg>';
   });
   backdrop.addEventListener('click', closeMobileSidebar);
 
@@ -3254,6 +3278,30 @@ function initEvents(){
   window.addEventListener('scroll', ()=>{ scrollTopBtn.classList.toggle('show', window.scrollY > 500); }, {passive: true});
   scrollTopBtn.addEventListener('click', ()=>window.scrollTo({top:0, behavior:'smooth'}));
 
+  const dpEl = document.getElementById('doubtPanel');
+  if(dpEl){
+    dpEl.addEventListener('keydown', (e)=>{
+      if(e.key !== 'Tab') return;
+      const f = [...dpEl.querySelectorAll('button:not([disabled]), [href], input:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])')].filter(el=>!el.hidden && el.offsetParent !== null);
+      if(!f.length) return;
+      const first = f[0], last = f[f.length-1];
+      if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+      else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+    });
+  }
+  document.body.addEventListener('keydown', (e)=>{
+    const tl = e.target.closest && e.target.closest('.tabs[role="tablist"]');
+    if(tl && e.target.classList.contains('tab')){
+      const tabs = [...tl.querySelectorAll('.tab')];
+      const idx = tabs.indexOf(e.target);
+      let next = -1;
+      if(e.key === 'ArrowRight') next = (idx + 1) % tabs.length;
+      else if(e.key === 'ArrowLeft') next = (idx - 1 + tabs.length) % tabs.length;
+      else if(e.key === 'Home') next = 0;
+      else if(e.key === 'End') next = tabs.length - 1;
+      if(next !== -1){ e.preventDefault(); tabs[next].click(); tabs[next].focus(); }
+    }
+  });
   document.addEventListener('keydown', (e)=>{
     if(e.key === 'Escape'){ closeMobileSidebar(); closeMobileSearch(); if(doubtOpen) toggleDoubtPanel(false); }
     if((e.key === '/' || ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k')) && !e.target.matches('input, textarea, select')){
@@ -3276,7 +3324,7 @@ function showRecoveryBanner(detail){
   banner.id = 'recoveryBanner';
   banner.className = 'recovery-banner';
   banner.innerHTML = `
-    <span>${ICONS.empty} Something broke on this page${detail ? ' (' + detail + ')' : ''}. Your saved progress is unaffected.</span>
+    <span>${ICONS.empty} Something broke on this page${detail ? ' (' + escapeHtml(detail) + ')' : ''}. Your saved progress is unaffected.</span>
     <button id="recoveryHomeBtn">Back to home</button>`;
   document.body.appendChild(banner);
   document.getElementById('recoveryHomeBtn').addEventListener('click', ()=>{
@@ -3313,3 +3361,27 @@ async function init(){
 }
 
 document.addEventListener('DOMContentLoaded', init);
+
+
+function openConfirmDialog({title, message, confirmLabel, onConfirm}){
+  const dlg = document.getElementById('confirmDialog');
+  if(!dlg || typeof dlg.showModal !== 'function'){
+    if(window.confirm(message)) onConfirm();
+    return;
+  }
+  const prev = document.activeElement;
+  document.getElementById('confirmTitle').textContent = title || 'Confirm';
+  document.getElementById('confirmDesc').textContent = message || '';
+  const okBtn = document.getElementById('confirmOkBtn');
+  const cancelBtn = document.getElementById('confirmCancelBtn');
+  okBtn.textContent = confirmLabel || 'Confirm';
+  const cleanup = ()=>{
+    okBtn.onclick = null; cancelBtn.onclick = null; dlg.onclose = null;
+    if(prev && prev.isConnected) prev.focus();
+  };
+  okBtn.onclick = ()=>{ dlg.close(); cleanup(); onConfirm(); };
+  cancelBtn.onclick = ()=>{ dlg.close(); cleanup(); };
+  dlg.onclose = cleanup;
+  dlg.showModal();
+  cancelBtn.focus();
+}

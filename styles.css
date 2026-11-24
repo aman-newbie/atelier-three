@@ -1089,3 +1089,30 @@ h1, h2, h3, h4 { line-height: 1.18; letter-spacing: -0.01em; }
   .topbar-search input, .library-search input, .doubt-input-row input, .fp-notes-textarea, .notes-textarea, .cal-reminder-row select, .cal-reminder-row input[type="time"], .timer-custom input, .theme-custom-row input { font-size: max(16px, calc(16px * var(--font-scale))); }
   .stamp, .res-verified, .res-opened, .res-summary-label, .res-type, .meta-item span { font-size: max(11px, calc(11px * var(--font-scale))); }
 }
+
+/* Round-2 Pixel, Contrast, Dark note-fig, Modal & Dialog Polish */
+.check-box svg { color: var(--bg-raised); }
+.note-fig-toggle:hover, .note-fig.is-paused .note-fig-toggle { color: #2F6CA6; border-color: #2F6CA6; }
+[data-theme="dark"] .note-fig { border-color: var(--border); background: #f3efe6; }
+[data-theme="dark"] .note-fig svg .fig-bg { fill: #f3efe6; }
+.scroll-top:not(.show) { visibility: hidden; }
+body:has(.sidebar.open) .doubt-fab { pointer-events: none; opacity: 0; }
+@media (max-width: 520px) {
+  .floating-player, .doubt-panel { max-height: calc(100dvh - 128px); }
+}
+.confirm-dialog {
+  max-width: min(92vw, 420px);
+  padding: var(--sp-5, 24px);
+  border-radius: var(--radius-lg, 14px);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow-lg);
+}
+.confirm-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(3px);
+}
+.confirm-title { font-family: var(--font-display); font-size: calc(22px * var(--font-scale)); margin: 0 0 8px; }
+.confirm-desc { color: var(--text-muted); margin: 0 0 20px; line-height: 1.5; }
+.confirm-actions { display: flex; justify-content: flex-end; gap: 10px; }

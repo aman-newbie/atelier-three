@@ -147,21 +147,30 @@ const CURRICULUM_3 = [
         },
         "resources": [
           {
-            "type": "Course",
-            "title": "Landmarks of the Human Body",
-            "creator": "Proko (Stan Prokopenko)",
-            "url": "https://www.proko.com/course-lesson/landmarks-of-the-human-body",
-            "why": "Free lesson from Proko's Figure Drawing Fundamentals course on the bony landmarks of the whole body, a reference for finding landmarks like the ones this module uses.",
-            "verified": true,
-            "summary": "From Proko's Figure Drawing Fundamentals: bony landmarks are reliable guides because bones change little between body types. The lesson also covers the centerline landmarks that run from the pit of the neck and the sternum down to the belly button and the pubic bone."
-          },
-          {
             "type": "Video",
             "title": "How to Draw the Neck - Anatomy for Artists",
             "creator": "Proko",
             "url": "https://www.youtube.com/watch?v=TvN71bOfC1Q",
             "why": "Explains the sternocleidomastoid, trapezius, and neck cylinder insertion into the ribcage and clavicle so heads connect solidly to the torso.",
             "verified": true
+          },
+          {
+            "type": "Video",
+            "title": "Anatomy Quick Tips: Necks",
+            "creator": "Sinix Design",
+            "url": "https://www.youtube.com/watch?v=UN90_Dt4Ix0",
+            "why": "Clear breakdown of the leaning neck cylinder, sternocleidomastoid, traps, and how the neck inserts into the ribcage.",
+            "verified": true,
+            "summary": "Shows how the neck tilts forward from the thoracic spine and how the SCM and trapezius frame the throat and collarbones."
+          },
+          {
+            "type": "Video",
+            "title": "You're Drawing Necks Wrong, Here's Why | Neck Drawing Part 01",
+            "creator": "Steven Michael Hampton",
+            "url": "https://www.youtube.com/watch?v=NdQ4DA1A92I",
+            "why": "Directly addresses the vertical-pole beginner mistake and explains anatomical neck rhythm.",
+            "verified": true,
+            "summary": "Corrects stiff vertical neck placement by demonstrating the true forward slant and structural tie-in to the skull and clavicles."
           }
         ],
         "quiz": [
@@ -247,21 +256,30 @@ const CURRICULUM_3 = [
         },
         "resources": [
           {
-            "type": "Course",
-            "title": "Landmarks of the Human Body",
-            "creator": "Proko (Stan Prokopenko)",
-            "url": "https://www.proko.com/course-lesson/landmarks-of-the-human-body",
-            "why": "Free lesson from Proko's Figure Drawing Fundamentals course on whole-body bony landmarks, a reference for locating shoulder-area landmarks.",
-            "verified": true,
-            "summary": "From Proko's Figure Drawing Fundamentals: bony landmarks are reliable guides because bones change little between body types. The lesson also covers the centerline landmarks that run from the pit of the neck and the sternum down to the belly button and the pubic bone."
-          },
-          {
             "type": "Video",
             "title": "How to Draw Shoulder Muscles - Form",
             "creator": "Proko",
             "url": "https://www.youtube.com/watch?v=tNDHVSk2h6o",
             "why": "Breaks the deltoid into simple 3D forms and shows how the shoulder girdle shifts when the arm raises, twists, or reaches.",
             "verified": true
+          },
+          {
+            "type": "Video",
+            "title": "How to Draw the Shoulder Bones",
+            "creator": "Proko",
+            "url": "https://www.youtube.com/watch?v=NHuoMBUnpnM",
+            "why": "Directly covers the double-curved clavicle and sliding scapula that drive every shoulder pose.",
+            "verified": true,
+            "summary": "Explains the shoulder girdle's bony landmarks — clavicle, acromion, and scapula — and how they move when the arm raises."
+          },
+          {
+            "type": "Video",
+            "title": "Anatomy Drawing Critiques - The Shoulders",
+            "creator": "Proko",
+            "url": "https://www.youtube.com/watch?v=X2Ppp8wPdP4",
+            "why": "Shows common beginner shoulder-connection errors and how to fix them on real student drawings.",
+            "verified": true,
+            "summary": "Critiques typical deltoid, clavicle, and trap attachment mistakes and demonstrates quick structural corrections."
           }
         ],
         "quiz": [
@@ -362,15 +380,6 @@ const CURRICULUM_3 = [
             "why": "Free follow-up lesson on simplifying the torso into the rib cage and hips (the bean) and why practicing it helps.",
             "verified": true,
             "summary": "Proko explains the head, rib cage and pelvis as three masses, and the torso as two forms (the rib cage and the hips) joined by soft 'skin'. The lesson explains why practicing this 'bean' simplification is worth the effort."
-          },
-          {
-            "type": "Course",
-            "title": "Mannequinization — Structure of the Human Body",
-            "creator": "Proko (Stan Prokopenko)",
-            "url": "https://www.proko.com/course-lesson/mannequinization-structure-of-the-human-body",
-            "why": "Free lesson on building the whole figure from simple, interlocking 3D forms that follow the gesture.",
-            "verified": true,
-            "summary": "Proko's lesson on 'mannequinization': building the figure from interlocking 3D forms that follow the gesture, so you avoid flat, contour-only drawings. It also notes that the same forms make shading easier."
           }
         ],
         "quiz": [
@@ -456,15 +465,6 @@ const CURRICULUM_3 = [
         },
         "resources": [
           {
-            "type": "Course",
-            "title": "Mannequinization — Structure of the Human Body",
-            "creator": "Proko (Stan Prokopenko)",
-            "url": "https://www.proko.com/course-lesson/mannequinization-structure-of-the-human-body",
-            "why": "Free lesson on the full mannequin figure, a useful base to build the arms on before adding detail.",
-            "verified": true,
-            "summary": "Proko's lesson on 'mannequinization': building the figure from interlocking 3D forms that follow the gesture, so you avoid flat, contour-only drawings. It also notes that the same forms make shading easier."
-          },
-          {
             "type": "Video",
             "title": "How to Draw Arm Bones — Anatomy for Artists",
             "creator": "Proko (Stan Prokopenko)",
@@ -472,6 +472,24 @@ const CURRICULUM_3 = [
             "why": "A free, direct lesson on the humerus, radius and ulna and how they rotate — the exact bone structure behind this module's forearm-rotation idea, replacing a general tutorials hub.",
             "verified": true,
             "summary": "Per its description: the arm bones (humerus, radius and ulna), their proportions and form, and how the joints let the wrist twist about 180 degrees. It points to the full lesson at proko.com/anatomy."
+          },
+          {
+            "type": "Video",
+            "title": "Anatomy Quick Tips: Arms",
+            "creator": "Sinix Design",
+            "url": "https://www.youtube.com/watch?v=z3fG6F_pi6M",
+            "why": "Breaks upper-arm and forearm muscle interlocking and pronation/supination twist into simple 3D volumes.",
+            "verified": true,
+            "summary": "Explains the chain-link overlap between deltoid, biceps/triceps, and forearm flexors/extensors as the wrist rotates."
+          },
+          {
+            "type": "Video",
+            "title": "The Secret to Drawing Better Arms and Legs",
+            "creator": "Proko",
+            "url": "https://www.youtube.com/watch?v=14yBwKaBY48",
+            "why": "Teaches overlapping cylinder forms and rhythmic tapering so arms read as organic 3D limbs rather than stiff tubes.",
+            "verified": true,
+            "summary": "Shows how rhythmic curves and asymmetric muscle flow keep limbs dynamic and believable from any angle."
           }
         ],
         "quiz": [
@@ -589,7 +607,7 @@ const CURRICULUM_3 = [
             "title": "Hands & feet practice tool",
             "creator": "Line of Action",
             "url": "https://line-of-action.com/practice-tools/app/hands-feet",
-            "why": "The same free timed reference tool used in earlier modules. This link opens its general figure-drawing mode, not a hands-specific one.",
+            "why": "Dedicated timed hands-and-feet reference drill — run 30s to 2min bursts to build hand gesture speed.",
             "verified": true
           }
         ],
@@ -685,20 +703,29 @@ const CURRICULUM_3 = [
           },
           {
             "type": "Video",
-            "title": "The Secret to Creating Clear Expressions (Art Tips #12)",
-            "creator": "Aaron Blaise",
-            "url": "https://www.youtube.com/watch?v=S94VIlQyFWo",
-            "why": "Revisited from Module 29: a video about clear expressions on faces. Its 'keep it simple and iconic' idea is worth carrying over to hand gestures.",
-            "verified": true,
-            "summary": "Per its description, the 12th episode of Aaron Blaise's Art Tips: his simple method for creating clear character expressions for animation, character design and illustration, by thinking of the basic iconic faces we drew as children."
-          },
-          {
-            "type": "Video",
             "title": "How to Draw Expressive Hands",
             "creator": "Proko",
             "url": "https://www.youtube.com/watch?v=wmajV4zcXeA",
             "why": "Focuses specifically on hand gesture, finger grouping, rhythm, and storytelling silhouettes rather than stiff finger-by-finger rendering.",
             "verified": true
+          },
+          {
+            "type": "Video",
+            "title": "Anatomy Quick Tips: Hands",
+            "creator": "Sinix Design",
+            "url": "https://www.youtube.com/watch?v=hzl3eaxAJpo",
+            "why": "Focuses on simplified gesture shapes, finger grouping, and expressive silhouettes rather than stiff bone-by-bone rendering.",
+            "verified": true,
+            "summary": "Demonstrates grouping fingers into rhythmic arcs and using the palm box as an anchor for fast, expressive hand gestures."
+          },
+          {
+            "type": "Video",
+            "title": "How to Draw Simplified Hands | TUTORIAL",
+            "creator": "Jackie Droujko",
+            "url": "https://www.youtube.com/watch?v=cZl_fey61xw",
+            "why": "Beginner-friendly guide to readable hand poses, mitten grouping, and storytelling gestures.",
+            "verified": true,
+            "summary": "Shows how to simplify complex hand poses into clear silhouettes and readable gesture shapes."
           }
         ],
         "quiz": [
@@ -783,22 +810,22 @@ const CURRICULUM_3 = [
         },
         "resources": [
           {
-            "type": "Course",
-            "title": "Landmarks of the Human Body",
-            "creator": "Proko (Stan Prokopenko)",
-            "url": "https://www.proko.com/course-lesson/landmarks-of-the-human-body",
-            "why": "Free lesson from Proko's Figure Drawing Fundamentals course on whole-body bony landmarks, a reference for locating pelvis landmarks, from the same resource already used for Neck and Shoulders.",
+            "type": "Video",
+            "title": "How to Draw the Pelvis from Any Angle - Human Anatomy for Artists",
+            "creator": "Proko",
+            "url": "https://www.youtube.com/watch?v=PWGRsD0xen0",
+            "why": "Dedicated pelvis structure, iliac crest landmarks, and hip-socket attachment from every angle.",
             "verified": true,
-            "summary": "From Proko's Figure Drawing Fundamentals: bony landmarks are reliable guides because bones change little between body types. The lesson also covers the centerline landmarks that run from the pit of the neck and the sternum down to the belly button and the pubic bone."
+            "summary": "Simplifies the complex pelvic bone into an intuitive 3D box/bucket and shows how the iliac crest and greater trochanter locate the hips."
           },
           {
-            "type": "Course",
-            "title": "Mannequinization — Structure of the Human Body",
-            "creator": "Proko (Stan Prokopenko)",
-            "url": "https://www.proko.com/course-lesson/mannequinization-structure-of-the-human-body",
-            "why": "Free lesson on building the whole figure from simple 3D forms, which gives you a base for working out how the pelvis sits in the figure.",
+            "type": "Video",
+            "title": "How To Draw The Pelvis - The Bucket Method (Study Session)",
+            "creator": "Dan Beardshaw",
+            "url": "https://www.youtube.com/watch?v=JXU2U3DpI4E",
+            "why": "Directly teaches the tilting-bucket construction method for grounding the pelvis and legs.",
             "verified": true,
-            "summary": "Proko's lesson on 'mannequinization': building the figure from interlocking 3D forms that follow the gesture, so you avoid flat, contour-only drawings. It also notes that the same forms make shading easier."
+            "summary": "Walks step by step through drawing the pelvis as a rotating 3D bucket so hip tilts and contrapposto read clearly."
           }
         ],
         "quiz": [
@@ -884,15 +911,6 @@ const CURRICULUM_3 = [
         },
         "resources": [
           {
-            "type": "Article",
-            "title": "How to Draw Legs, the Easy Step-by-Step Guide with Simplified Anatomy",
-            "creator": "GVAAT’S WORKSHOP",
-            "url": "https://gvaat.com/blog/how-to-draw-legs-the-easy-step-by-step-guide/",
-            "why": "A free, detailed, illustrated tutorial covering exactly this module's simplified leg construction.",
-            "verified": true,
-            "summary": "GVAAT's illustrated tutorial on drawing legs with simplified skeletal and muscle anatomy. It covers landmarks (the calf sits higher on the outside of the leg, the malleoli lower on the outside) and a process: skeletal guidelines, then rhythms, then muscle groups, then correction, with 3 step-by-step examples."
-          },
-          {
             "type": "Video",
             "title": "How to Draw Legs — Bone Anatomy for Artists",
             "creator": "Proko (Stan Prokopenko)",
@@ -900,6 +918,24 @@ const CURRICULUM_3 = [
             "why": "A free individual lesson covering leg bone anatomy in the depth this module needs, with no purchase of the full course required.",
             "verified": true,
             "summary": "Proko's lesson on the leg bones: femur, patella, tibia and fibula. The femur is about a quarter of height (3 cranial units) and the lower leg, including the foot, is also 3 cranial units. The femur is described as a spherical head, a diagonal neck, a body and a spool-like condyle end."
+          },
+          {
+            "type": "Video",
+            "title": "How to Draw the Lower Leg - Anatomy for Artists",
+            "creator": "Proko",
+            "url": "https://www.youtube.com/watch?v=cSKiEVWg5VY",
+            "why": "Covers the bare shinbone vs. padded calf contrast and ankle malleoli asymmetry.",
+            "verified": true,
+            "summary": "Explains the gastrocnemius, soleus, and tibial rhythm that create the unmistakable S-curve of the lower leg."
+          },
+          {
+            "type": "Video",
+            "title": "How to Draw Legs",
+            "creator": "David Finch",
+            "url": "https://www.youtube.com/watch?v=o9KKK2Zx22o",
+            "why": "Clear full-leg construction from hip taper to ankle, balancing anatomy with simplified forms.",
+            "verified": true,
+            "summary": "Demonstrates blocking the thigh, knee, and calf as connected 3D forms with clear weight flow down to the foot."
           }
         ],
         "quiz": [
@@ -985,21 +1021,30 @@ const CURRICULUM_3 = [
         "resources": [
           {
             "type": "Article",
-            "title": "How to Draw Feet — the Easy Step-by-Step Guide",
-            "creator": "GVAAT’S WORKSHOP",
-            "url": "https://gvaat.com/blog/how-to-draw-feet-the-easy-step-by-step-method/",
-            "why": "A free, illustrated tutorial that breaks the foot into simple parts, adds the arch and bony points, from the same source as the Legs and Clothing tutorials in this arc.",
-            "verified": true,
-            "summary": "GVAAT's 4-step method for drawing feet: break the foot into 3 parts, add the arch, draw the bony points, then use the underdrawing as a guide. It notes that the heel steps out from the leg and that the arch acts as a shock absorber."
-          },
-          {
-            "type": "Article",
             "title": "How To Draw Feet",
             "creator": "The Virtual Instructor",
             "url": "https://thevirtualinstructor.com/how-to-draw-feet.html",
             "why": "A second, independently written explanation of the same three-basic-forms wedge method, useful for seeing the same idea explained a different way.",
             "verified": true,
             "summary": "By Matt Fussell: draw the foot as three basic forms (wedge, toes, heel), then add contours, tonal development, blending and kneaded-eraser texture, and strengthen the contours. Shaded in graphite. The page promotes a paid membership; the article is free."
+          },
+          {
+            "type": "Video",
+            "title": "How to Draw Feet",
+            "creator": "Proko",
+            "url": "https://www.youtube.com/watch?v=Ezfxh0lO-Pc",
+            "why": "Comprehensive, clear breakdown of the foot wedge, arch, heel, and ankle malleoli.",
+            "verified": true,
+            "summary": "Teaches foot structure from simple wedge blocks through bony landmarks, arch mechanics, and toe grouping."
+          },
+          {
+            "type": "Video",
+            "title": "Drawing Feet with Simple Shapes",
+            "creator": "Proko",
+            "url": "https://www.youtube.com/watch?v=Eld24g2zWUs",
+            "why": "Beginner-friendly block-before-detail wedge and toe-box construction directly matching the module workflow.",
+            "verified": true,
+            "summary": "Shows how to construct grounded feet in perspective using simple geometric wedges before refining contours."
           }
         ],
         "quiz": [
@@ -1090,14 +1135,6 @@ const CURRICULUM_3 = [
         },
         "resources": [
           {
-            "type": "Reference Tool",
-            "title": "Figure drawing practice tool",
-            "creator": "Line of Action",
-            "url": "https://line-of-action.com/practice-tools/app/figure-drawing",
-            "why": "The same free, configurable timed pose tool used since Module 9, ideal for practicing full-figure construction against a steady stream of real poses.",
-            "verified": true
-          },
-          {
             "type": "Course",
             "title": "Mannequinization — Structure of the Human Body",
             "creator": "Proko (Stan Prokopenko)",
@@ -1105,6 +1142,24 @@ const CURRICULUM_3 = [
             "why": "Free lesson on combining the body's masses into one simplified mannequin figure, the foundation this module's synthesis builds on.",
             "verified": true,
             "summary": "Proko's lesson on 'mannequinization': building the figure from interlocking 3D forms that follow the gesture, so you avoid flat, contour-only drawings. It also notes that the same forms make shading easier."
+          },
+          {
+            "type": "Video",
+            "title": "How to Combine Gesture and Anatomy",
+            "creator": "Proko",
+            "url": "https://www.youtube.com/watch?v=MKi3-fe1GC4",
+            "why": "Walks through the exact professional order (gesture -> structure -> anatomy) tested in this capstone.",
+            "verified": true,
+            "summary": "Demonstrates transitioning from a fluid gesture line into solid 3D mannequin forms and anatomical landmarks without losing life."
+          },
+          {
+            "type": "Video",
+            "title": "Figure drawing will make sense after this video",
+            "creator": "Love Life Drawing",
+            "url": "https://www.youtube.com/watch?v=ZH6E_n51-BQ",
+            "why": "Beginner-clear synthesis uniting proportions, simple forms, and pose construction on a full figure.",
+            "verified": true,
+            "summary": "Ties together big shapes, balance, and simple 3D construction into a repeatable full-figure drawing routine."
           }
         ],
         "quiz": [
@@ -1190,21 +1245,22 @@ const CURRICULUM_3 = [
         },
         "resources": [
           {
-            "type": "Reference Tool",
-            "title": "Figure drawing practice tool",
-            "creator": "Line of Action",
-            "url": "https://line-of-action.com/practice-tools/app/figure-drawing",
-            "why": "The same free timed-pose tool used throughout this arc, useful here for varied action and movement references beyond static standing poses.",
-            "verified": true
+            "type": "Video",
+            "title": "ALAN BECKER - Animating Walk Cycles",
+            "creator": "AlanBeckerTutorials",
+            "url": "https://www.youtube.com/watch?v=2y6aVz0Acx0",
+            "why": "Crisp 4-minute visual breakdown of contact, down, passing, and up poses in human locomotion.",
+            "verified": true,
+            "summary": "Illustrates the four key poses of a walk cycle, weight drop, hip bounce, and arm counter-swing clearly."
           },
           {
-            "type": "Historical Reference",
-            "title": "Muybridge's Complete Human and Animal Locomotion, Vol. 1 (Dover 1979, from the 1887 plates)",
-            "creator": "Eadweard Muybridge",
-            "url": "https://archive.org/details/muybridgescomple01muyb",
-            "why": "Muybridge's stop-motion photographs of human and animal movement are a pioneering reference for how bodies move. The Internet Archive lists this Dover reprint in its lending library, so viewing it fully may need a free account and a borrow.",
+            "type": "Video",
+            "title": "Using A Plumb Line To Balance Your Figure Drawing",
+            "creator": "Drawing Tutorials Online",
+            "url": "https://www.youtube.com/watch?v=TKtW8u-N7BY",
+            "why": "Explains center of gravity, weight distribution, and balance during standing and shifting poses.",
             "verified": true,
-            "summary": "Per the Internet Archive listing: Dover's 1979 unabridged republication of all 781 plates of Muybridge's 1887 Animal Locomotion, the electro-photographic investigation of consecutive phases of animal movement made under the University of Pennsylvania. This item is Volume 1."
+            "summary": "Shows how dropping a vertical plumb line from the pit of the neck reveals whether a figure stands balanced or is actively falling into motion."
           }
         ],
         "quiz": [
@@ -1292,28 +1348,29 @@ const CURRICULUM_3 = [
         "resources": [
           {
             "type": "Video",
-            "title": "Introduction to Perspective Drawing (1994 Chalkboard Lecture)",
-            "creator": "Marshall Vandruff",
-            "url": "https://www.youtube.com/watch?v=R60e9_ofV68",
-            "why": "Revisited from Module 8 — foreshortening is fundamentally the same perspective logic covered there, now applied to organic forms instead of boxes.",
-            "verified": true,
-            "summary": "The introduction to Marshall Vandruff's 1994 Chalkboard Lecture Series on Perspective: it explains terms and means and introduces the course. Per its description, the full 12-lecture series is sold separately on Gumroad."
-          },
-          {
-            "type": "Reference Tool",
-            "title": "Figure drawing practice tool",
-            "creator": "Line of Action",
-            "url": "https://line-of-action.com/practice-tools/app/figure-drawing",
-            "why": "Useful for finding genuinely foreshortened poses to practice constructing, beyond the gentler angles most beginner references default to.",
-            "verified": true
-          },
-          {
-            "type": "Video",
             "title": "Extreme Foreshortening Techniques",
             "creator": "Proko (Peter Han)",
             "url": "https://www.youtube.com/watch?v=Bpjv5DZLFZ0",
             "why": "Demonstrates overlapping cylinders, scale jumps, and perspective compression for convincing foreshortened limbs and figures.",
             "verified": true
+          },
+          {
+            "type": "Video",
+            "title": "How to Draw: Foreshortening with the Coil Technique",
+            "creator": "Sycra",
+            "url": "https://www.youtube.com/watch?v=eJWLaDSNBAI",
+            "why": "Famous beginner-clear method using overlapping coils and ellipses to prevent compressed limb mistakes.",
+            "verified": true,
+            "summary": "Demonstrates stacking overlapping circular coils along a limb's path to judge foreshortened depth accurately."
+          },
+          {
+            "type": "Video",
+            "title": "Make Your Figures POP with FORESHORTENING",
+            "creator": "David Finch",
+            "url": "https://www.youtube.com/watch?v=9XtgOExgLt4",
+            "why": "Practical full-figure foreshortening demo showing cylinder overlap and scale exaggeration.",
+            "verified": true,
+            "summary": "Explains using overlapping contours, dramatic size shifts, and perspective cylinders to push limbs toward the viewer."
           }
         ],
         "quiz": [
@@ -1398,15 +1455,6 @@ const CURRICULUM_3 = [
         },
         "resources": [
           {
-            "type": "Article",
-            "title": "How to Draw Folds in Clothing and Fabric",
-            "creator": "GVAAT’S WORKSHOP",
-            "url": "https://gvaat.com/blog/how-to-draw-folds-in-clothing-and-fabric/",
-            "why": "A free, detailed, illustrated tutorial on fold types and the forces behind them (tension points, underlying form and gravity); downloadable posters need a free newsletter sign-up.",
-            "verified": true,
-            "summary": "GVAAT's tutorial on drawing folds in clothing and fabric. Its short answer: depict the folds accurately (and swiftly simplified), then arrange them more pleasingly than raw reality. It has three step-by-step sections, examples of different fold types, the forces that shape folds (tension points, underlying form, gravity), and process videos. Downloadable posters and PSDs come with a free newsletter sign-up."
-          },
-          {
             "type": "Video",
             "title": "Intro to Drawing Drapery",
             "creator": "Proko (Steven Michael Hampton)",
@@ -1421,6 +1469,15 @@ const CURRICULUM_3 = [
             "url": "https://www.youtube.com/watch?v=S1eR1rcPlHc",
             "why": "Concise breakdown of tension points, the major fold types, and how cloth bunches at joints.",
             "verified": true
+          },
+          {
+            "type": "Video",
+            "title": "Understanding Every Type Of Clothing Fold",
+            "creator": "Marco Bucci",
+            "url": "https://www.youtube.com/watch?v=d07NanfYT8U",
+            "why": "Clearly categorizes the major fold types, tension points, and gravity mechanics without broken links.",
+            "verified": true,
+            "summary": "Breaks down pipe, zigzag, spiral, half-lock, diaper, and drop folds and explains how underlying body tension creates them."
           }
         ],
         "quiz": [
@@ -1507,21 +1564,21 @@ const CURRICULUM_3 = [
         "resources": [
           {
             "type": "Video",
-            "title": "The Secret to Creating Clear Expressions (Art Tips #12)",
-            "creator": "Aaron Blaise",
-            "url": "https://www.youtube.com/watch?v=S94VIlQyFWo",
-            "why": "Revisited from Modules 29 and 37: a video about clear expressions on faces. Its 'keep it simple and iconic' idea is worth carrying over to whole-body posture.",
+            "title": "ELEMENTS OF CHARACTER: Gesture, Forms, and Animation",
+            "creator": "moderndayjames",
+            "url": "https://www.youtube.com/watch?v=xGhYfLQWbp0",
+            "why": "Shows how whole-body line of action, posture, and silhouette communicate character intent before details exist.",
             "verified": true,
-            "summary": "Per its description, the 12th episode of Aaron Blaise's Art Tips: his simple method for creating clear character expressions for animation, character design and illustration, by thinking of the basic iconic faces we drew as children.",
-            "videoId": "S94VIlQyFWo"
+            "summary": "Breaks down body language, staging, and expressive silhouette design so poses read emotionally at a glance."
           },
           {
-            "type": "Reference Tool",
-            "title": "Figure drawing practice tool",
-            "creator": "Line of Action",
-            "url": "https://line-of-action.com/practice-tools/app/figure-drawing",
-            "why": "Useful here for a steady supply of varied real postures to analyze for their emotional read.",
-            "verified": true
+            "type": "Video",
+            "title": "How To Draw BODY LANGUAGE That Sparks EMOTION",
+            "creator": "Don Corgi Art",
+            "url": "https://www.youtube.com/watch?v=UFafJV26OAk",
+            "why": "Directly teaches how posture, shoulder/hip tilt, and silhouette convey emotion without relying on facial features.",
+            "verified": true,
+            "summary": "Demonstrates contrasting open vs. closed poses, weight shifts, and tension to communicate mood through the whole body."
           }
         ],
         "quiz": [
@@ -1620,7 +1677,7 @@ const CURRICULUM_3 = [
             "title": "Character Shape Language",
             "creator": "CGWire",
             "url": "https://blog.cg-wire.com/character-shape-language/",
-            "why": "Uses real animated film examples to illustrate how dominant shapes communicate personality, a useful applied companion to the Art Prof lesson.",
+            "why": "Clear breakdown of circle, square, and triangle shape language and how silhouettes communicate personality immediately.",
             "verified": true,
             "summary": "By Gwénaëlle Dupré (published Dec 2024, updated Mar 2026): shape language is the psychological associations of geometric forms (line, circle, square, triangle, spirals). It covers shape synergy and breaking the rules, with animation examples."
           }
@@ -1709,30 +1766,30 @@ const CURRICULUM_3 = [
         },
         "resources": [
           {
-            "type": "Article",
-            "title": "How to Draw Stylized Faces",
-            "creator": "Instructables",
-            "url": "https://www.instructables.com/How-to-Draw-Stylized-Faces/",
-            "why": "A free, dedicated 7-step walkthrough of drawing a stylized face from a reference, directly on-topic, unlike the realistic Loomis construction lesson this replaces.",
-            "verified": true,
-            "summary": "A 7-step walkthrough by kamifreund: find a reference, sketch the face shape, then the eyes, nose and mouth, clean up, and add details."
-          },
-          {
-            "type": "Article",
-            "title": "How to Draw Anime Girl Hair for Beginners",
-            "creator": "GVAAT’S WORKSHOP",
-            "url": "https://gvaat.com/blog/how-to-draw-anime-girl-hair-for-beginners-4-steps/",
-            "why": "A concrete example of a stylized convention built directly on top of the realistic hair-massing principles from Module 31, from the same source already used for Legs, Feet, and Clothing.",
-            "verified": true,
-            "summary": "GVAAT's 4-step method for anime girl hair: see where the head sits under the hair, draw a detailed underdrawing, draw final line art on top, then add basic shading. Six examples, ending with Asuka from Evangelion, each adding a new consideration. It is a beginner tutorial focused on the front view."
-          },
-          {
             "type": "Video",
             "title": "Transform ANY Reference into Stylized Art",
             "creator": "Proko",
             "url": "https://www.youtube.com/watch?v=QYx9bFUKUIw",
             "why": "Shows how to push shape language, proportion hierarchy, and simplification on real anatomy references to achieve deliberate stylization.",
             "verified": true
+          },
+          {
+            "type": "Video",
+            "title": "Head & Body Stylization - WIWIKA",
+            "creator": "Sycra",
+            "url": "https://www.youtube.com/watch?v=0EJhODhDv1A",
+            "why": "Explains how to deliberately distort realistic head and full-body anatomy proportions into cohesive styles.",
+            "verified": true,
+            "summary": "Shows how consistent proportion rules, shape language, and simplification turn realistic anatomy into intentional style."
+          },
+          {
+            "type": "Video",
+            "title": "Stylize Portraits Like a Pro",
+            "creator": "Proko",
+            "url": "https://www.youtube.com/watch?v=hy3zFn-gEQA",
+            "why": "Demonstrates pushing realistic structural landmarks into purposeful, readable stylization.",
+            "verified": true,
+            "summary": "Walks through exaggerating key rhythms and simplifying secondary details while keeping underlying 3D structure intact."
           }
         ],
         "quiz": [
@@ -2028,20 +2085,22 @@ const CURRICULUM_3 = [
         },
         "resources": [
           {
-            "type": "Course",
-            "title": "Lesson 3: An Introduction to Drawing Plants",
-            "creator": "Drawabox (Irshad Karim)",
-            "url": "https://drawabox.com/lesson/3/1",
-            "why": "Covers how leaves bend in 3D space along flow lines and how complex vegetation forms are built from simple planes.",
-            "verified": true
+            "type": "Video",
+            "title": "Clumping Plants Made Easy to Draw",
+            "creator": "Stephen Travers Art",
+            "url": "https://www.youtube.com/watch?v=55POPgNEs2k",
+            "why": "Directly teaches overlapping root-centered foliage clumps and undergrowth layering rather than isolated leaves.",
+            "verified": true,
+            "summary": "Shows how to draw believable plant clusters by grouping overlapping silhouettes and anchoring stems to a shared base."
           },
           {
-            "type": "Course",
-            "title": "Lesson 3: Applying Construction to Plants — Leaves exercise",
-            "creator": "Drawabox (Irshad Karim)",
-            "url": "https://drawabox.com/lesson/3/2",
-            "why": "Demonstrates step-by-step construction of leaf clusters and grounded undergrowth using the same flow-line method.",
-            "verified": true
+            "type": "Video",
+            "title": "Don't Let Foliage Defeat You! Shrubs need not be difficult.",
+            "creator": "Stephen Travers Art",
+            "url": "https://www.youtube.com/watch?v=wsNdQ4JxfBI",
+            "why": "Focuses specifically on structuring bushes and ground-level shrubs as readable 3D masses.",
+            "verified": true,
+            "summary": "Demonstrates breaking messy bushes into lit top masses, shadowed underplanes, and selective leaf-edge accents."
           }
         ],
         "quiz": [
@@ -2628,19 +2687,21 @@ const CURRICULUM_3 = [
         "resources": [
           {
             "type": "Video",
-            "title": "Introduction to Perspective Drawing — 1994 Chalkboard Lectures",
-            "creator": "Marshall Vandruff",
-            "url": "https://www.youtube.com/watch?v=R60e9_ofV68",
-            "why": "The foundational lecture behind the classic 'if you can draw a cube, you can draw practically anything' approach to buildings, taught by one of the most respected perspective instructors in the field.",
-            "verified": true
+            "title": "Basic Rules of PERSPECTIVE DRAWING in Architecture + Free Downloadable Guide",
+            "creator": "Sketch Design Craft",
+            "url": "https://www.youtube.com/watch?v=mv90xADi4Vs",
+            "why": "Directly teaches architectural perspective construction using box volumes and horizon/vanishing-point discipline.",
+            "verified": true,
+            "summary": "Explains architectural horizon placement, eye-level scale, and constructing clean multi-box building forms."
           },
           {
-            "type": "Article",
-            "title": "Architecture Composition Essentials",
-            "creator": "archisoup",
-            "url": "https://www.archisoup.com/architecture-composition",
-            "why": "A free article covering the same vocabulary architects use for buildings as volumes, planes, and order — the core ideas this module is built on, without the book purchase.",
-            "verified": true
+            "type": "Video",
+            "title": "Basic Rules of ONE-POINT PERSPECTIVE DRAWING in Architecture - From Drawing Boxes to House",
+            "creator": "Sketch Design Craft",
+            "url": "https://www.youtube.com/watch?v=I3EsCTBSMYA",
+            "why": "Demonstrates converting a foundational perspective box directly into a multi-volume architectural building.",
+            "verified": true,
+            "summary": "Walks step by step from simple perspective boxes to carved architectural facades, roofs, and openings."
           }
         ],
         "quiz": [
@@ -2826,20 +2887,22 @@ const CURRICULUM_3 = [
         },
         "resources": [
           {
-            "type": "Channel",
-            "title": "30X40 Design Workshop",
-            "creator": "Eric Reinholdt",
-            "url": "https://www.youtube.com/channel/UCoc2ZM2cYas4DijNdaEJXUA",
-            "why": "A licensed, practicing architect's YouTube channel covering real roof design and construction, including videos directly addressing roof pitch, overhangs, and myths about roof shapes.",
-            "verified": true
+            "type": "Video",
+            "title": "Perspective Drawing 13 - How To Construct Inclined Planes In Perspective",
+            "creator": "Dan Beardshaw",
+            "url": "https://www.youtube.com/watch?v=pvSCqIzC34Q",
+            "why": "Directly teaches the auxiliary vanishing point and vertical vanishing trace needed to construct pitched roofs accurately.",
+            "verified": true,
+            "summary": "Demonstrates finding roof peak centers via X-diagonals and plotting auxiliary vanishing points for sloped planes."
           },
           {
             "type": "Video",
-            "title": "Basic Perspective",
-            "creator": "Ctrl+Paint — Matt Kohr",
-            "url": "https://www.ctrlpaint.com/videos/perspective",
-            "why": "A concise, free primer on the core perspective logic (including inclined planes) that this module's vanishing-trace construction builds directly on.",
-            "verified": true
+            "title": "USE THESE PROVEN STEPS and DRAW ANY TWO POINT PERSPECTIVE ROOF!!",
+            "creator": "HowToEGD",
+            "url": "https://www.youtube.com/watch?v=n2Uf3jYqruw",
+            "why": "Thorough walkthrough of constructing gabled and hipped roofs in two-point perspective.",
+            "verified": true,
+            "summary": "Covers finding roof ridge centerlines, overhang geometry, and gabled/hipped roofline intersections in two-point perspective."
           }
         ],
         "quiz": [
@@ -2934,12 +2997,22 @@ const CURRICULUM_3 = [
             "verified": true
           },
           {
-            "type": "Article",
-            "title": "How to Draw Stone and Rock Textures",
-            "creator": "Envato Tuts+",
-            "url": "https://design.tutsplus.com/tutorials/how-to-draw-stonerock-texture--cms-28120",
-            "why": "A free, step-by-step illustrated guide to drawing stone and rock surface textures with graphite, complementing the masonry and brick-pattern lesson above.",
-            "verified": true
+            "type": "Video",
+            "title": "How To DRAW Realistic TEXTURES using PENCILS! - Wood, Brick & Metal",
+            "creator": "Dan Beardshaw",
+            "url": "https://www.youtube.com/watch?v=S3DCx0TzNRw",
+            "why": "Covers the three core architectural building materials (brick, wood grain, and metal) with clear form-vs-surface value control.",
+            "verified": true,
+            "summary": "Demonstrates rendering brick mortar, weathered wood grain, and reflective metal while preserving underlying value planes."
+          },
+          {
+            "type": "Video",
+            "title": "Pen & Ink Drawing Tutorials | How to create realistic textures (Part 3)",
+            "creator": "Alphonso Dunn",
+            "url": "https://www.youtube.com/watch?v=IP-yYa2eixA",
+            "why": "Demonstrates wrapping architectural surface textures around 3D forms following underlying light and shadow planes.",
+            "verified": true,
+            "summary": "Shows how architectural texture marks compress in perspective and soften in light zones to stay readable."
           }
         ],
         "quiz": [
@@ -3027,20 +3100,22 @@ const CURRICULUM_3 = [
         },
         "resources": [
           {
-            "type": "Site",
-            "title": "Architecture & Design",
-            "creator": "Khan Academy",
-            "url": "https://www.khanacademy.org/humanities/art-1010/architecture-design",
-            "why": "Free video lessons spanning world architecture across history and cultures, covering the same comparative silhouette and ornament vocabulary this module draws on.",
-            "verified": true
+            "type": "Video",
+            "title": "Architecture History: All Architectural Styles & Epoches, Complete Overview [University Lecture]",
+            "creator": "Sebastian von Thaden",
+            "url": "https://www.youtube.com/watch?v=JHClCthMK-g",
+            "why": "Comprehensive visual lecture walking through historical periods, proportions, rooflines, and ornament vocabularies.",
+            "verified": true,
+            "summary": "Surveys major Western and global architectural eras with clear visual comparisons of arches, columns, roofs, and facades."
           },
           {
-            "type": "Article",
-            "title": "How do we look at architecture?",
-            "creator": "James Gurney",
-            "url": "https://gurneyjourney.blogspot.com/2018/05/how-do-we-look-at-architecture.html",
-            "why": "Explores what actually draws the eye when looking at a building's facade, useful grounding for understanding why certain style markers (windows, doors, proportion) read as strongly as they do.",
-            "verified": true
+            "type": "Video",
+            "title": "Every Architectural Style Explained In 15 Minutes",
+            "creator": "Sahari",
+            "url": "https://www.youtube.com/watch?v=12__WSxFaaw",
+            "why": "Fast visual primer comparing signature silhouettes and ornament markers across Classical, Gothic, Baroque, Art Deco, and Modernist buildings.",
+            "verified": true,
+            "summary": "Highlights the recognizable structural cues and silhouettes that distinguish each historical style at a glance."
           }
         ],
         "quiz": [
@@ -3128,19 +3203,21 @@ const CURRICULUM_3 = [
         "resources": [
           {
             "type": "Video",
-            "title": "Urban Sketching Tutorial for Beginners",
-            "creator": "Will Kemp Art School",
-            "url": "https://willkempartschool.com/urban-sketching-tutorial-for-beginners/",
-            "why": "A free video lesson on constructing interior and exterior spaces in accurate perspective while sketching on location — the same practical, architect's-eye approach.",
-            "verified": true
+            "title": "How to Draw Interior Two Point Perspective",
+            "creator": "Stephen Travers Art",
+            "url": "https://www.youtube.com/watch?v=Zwg7s3BuVMg",
+            "why": "Specifically demonstrates constructing interior walls, floors, ceilings, and eye-level depth from inside a room box.",
+            "verified": true,
+            "summary": "Walks through setting the interior corner vertical, locating vanishing points, and carving doorways and windows into room walls."
           },
           {
-            "type": "Site",
-            "title": "Lesson 1 — Boxes: The Basics of Perspective and Projection",
-            "creator": "Drawabox (Uncomfortable)",
-            "url": "https://drawabox.com/lesson/1/6",
-            "why": "The same box-perspective fundamentals this module reapplies from the inside, explained from first principles.",
-            "verified": true
+            "type": "Video",
+            "title": "How to Draw a Simple Room using 2-Point Perspective for Beginners",
+            "creator": "Circle Line Art School",
+            "url": "https://www.youtube.com/watch?v=akumx0jJYf4",
+            "why": "Clear step-by-step interior room construction showing corner convergence and architectural openings.",
+            "verified": true,
+            "summary": "Demonstrates laying out a clean two-point room shell, floor grid, and wall thickness from scratch."
           }
         ],
         "quiz": [
@@ -3228,19 +3305,21 @@ const CURRICULUM_3 = [
         "resources": [
           {
             "type": "Video",
-            "title": "Introduction to Perspective Drawing (1994 Chalkboard Lecture)",
-            "creator": "Marshall Vandruff",
-            "url": "https://www.youtube.com/watch?v=R60e9_ofV68",
-            "why": "A free, thorough lecture on perspective construction for designed objects generally, directly transferable to constructing furniture and props from imagination.",
-            "verified": true
+            "title": "How to Draw a Chair using Two-Point Perspective: Narrated",
+            "creator": "Circle Line Art School",
+            "url": "https://www.youtube.com/watch?v=vkECt-gauNM",
+            "why": "Directly demonstrates carving a chair's seat, backrest, and legs out of a grounded perspective box.",
+            "verified": true,
+            "summary": "Shows how building an outer bounding box first guarantees all four chair legs sit flat on the same floor plane."
           },
           {
             "type": "Video",
-            "title": "Simple ROOM Drawing for Beginners | One-Point Perspective",
-            "creator": "Albay Art",
-            "url": "https://www.youtube.com/watch?v=Ch5cNVfyi1Y",
-            "why": "Walks through placing interior furniture, doorways, flooring grids, and props to scale inside a perspective room box.",
-            "verified": true
+            "title": "One Point Perspective: Rooms and Furniture",
+            "creator": "Kristina Smethers",
+            "url": "https://www.youtube.com/watch?v=Vz57CUelPu8",
+            "why": "Walks through scaling and grounding multiple furniture pieces and interior props onto the same room floor plane.",
+            "verified": true,
+            "summary": "Demonstrates aligning beds, tables, and shelving to shared room vanishing points so props never float or warp."
           }
         ],
         "quiz": [
@@ -3336,12 +3415,22 @@ const CURRICULUM_3 = [
             "verified": true
           },
           {
-            "type": "Site",
-            "title": "Architecture Detective: What types of architecture can you find in your neighborhood?",
-            "creator": "Rachel Wintemberg — The Helpful Art Teacher",
-            "url": "https://thehelpfulartteacher.blogspot.com/2013/08/architecture-detective-what-types-of.html",
-            "why": "A free lesson in observing and recording the varied, mixed architecture of a real street, reinforcing this module's emphasis on repetition-with-variation.",
-            "verified": true
+            "type": "Video",
+            "title": "Basic Figures for Urban Sketches Tips & techniques",
+            "creator": "Stephen Travers Art",
+            "url": "https://www.youtube.com/watch?v=5qR5xyaXLxk",
+            "why": "Directly solves the human-scale cue problem by showing how to place eye-level figures along receding city streets.",
+            "verified": true,
+            "summary": "Teaches the eye-level horizon rule for placing pedestrians at any depth so buildings immediately feel monumental and grounded."
+          },
+          {
+            "type": "Video",
+            "title": "Beginner at Drawing Streetscapes? - 8 Tips",
+            "creator": "Stephen Travers Art",
+            "url": "https://www.youtube.com/watch?v=fJpOOS30aog",
+            "why": "Covers unifying a multi-building street block under consistent vanishing points, roofline variation, and street clutter.",
+            "verified": true,
+            "summary": "Breaks down perspective discipline, overlapping storefronts, and simplifying urban detail along a receding street."
           }
         ],
         "quiz": [
@@ -3539,11 +3628,21 @@ const CURRICULUM_3 = [
           },
           {
             "type": "Video",
-            "title": "FZD Design Cinema and Podcast (full playlist)",
-            "creator": "FZD School — Feng Zhu",
-            "url": "https://www.youtube.com/playlist?list=PLvNv1kRvuSwLYS2CkHTDS6-zVKSoUYzJO",
-            "why": "The complete free lecture archive, useful for finding additional environment-detail, materials, and weathering episodes beyond #107.",
-            "verified": true
+            "title": "Drawing Brick and Stone Ruins in Pen and Ink",
+            "creator": "Pen and Ink Drawings by Jonathan Baldock",
+            "url": "https://www.youtube.com/watch?v=Xtp9pHc3RvI",
+            "why": "Practical demonstration of rendering structural decay, crumbling masonry, broken edges, and aged architectural wear.",
+            "verified": true,
+            "summary": "Shows how broken silhouettes, missing stones, and uneven mortar edges sell age and weathering convincingly."
+          },
+          {
+            "type": "Article",
+            "title": "Realistic Texture Drawing Guide",
+            "creator": "Ran Art Blog",
+            "url": "https://ranartblog.com/how-to-draw-texture.html",
+            "why": "Free illustrated breakdown explicitly covering how to shade cracks, holes, weathered wood, and surface imperfections.",
+            "verified": true,
+            "summary": "Demonstrates shading surface damage, cracks, and wear patterns with believable cast shadows and edge highlights."
           }
         ],
         "quiz": [
@@ -3743,20 +3842,30 @@ const CURRICULUM_3 = [
         },
         "resources": [
           {
-            "type": "Article",
-            "title": "Quadruped Animals Tutorial",
-            "creator": "SrahC — Clip Studio Tips",
-            "url": "https://tips.clip-studio.com/en-us/articles/2301",
-            "why": "A free tutorial specifically comparing the human and quadruped skeleton bone-by-bone, directly reinforcing this module's core idea.",
-            "verified": true
-          },
-          {
             "type": "Historical Reference",
             "title": "Animal Locomotion (1887)",
             "creator": "Eadweard Muybridge",
             "url": "https://archive.org/details/muybridgescomple01muyb",
             "why": "The foundational stop-motion photographic reference for real quadruped gait sequences, freely viewable through the Internet Archive.",
             "verified": true
+          },
+          {
+            "type": "Video",
+            "title": "quadruped locomotion",
+            "creator": "MSC Art",
+            "url": "https://www.youtube.com/watch?v=tLrRlXxM5Yw",
+            "why": "Dedicated 10-minute breakdown of quadruped skeletal limb mechanics and walk, trot, and gallop gait cycles.",
+            "verified": true,
+            "summary": "Explains shoulder-blade pivot, rear leg drive, and how footfall timing shifts between quadruped gaits."
+          },
+          {
+            "type": "Video",
+            "title": "Animating Horse Walk Cycle",
+            "creator": "animan1999",
+            "url": "https://www.youtube.com/watch?v=INQx-Lzs8mU",
+            "why": "Visualizes the exact four-beat footfall sequence and shoulder/pelvis counter-rotation of a quadruped walk.",
+            "verified": true,
+            "summary": "Clearly maps front and hind leg phase offsets so quadruped poses look naturally weighted in motion."
           }
         ],
         "quiz": [
@@ -3953,12 +4062,22 @@ const CURRICULUM_3 = [
             "verified": true
           },
           {
-            "type": "Course",
-            "title": "Mannequinization — Structure of the Human Body",
-            "creator": "Proko (Stan Prokopenko)",
-            "url": "https://www.proko.com/course-lesson/mannequinization-structure-of-the-human-body",
-            "why": "The free lesson on simplifying the human body into blocks and capsules that this module extends directly to animal anatomy.",
-            "verified": true
+            "type": "Video",
+            "title": "Drawing Skull Anatomy: Humans VS Animals",
+            "creator": "Winged Canvas",
+            "url": "https://www.youtube.com/watch?v=3_I9TDB1OfU",
+            "why": "Side-by-side comparative anatomy lesson mapping homologous skull structures between humans and animals.",
+            "verified": true,
+            "summary": "Compares cranium, jaw, orbit, and snout proportions across humans and mammals so students transfer human anatomy knowledge directly."
+          },
+          {
+            "type": "Video",
+            "title": "Drawing a Lion - Animal Portraits with Aaron Blaise",
+            "creator": "Proko (feat. Aaron Blaise)",
+            "url": "https://www.youtube.com/watch?v=12KIndf60Rg",
+            "why": "Features former Disney animator Aaron Blaise teaching comparative human-to-feline anatomy and structural landmarks.",
+            "verified": true,
+            "summary": "Connects feline skull planes, neck musculature, and facial landmarks directly back to human anatomical equivalents."
           }
         ],
         "quiz": [
@@ -4554,21 +4673,21 @@ const CURRICULUM_3 = [
         "resources": [
           {
             "type": "Article",
-            "title": "Fish Drawing Guide: 6 Easy Steps",
-            "creator": "Goncalo Lopes — BIOWARS",
-            "url": "https://www.biowars.com/blog/fish-drawing/",
-            "why": "A free, beginner-friendly pencil guide that builds a side-view fish from circles, then adds the tail, pectoral and pelvic fins, eye and dorsal spines. It covers fish construction only; the swimming-motion ideas in this module are not part of it.",
+            "title": "How to Draw Animals: Fish and Sharks",
+            "creator": "Monika Zagrobelna (Envato Tuts+)",
+            "url": "https://design.tutsplus.com/tutorials/how-to-draw-animals-fish-and-sharks--cms-21955",
+            "why": "Teaches anatomical fish and shark body construction, fin placement, and membrane structure rather than flat outlines.",
             "verified": true,
-            "summary": "Builds a fish in six steps from basic shapes: a large circle for the widest part of the body, a smaller circle for the tail base, then the tail and head shape. Fins follow (two pectoral, one pelvic), then the eye, head details and a row of dorsal spikes that shrink toward the tail. Also suggests tools: a hard H pencil for light sketching, a soft 4B for shadows, and a kneaded eraser."
+            "summary": "Breaks down fusiform body volume, gill placement, and paired/unpaired fin mechanics across bony fish and sharks."
           },
           {
             "type": "Article",
-            "title": "How to Draw a Dolphin",
-            "creator": "Chris Wilson",
-            "url": "https://chriswilsonstudio.com/how-to-draw-a-dolphin/",
-            "why": "A free observational tutorial that explains why a dolphin's tail flukes sit horizontally (unlike a fish's vertical tail) and that a dolphin swims by bending its body vertically, which matches this module's fish versus marine-mammal split.",
+            "title": "How to Draw Whales (Dolphins, Whales, and Porpoises)",
+            "creator": "Monika Zagrobelna (Envato Tuts+)",
+            "url": "https://design.tutsplus.com/tutorials/how-to-draw-animals-dolphins-whales-and-porpoises--cms-21989",
+            "why": "Explicitly contrasts marine mammal skeletal anatomy (mammalian spine, arm-bone flippers, horizontal tail flukes) against fish.",
             "verified": true,
-            "summary": "Draws a dolphin from a side-view photo through three connected contours (forehead to tail, jaw to belly, then features and fins) instead of construction shapes. Stresses horizontal flukes, since a vertical tail makes the animal read as a fish or shark, plus a rounded forehead flowing into a distinct snout. Ends with an exercise: draw the same dolphin at three moments of its swimming cycle."
+            "summary": "Explains dorsoventral tail movement, modified mammalian forelimb flippers, and smooth hydrodynamic body curves."
           }
         ],
         "quiz": [
@@ -4664,13 +4783,22 @@ const CURRICULUM_3 = [
             "summary": "Starts with the butterfly body as three overlapping ovals (head, thorax, abdomen), noting that the wings attach to the thorax, there are three pairs of legs with the first pair short, and the head carries antennae, palpi and a coiled proboscis. Wings are built from triangles with costal, outer and inner margins, an apex and a discal cell. The tutorial then walks through four species and ends with rules for designing your own butterfly pattern."
           },
           {
-            "type": "Article",
-            "title": "How to Draw a Spider, Step by Step",
-            "creator": "Monika Zagrobelna — Envato Tuts+",
-            "url": "https://design.tutsplus.com/tutorials/how-to-draw-a-spider--cms-29660",
-            "why": "A short free step-by-step spider drawing: a torso circle, a tapered abdomen, the head and mandibles, eight segmented legs plus palps, and details like eight eyes and spinnerets. Useful for seeing the eight-legged arachnid plan next to the six-legged insect plan.",
+            "type": "Course",
+            "title": "Lesson 4: Applying Construction to Insects and Arachnids",
+            "creator": "Drawabox (Irshad Karim)",
+            "url": "https://drawabox.com/lesson/4",
+            "why": "Industry-favorite free lesson on building solid 3D exoskeleton segments and articulated insect/arachnid legs.",
             "verified": true,
-            "summary": "A two-minute, twelve-step spider drawing: a circle for the torso, a tapered oval abdomen, the head and front mandibles, then eight legs built as three main segments (plus palps in front) that thin out segment by segment. Final steps add eight eyes, spinnerets, torso detail, an abdomen pattern and a little hair. It also points to the author's longer spider anatomy tutorial."
+            "summary": "Teaches constructing head, thorax, and abdomen as interlocking 3D volumes with sausage-method jointed legs."
+          },
+          {
+            "type": "Course",
+            "title": "Lesson 4: Spider Construction Demo",
+            "creator": "Drawabox (Irshad Karim)",
+            "url": "https://drawabox.com/lesson/4/7/spiderconstruction",
+            "why": "Rigorous 3D form-wrapping and segmented leg construction walkthrough for arachnids.",
+            "verified": true,
+            "summary": "Demonstrates anchoring eight segmented legs radially to the cephalothorax and wrapping segmentation bands in perspective."
           }
         ],
         "quiz": [
@@ -4775,15 +4903,6 @@ const CURRICULUM_3 = [
         },
         "resources": [
           {
-            "type": "Video",
-            "title": "The secret behind believable fantasy worlds | Worldbuilding Biomes & Ecosystems",
-            "creator": "World Anvil",
-            "url": "https://www.youtube.com/watch?v=m-H48LbM1mA",
-            "why": "A free 9-minute video from World Anvil's official channel that turns biome design into a four-layer checklist, matching this module's geography-and-climate logic.",
-            "summary": "A step-by-step guide to building biomes that serve a story, organized as four layers: geography and water, climate and weather, flora and fauna, and materials and resources.",
-            "verified": true
-          },
-          {
             "type": "Read",
             "title": "Landscape Maquettes",
             "creator": "James Gurney (Gurney Journey)",
@@ -4802,13 +4921,22 @@ const CURRICULUM_3 = [
             "verified": true
           },
           {
-            "type": "Book",
-            "title": "Landscape Painting",
-            "creator": "Birge Harrison (1909, public domain)",
-            "url": "https://archive.org/details/landscapepainti01harrgoog",
-            "why": "A full public-domain book on landscape painting fundamentals — its chapters on Values and Composition apply directly to reading a biome's shapes and tonal structure before rendering it.",
-            "summary": "A classic, freely downloadable 1909 text from a working landscape painter and teacher, covering color, values, drawing, and composition in outdoor scenes. The Values and Composition chapters are the most directly useful here: they teach how tonal relationships, not color, are what actually make a landscape read as a specific, believable place.",
-            "verified": true
+            "type": "Video",
+            "title": "Design Cinema – EP 56 - MMORPG Landscapes",
+            "creator": "FZDSCHOOL",
+            "url": "https://www.youtube.com/watch?v=mmff8bBCYW4",
+            "why": "Demonstrates how concept artists design distinct visual biome archetypes and silhouette languages for game worlds.",
+            "verified": true,
+            "summary": "Breaks down color coding, landmark silhouettes, and terrain rules that make separate biomes instantly readable."
+          },
+          {
+            "type": "Video",
+            "title": "Design Cinema - EP 79 - Creating Worlds GDC 2015",
+            "creator": "FZDSCHOOL",
+            "url": "https://www.youtube.com/watch?v=fww9L7XH8Qg",
+            "why": "Shows how climate, terrain, and recognizable archetypes combine to make fictional environments read believably at a glance.",
+            "verified": true,
+            "summary": "Explains anchoring fantastical worlds in real-world biome logic so players immediately understand how the environment works."
           }
         ],
         "quiz": [
@@ -4927,22 +5055,22 @@ const CURRICULUM_3 = [
             "verified": true
           },
           {
-            "type": "Article",
-            "title": "Environmental Storytelling: The Art of Immersive World-Building",
-            "creator": "Game Design Skills",
-            "url": "https://gamedesignskills.com/game-design/environmental-storytelling/",
-            "why": "Defines environmental storytelling clearly and connects it directly to level design and worldbuilding practice with named examples.",
-            "summary": "Defines environmental storytelling as embedding narrative into visual and audio cues within a space rather than dialogue or cutscenes, and walks through how games like Dark Souls, Fallout, and Skyrim use architecture, object placement, and lighting to let players uncover a world's history through exploration alone.",
-            "verified": true
+            "type": "Video",
+            "title": "Design Cinema - Episode 109 - Design Breakdown",
+            "creator": "FZDSCHOOL",
+            "url": "https://www.youtube.com/watch?v=xp5ifMnW3fY",
+            "why": "Walks through cause-and-effect prop storytelling in an environment, directly matching objects-as-evidence design.",
+            "verified": true,
+            "summary": "Demonstrates chaining logical environmental props (heat source, storage, wear marks, pathways) so a room tells its own backstory."
           },
           {
-            "type": "Book",
-            "title": "The Level Design Book — Worldbuilding chapter",
-            "creator": "Level Design Book (open community text)",
-            "url": "https://book.leveldesignbook.com/process/preproduction/worldbuilding",
-            "why": "A free, continuously-updated open book chapter specifically on how professional level designers organize worldbuilding and backstory documentation.",
-            "summary": "Covers how professional teams organize worldbuilding into maps, timelines, and notes, and makes the practical case for worldbuilding only what a project currently needs rather than over-building lore up front — useful discipline for keeping an environment's implied story focused instead of scattered.",
-            "verified": true
+            "type": "Video",
+            "title": "Storytelling in Backgrounds",
+            "creator": "Proko",
+            "url": "https://www.youtube.com/watch?v=koCwetzNtds",
+            "why": "Dedicated visual-art lesson on embedding narrative cues and lived-in history directly into drawn environments.",
+            "verified": true,
+            "summary": "Shows how prop placement, contrast, and background clues reveal character habits and world history without text."
           }
         ],
         "quiz": [
@@ -5062,21 +5190,21 @@ const CURRICULUM_3 = [
           },
           {
             "type": "Video",
-            "title": "The Rule of Thirds in Art",
-            "creator": "The Virtual Instructor",
-            "url": "https://www.youtube.com/watch?v=sQyquPmATww",
-            "why": "A focused, free breakdown of the Rule of Thirds specifically for drawing and painting composition.",
-            "summary": "Walks through how dividing a canvas into a 3x3 grid gives reliable placement points for a focal point, and shows the technique applied to real reference photos — cropping and re-cropping the same image to demonstrate how shifting a subject onto a grid intersection changes how strong the composition reads.",
-            "verified": true
+            "title": "Design Theory: Composition",
+            "creator": "Sinix Design",
+            "url": "https://www.youtube.com/watch?v=aovyWGBj-nc",
+            "why": "Covers primary/secondary reads, contrast hierarchy, and value grouping for concept art and illustration.",
+            "verified": true,
+            "summary": "Explains organizing shapes, rest areas, and focal contrast so concept art reads cleanly at thumbnail scale."
           },
           {
-            "type": "Article",
-            "title": "The Rule of Thirds in Landscape Painting",
-            "creator": "Will Kemp Art School",
-            "url": "https://willkempartschool.com/the-rule-of-thirds-in-landscape-painting/",
-            "why": "Analyzes real historical landscape paintings (including a 17th-century Dutch windmill scene) to show the Rule of Thirds working in finished professional work, not just as an abstract rule.",
-            "summary": "Uses a real 17th-century Dutch landscape painting to show how the artist aligned the horizon and a windmill focal point to rule-of-thirds guidelines, then explains how a low horizon line was used deliberately to give the sky more dramatic weight in the composition.",
-            "verified": true
+            "type": "Video",
+            "title": "The Secret to Better Environment Composition",
+            "creator": "Tyler Edlin",
+            "url": "https://www.youtube.com/watch?v=3JGOv99ye5g",
+            "why": "Directly teaches leading the eye, focal placement, and narrative intent in environment concept compositions.",
+            "verified": true,
+            "summary": "Demonstrates using perspective lines, value framing, and foreground overlap to steer viewer attention across a scene."
           }
         ],
         "quiz": [
@@ -5320,13 +5448,13 @@ const CURRICULUM_3 = [
             "verified": true
           },
           {
-            "type": "Article",
-            "title": "Creating Mood and Atmosphere in Landscape Painting",
-            "creator": "Angela Edwards",
-            "url": "https://www.angelaedwards.co.uk/creating-mood-and-atmosphere-in-landscape-painting/",
-            "why": "A thorough, free breakdown of exactly how color, lighting, composition, texture, and weather each independently contribute to mood, with real painting examples.",
-            "summary": "Walks through five concrete levers for mood — color psychology, lighting and value (including chiaroscuro), composition, brush texture, and weather or time of day — using real paintings by Turner, Monet, van Gogh, and Caravaggio to show each lever in finished work, then lists common mistakes like overusing color or ignoring a consistent light source.",
-            "verified": true
+            "type": "Video",
+            "title": "Design Cinema - EP 102 - Intro to Digital Painting",
+            "creator": "FZDSCHOOL",
+            "url": "https://www.youtube.com/watch?v=gpeB_uJfP38",
+            "why": "Explicitly breaks down atmospheric perspective, light scattering, fog intensity, and FG/MG/BG value separation.",
+            "verified": true,
+            "summary": "Demonstrates separating foreground, midground, and background into distinct value bands to create immediate atmospheric mood."
           }
         ],
         "quiz": [
@@ -5436,15 +5564,6 @@ const CURRICULUM_3 = [
         },
         "resources": [
           {
-            "type": "Video",
-            "title": "Contrast & Lighting In Concept Art — Process",
-            "creator": "The Geek Artist",
-            "url": "https://www.youtube.com/watch?v=YCmldYPNPHY",
-            "why": "A free, real-time process video showing contrast and lighting decisions specifically applied to a landscape environment concept piece.",
-            "summary": "Walks through the process of building contrast and lighting into a landscape environment concept piece, showing how deliberate light and dark grouping is used to direct focus and give the environment a sense of depth and mood as the painting develops.",
-            "verified": true
-          },
-          {
             "type": "Article",
             "title": "7 Techniques for Expressing Light",
             "creator": "Kyokusei, CLIP STUDIO TIPS",
@@ -5452,6 +5571,24 @@ const CURRICULUM_3 = [
             "why": "A detailed, free, practical breakdown of 7 concrete lighting techniques from a working artist, covering plane thinking, ambient color, and secondary light sources directly.",
             "summary": "Covers seven concrete lighting techniques: using harder brushes to sculpt confident light instead of relying on airbrush, using saturated rather than white light for vibrancy, thinking of complex forms in simplified planes, tinting shadows with ambient bounce color from the environment, adding a secondary light source from the opposite direction, using layer blending modes for glow, and applying color theory to choose light colors deliberately.",
             "verified": true
+          },
+          {
+            "type": "Video",
+            "title": "Light and Shadow - 10 Minutes To Better Painting - Episode 6",
+            "creator": "Marco Bucci",
+            "url": "https://www.youtube.com/watch?v=xcCJ2CU-bFw",
+            "why": "Concise, authoritative breakdown of plane-based lighting, light-vs-shadow separation, and colored light.",
+            "verified": true,
+            "summary": "Explains grouping values cleanly into light and shadow families and letting sky fill tint shadow planes."
+          },
+          {
+            "type": "Video",
+            "title": "Design Cinema - EP 98 - Cinematic Lighting",
+            "creator": "FZDSCHOOL",
+            "url": "https://www.youtube.com/watch?v=om6uEktFodA",
+            "why": "Applies directional lighting, mood, and cinematic light design directly to environment concept art.",
+            "verified": true,
+            "summary": "Shows how key-light direction, rim light, and shadow shapes create film-grade drama in concept paintings."
           }
         ],
         "quiz": [
@@ -5562,15 +5699,6 @@ const CURRICULUM_3 = [
         "resources": [
           {
             "type": "Video",
-            "title": "THUMBNAIL Sketches: Tutorial for Self-Taught Artists and Beginners",
-            "creator": "Art Prof",
-            "url": "https://www.youtube.com/watch?v=pQnrWGUlFpQ",
-            "why": "A free 4-minute video companion to the thumbnail rules in the article below, short enough to rewatch before every project.",
-            "summary": "Explains what a thumbnail sketch is and why to make one: they are small, simple and not detailed, a good rule of thumb for beginners is around five to six of them, and sticking with only your first idea throws away options that might have been better.",
-            "verified": true
-          },
-          {
-            "type": "Video",
             "title": "How to Thumbnail for Concept Art",
             "creator": "Dave Greco (Proko)",
             "url": "https://www.proko.com/course-lesson/how-to-thumbnail-for-concept-art",
@@ -5579,13 +5707,22 @@ const CURRICULUM_3 = [
             "verified": true
           },
           {
-            "type": "Article",
-            "title": "Guide to Thumbnail Sketches",
-            "creator": "Art Prof (Clara Lieu)",
-            "url": "https://artprof.org/learn/tutorials-media/drawing/thumbnail-sketches/",
-            "why": "A free, practical checklist-style guide from a nonprofit art education platform, covering concrete rules like sizing, aspect ratio, and avoiding overworking thumbnails.",
-            "summary": "A practical rundown of thumbnailing rules: keep thumbnails palm-sized with no added detail, start with roughly 5 or more per idea, match the aspect ratio to the final piece, draw a literal rectangle rather than filling in a pre-made grid, and treat thumbnailing as a time-management tool for reaching a confident final composition faster rather than slower.",
-            "verified": true
+            "type": "Video",
+            "title": "Design Cinema - EP 78 - Environmental Thumbnails",
+            "creator": "FZDSCHOOL",
+            "url": "https://www.youtube.com/watch?v=P-l9kNXAeGQ",
+            "why": "Industry-standard demonstration of generating dozens of fast, disposable environment thumbnails before committing to cleanup.",
+            "verified": true,
+            "summary": "Shows rapid value-block thumbnailing to test silhouettes, mood, and camera angles in minutes."
+          },
+          {
+            "type": "Video",
+            "title": "CGMA | Environment Sketching: Lighting in Composition",
+            "creator": "CGMA | CG Master Academy",
+            "url": "https://www.youtube.com/watch?v=T86uVcGSCRw",
+            "why": "Shows the two-step thumbnail block-in and refinement workflow used to pitch compositions to an art director.",
+            "verified": true,
+            "summary": "Demonstrates iterating light patterns inside rough environment thumbnails to find the strongest read."
           }
         ],
         "quiz": [
@@ -5696,21 +5833,21 @@ const CURRICULUM_3 = [
         "resources": [
           {
             "type": "Video",
-            "title": "Concept Art Full Process: Sketching for Beginners | Environment Design for Games and Film",
-            "creator": "Artof JoseVega",
-            "url": "https://www.youtube.com/watch?v=RY2LDAbayPk",
-            "why": "A free, real walkthrough of an environment concept moving through the sketching and process stages, from a working environment designer.",
-            "summary": "Walks through the practical sketching stage of an environment concept art piece for games and film, showing how a working artist moves from initial rough ideas toward a more resolved sketch as part of a larger production process.",
-            "verified": true
+            "title": "Design Cinema - EP 97 – Planning Your Workflow",
+            "creator": "FZDSCHOOL",
+            "url": "https://www.youtube.com/watch?v=x8VW8QdT7uw",
+            "why": "Detailed breakdown of structuring a real concept art workflow from rough exploration through direction locking and final handoff.",
+            "verified": true,
+            "summary": "Explains pacing ideation, callout passes, and final paint so production deadlines stay predictable."
           },
           {
-            "type": "Article",
-            "title": "From Idea to Production: The Concept Art Pipeline Explained",
-            "creator": "MAGES Institute",
-            "url": "https://mages.edu.sg/blog/from-idea-to-production-the-concept-art-pipeline-explained/",
-            "why": "A detailed, free breakdown of the full four-stage professional concept art pipeline, with concrete studio examples at every stage.",
-            "summary": "Breaks the concept art pipeline into four stages — ideation and exploration, direction locking, detailed sketch-to-final reference, and production support — using a worked example of a decaying coastal city concept moving from competing early directions through locked material rules to production-ready references for 3D and animation teams.",
-            "verified": true
+            "type": "Video",
+            "title": "Mastering the Design pipeline",
+            "creator": "Tyler Edlin",
+            "url": "https://www.youtube.com/watch?v=_15SIWLGQEU",
+            "why": "Practical explanation of moving a concept systematically through ideation, iteration, and production-ready design stages.",
+            "verified": true,
+            "summary": "Breaks down reference gathering, silhouette exploration, value keys, and production polish."
           }
         ],
         "quiz": [
@@ -5821,21 +5958,21 @@ const CURRICULUM_3 = [
         "resources": [
           {
             "type": "Video",
-            "title": "How to worldbuild Scifi & Fantasy Cultures & Societies: Biology, Families and Dynasties (part 1)",
-            "creator": "World Anvil Worldbuilding",
-            "url": "https://www.youtube.com/watch?v=BTZZ3cdycdc",
-            "why": "A free video from an established worldbuilding platform's official channel, focused specifically on building believable fictional cultures and societies.",
-            "summary": "Covers how to worldbuild believable cultures for fantasy and sci-fi settings, starting from foundational factors like biology and family structure and working outward to the dynastic and social systems that shape how a fictional society actually functions.",
-            "verified": true
+            "title": "Design Cinema - EP 94 - Form Follows Function",
+            "creator": "FZDSCHOOL",
+            "url": "https://www.youtube.com/watch?v=mvWgfYFLk9Q",
+            "why": "Teaches how climate, resources, and cultural function dictate visual architecture and material design rather than surface decoration.",
+            "verified": true,
+            "summary": "Demonstrates deriving architecture, clothing, and tools directly from a culture's environment, technology, and daily needs."
           },
           {
-            "type": "Article",
-            "title": "How to Create a Fictional Culture (With a Checklist)",
-            "creator": "Campfire Writing",
-            "url": "https://campfirewriting.com/learn/how-to-create-fictional-cultures",
-            "why": "A free, structured worldbuilding guide and checklist covering geography, values, architecture, clothing, traditions, and daily life so a fictional culture's visual design stays internally consistent.",
-            "summary": "Breaks fictional culture design into actionable dimensions — environment, belief systems, social norms, language, art, and material culture — with a practical checklist for translating cultural values into concrete visual details.",
-            "verified": true
+            "type": "Video",
+            "title": "World Building with Feng Zhu",
+            "creator": "Art Department Podcast",
+            "url": "https://www.youtube.com/watch?v=aAdvpM4KyHU",
+            "why": "Deep-dive discussion on how layered history, civic needs, and cultural evolution shape believable cities and visual worlds.",
+            "verified": true,
+            "summary": "Explores how real historical layers, trade, and social systems translate into cohesive visual world design."
           }
         ],
         "quiz": [
@@ -5947,22 +6084,22 @@ const CURRICULUM_3 = [
         },
         "resources": [
           {
-            "type": "Article",
-            "title": "Tips for Creating a Piece for Your Environment Art Portfolio Within Scope and Time",
-            "creator": "Joyce Jiao, The Rookies",
-            "url": "https://discover.therookies.co/2023/08/28/tips-for-creating-a-piece-for-your-environment-art-portfolio-within-scope-and-time/",
-            "why": "A free, detailed, real first-person breakdown of taking one environment concept from planning through to a finished portfolio piece, including scope and time management.",
-            "summary": "A working environment artist breaks down her full process on a real 4-week portfolio project: analyzing a concept, gathering reference, blocking geometry and lighting early, building assets, and layering foliage and atmosphere for realism, ending with honest advice on managing scope and energy within a tight timeframe.",
-            "verified": true
+            "type": "Video",
+            "title": "Design Cinema – EP 60 - Realtime Fantasy Landscape Painting",
+            "creator": "FZDSCHOOL",
+            "url": "https://www.youtube.com/watch?v=nVZtq-3EhL4",
+            "why": "Complete start-to-finish real-time 2D environment concept painting walkthrough unifying composition, lighting, atmosphere, and rendering.",
+            "verified": true,
+            "summary": "Demonstrates taking a fantasy environment concept from blank canvas and big value shapes to a finished keyframe."
           },
           {
-            "type": "Article",
-            "title": "Environment Art",
-            "creator": "The Level Design Book (open community text)",
-            "url": "https://book.leveldesignbook.com/process/env-art",
-            "why": "A free chapter explaining how concept art, paintovers, and model sheets function as real production documents in a professional pipeline.",
-            "summary": "Explains how professional environment art production uses concept art, paintovers (painting directly over a rough 3D blockout), and model sheets with orthographic views to communicate a design clearly enough for other artists to build from, using real examples from Portal 2 and Spyro: Reignited.",
-            "verified": true
+            "type": "Video",
+            "title": "Environment Concept Art Demo - Digital Painting walkthrough",
+            "creator": "Paul Scott Canavan",
+            "url": "https://www.youtube.com/watch?v=OmnNcrgfStw",
+            "why": "Full narrated walkthrough of an environment concept piece from initial sketch and value structure to finished portfolio-grade paint.",
+            "verified": true,
+            "summary": "Explains every decision across thumbnailing, perspective lay-in, color mood, and final polish."
           }
         ],
         "quiz": [

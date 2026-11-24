@@ -43,15 +43,6 @@ const CURRICULUM_2 = [
         },
         "resources": [
           {
-            "type": "Course",
-            "title": "Draw the Head From Any Angle (free series overview)",
-            "creator": "Proko (Stan Prokopenko)",
-            "url": "https://www.classcentral.com/course/youtube-draw-the-head-from-any-angle-proko-55059",
-            "why": "An orientation page listing Proko's full free head-drawing series in order — the resource this entire arc draws from repeatedly, worth bookmarking now.",
-            "verified": true,
-            "summary": "Class Central listing for Proko's free YouTube series on Andrew Loomis's approach to drawing the head: front, side and 3/4 views, then up/down tilt, left and right turn, and twist. The listed lessons run from How to Draw the Head from Any Angle through the front and side views, extreme angles and Loomis Parts 1 to 3, plus a Marco Bucci lighting lesson. About 1.5 hours, free, beginner level."
-          },
-          {
             "type": "Video",
             "title": "How to Draw the Head / Face / Portrait — Part 1 (3 hours)",
             "creator": "Steve Huston, via New Masters Academy",
@@ -59,6 +50,15 @@ const CURRICULUM_2 = [
             "why": "A free lecture from New Masters Academy's Steve Huston on constructing the head from basic forms, giving a different well-respected instructor's take on head structure.",
             "verified": true,
             "summary": "Per its description, NMA instructor Steve Huston builds the head's basic structure from boxes, cylinders and spheres and constructs it in different perspectives to give the features a solid foundation, with intermediate constructs for the eyes, nose, mouth and ears. He also shows how the Old Masters approached head construction and sets a timed practice assignment."
+          },
+          {
+            "type": "Video",
+            "title": "Simplifying the Head",
+            "creator": "Ctrl+Paint — Matt Kohr",
+            "url": "https://www.ctrlpaint.com/videos/simplifying-the-head",
+            "why": "Concise free introduction to planar head simplification before diving into Steve Huston's full head lecture.",
+            "verified": true,
+            "summary": "Breaks the complex human head into simple geometric blocks and directional planes so beginners think in 3D volume first."
           }
         ],
         "quiz": [
@@ -142,20 +142,21 @@ const CURRICULUM_2 = [
         "resources": [
           {
             "type": "Video",
-            "title": "How to Draw the Head / Face / Portrait — Part 1 (3 hours)",
-            "creator": "Steve Huston, via New Masters Academy",
-            "url": "https://www.youtube.com/watch?v=2T7cDY7YDsg",
-            "why": "A free sample from NMA's paid library that starts from building the head out of simple forms (boxes, cylinders, spheres) before moving on to the individual features.",
+            "title": "How to Study the Skull for Better Drawings",
+            "creator": "Proko",
+            "url": "https://www.youtube.com/watch?v=-nccgMvFs60",
+            "why": "Dedicated Proko lesson on bony landmarks (brow ridge, orbits, zygomatic arch, mandible) and how they drive surface features.",
             "verified": true,
-            "summary": "Per its description, NMA instructor Steve Huston builds the head's basic structure from boxes, cylinders and spheres and constructs it in different perspectives to give the features a solid foundation, with intermediate constructs for the eyes, nose, mouth and ears. He also shows how the Old Masters approached head construction and sets a timed practice assignment."
+            "summary": "Explains the key cranial and facial landmarks of the skull and why knowing where bone sits near the surface transforms portrait structure."
           },
           {
             "type": "Video",
-            "title": "How to Draw Skull Proportions using Loomis Front and Side View",
-            "creator": "Knowledge Mavens",
-            "url": "https://www.youtube.com/watch?v=RsKcpdDU7mU",
-            "why": "Directly maps Loomis front and side head proportions onto the underlying cranium, brow ridge, eye sockets, and jaw so you see how the skull drives surface landmarks.",
-            "verified": true
+            "title": "Anatomy Quick Tips: Skulls",
+            "creator": "Sinix Design",
+            "url": "https://www.youtube.com/watch?v=MWwYjyIKrA8",
+            "why": "Clear 3D breakdown of skull planes, proportions, and common drawing mistakes.",
+            "verified": true,
+            "summary": "Dissects the cranium, eye sockets, nasal cavity, and jaw as sculptural 3D masses so students can rotate the skull from imagination."
           }
         ],
         "quiz": [
@@ -242,21 +243,21 @@ const CURRICULUM_2 = [
         },
         "resources": [
           {
-            "type": "Course",
-            "title": "Quickly Draw Heads with the Loomis Method — Part 1",
-            "creator": "Proko (Stan Prokopenko)",
-            "url": "https://www.proko.com/course-lesson/quickly-draw-heads-with-the-loomis-method-part-1",
-            "why": "A free recap of the Loomis head in quicksketch studies from several angles, showing the average head's construction in practice as part of a complete method.",
-            "verified": true,
-            "summary": "A recap of Proko's first Loomis head video, made six years later with new information: quicksketch studies of the average Loomis head from different angles. It is the first of three parts, followed by adjusting the head to any head type and an intuitive approach."
-          },
-          {
             "type": "Video",
             "title": "How to Draw the Head - Front View",
             "creator": "Proko",
             "url": "https://www.youtube.com/watch?v=z4ZLkyTuX_w",
             "why": "Breaks down classic front-view facial thirds, eye-line placement, and horizontal feature spacing step by step.",
             "verified": true
+          },
+          {
+            "type": "Video",
+            "title": "Drawing Faces From Any Angle",
+            "creator": "Sinix Design",
+            "url": "https://www.youtube.com/watch?v=QBv5z0Y2odE",
+            "why": "Shows how proportional averages work in practice and how to deliberately vary them for distinct faces.",
+            "verified": true,
+            "summary": "Demonstrates maintaining accurate facial proportions across tilts and turns while breaking rigid templates to draw varied faces."
           }
         ],
         "quiz": [
@@ -465,11 +466,21 @@ const CURRICULUM_2 = [
           },
           {
             "type": "Video",
-            "title": "Drawing the Head from Any Angle",
-            "creator": "Proko (Peter Han)",
-            "url": "https://www.youtube.com/watch?v=Et12ZBPO5eU",
-            "why": "Shows how planar landmarks around the brow and cheekbone lock head structure together across angles, pairing well with the Asaro head study.",
-            "verified": true
+            "title": "How To Master Light And Shadow: The ASARO HEAD Explained [Tutorial]",
+            "creator": "BüskenArt",
+            "url": "https://www.youtube.com/watch?v=bO8QHe82OUI",
+            "why": "Dedicated beginner walkthrough of the Asaro head's major and minor planes and how light breaks across them.",
+            "verified": true,
+            "summary": "Explains how John Asaro's planar sculpture simplifies light-and-shadow value shifts across the brow, cheeks, nose, and jaw."
+          },
+          {
+            "type": "Video",
+            "title": "Painting the Head from Imagination - Lighting without Reference with Marco Bucci",
+            "creator": "Proko (feat. Marco Bucci)",
+            "url": "https://www.youtube.com/watch?v=iqvFjJTIJx8",
+            "why": "Demonstrates planar head lighting and form vs. cast shadows directly on faceted head planes.",
+            "verified": true,
+            "summary": "Shows how understanding planar orientation lets you light a head convincingly from any angle without relying on photo reference."
           }
         ],
         "quiz": [
@@ -656,20 +667,29 @@ const CURRICULUM_2 = [
         "resources": [
           {
             "type": "Video",
-            "title": "How to Draw the Head from Extreme Angles",
-            "creator": "Proko (Stan Prokopenko)",
-            "url": "https://www.classcentral.com/course/youtube-draw-the-head-from-any-angle-proko-55059",
-            "why": "Links to Proko's free head series, whose lessons include How to Draw the Head from Extreme Angles, building on the Loomis and rotation lessons used earlier in this arc.",
-            "verified": true,
-            "summary": "Opens the Class Central page for Proko's whole Draw the Head From Any Angle series, not a single video. How to Draw the Head from Extreme Angles is one of its listed lessons, alongside the front and side views and Loomis Parts 1 to 3; Proko's course page describes it as using the Loomis method to draw the head from extreme angles."
-          },
-          {
-            "type": "Video",
             "title": "How to Draw 3D Heads with Perspective",
             "creator": "Proko",
             "url": "https://www.youtube.com/watch?v=HleWk-vemLs",
             "why": "Applies true box perspective and foreshortening to the head so features wrap convincingly in steep up-shots and down-shots.",
             "verified": true
+          },
+          {
+            "type": "Video",
+            "title": "How to Draw the Head from Extreme Angles",
+            "creator": "Proko",
+            "url": "https://www.youtube.com/watch?v=PgK90TpV5fA",
+            "why": "Direct Proko lesson on extreme-angle Loomis construction and vertical head perspective.",
+            "verified": true,
+            "summary": "Demonstrates adjusting the brow, nose, and chin wrapping lines when looking steeply up or down at a head."
+          },
+          {
+            "type": "Video",
+            "title": "Draw ANY Head with 4 Steps (Extreme Poses)",
+            "creator": "Proko",
+            "url": "https://www.youtube.com/watch?v=xZDbfUXnabc",
+            "why": "Clear 4-step construction method for steep up-shots, down-shots, and foreshortened heads.",
+            "verified": true,
+            "summary": "Breaks extreme head angles into four repeatable construction steps covering cranium tilt, jawline projection, and feature foreshortening."
           }
         ],
         "quiz": [
@@ -756,22 +776,22 @@ const CURRICULUM_2 = [
         },
         "resources": [
           {
-            "type": "Article",
-            "title": "The Asaro Head: How to Master the Planes of the Head",
-            "creator": "Buesken Art",
-            "url": "https://bueskenart.com/asaro-head/",
-            "why": "Extends the broad plane thinking from Module 19 into the more specific transition areas this module focuses on, with concrete shading exercises.",
+            "type": "Video",
+            "title": "Easy Way To Draw The Planes of the Head For Beginners",
+            "creator": "DRAW JUICE ART TUTORIALS",
+            "url": "https://www.youtube.com/watch?v=EA2qP94zkqg",
+            "why": "Beginner-focused breakdown mapping the major facial plane transitions step by step.",
             "verified": true,
-            "summary": "Guide to the Asaro head, a simplified 3D model of the head's planes made by artist John Asaro in 1976 to make light and shadow on a head easier to understand. Explains why it is asymmetrical (a younger, rounder face on one side and an older, thinner face on the other), where to get one and a free interactive 3D model, and gives four painting exercises: 2 values, 3 to 5 values, a full value scale, and from memory."
+            "summary": "Maps the front, side, top, and bottom planes of the brow, cheekbones, nose, and mouth muzzle clearly for portrait construction."
           },
           {
             "type": "Video",
-            "title": "Shading Light and Form — Basics",
-            "creator": "Proko (Stan Prokopenko)",
-            "url": "https://www.proko.com/course-lesson/shading-light-and-form-basics",
-            "why": "The light-logic fundamentals from Module 11, worth revisiting here specifically applied to facial planes rather than a generic sphere.",
+            "title": "How I Draw the Planes of the Head",
+            "creator": "Robert Marzullo",
+            "url": "https://www.youtube.com/watch?v=HBMjihGMlqk",
+            "why": "Clear drawing demonstration of brow, cheek, nose, and jaw planes for portrait construction.",
             "verified": true,
-            "summary": "Explains how light creates the look of form, using an egg: the light and shadow zones, the terminator between them, form shadow versus cast shadow, reflected light that keeps shadows from being fully black, and the core shadow along the terminator."
+            "summary": "Shows how to block in planar breaks cleanly during a sketch so shading follows real 3D surfaces."
           }
         ],
         "quiz": [
@@ -871,13 +891,22 @@ const CURRICULUM_2 = [
             "summary": "Covers eye terminology (eye socket, brow ridge, lids, tear duct, sclera, iris, pupil, cornea), then the simplified structure: the brow ridge as a block whose front plane is the forehead and bottom plane the roof of the socket, and the eyeball as a ball set deep in the socket. Then moves to placing the eyes using the face's thirds and the glabella between them."
           },
           {
-            "type": "Course",
-            "title": "How to Draw Facial Features (free series)",
-            "creator": "Proko (Stan Prokopenko)",
-            "url": "https://www.classcentral.com/course/youtube-how-to-draw-facial-features-proko-55060",
-            "why": "The free hub for this entire run of feature modules — eyes, nose, lips, and ears are all covered here in sequence.",
+            "type": "Video",
+            "title": "How to Draw an Eye - Step by Step",
+            "creator": "Proko",
+            "url": "https://www.youtube.com/watch?v=TtrqSIhZR_Y",
+            "why": "Direct step-by-step companion to Proko's eye anatomy lesson, matching the structure of the nose, lips, and ears modules.",
             "verified": true,
-            "summary": "Class Central listing for Proko's free series on drawing the features of the face for a realistic portrait: eyes, nose, lips and ears, each as an anatomy and structure lesson followed by a step-by-step drawing. The syllabus also lists hair and three portrait demos. About 1.5 hours, free, beginner level."
+            "summary": "Walks through blocking, wrapping eyelids around the spherical eyeball, placing cast shadows from the upper lid, and shading."
+          },
+          {
+            "type": "Video",
+            "title": "Anatomy Quick Tips: Eyes",
+            "creator": "Sinix Design",
+            "url": "https://www.youtube.com/watch?v=LIykey9umVk",
+            "why": "Deep-dive on the eyeball sphere, eyelid wrap, fat pads, and orbital socket forms.",
+            "verified": true,
+            "summary": "Clarifies how the eye sits inside the skull socket and how upper and lower lids wrap asymmetrically around the globe."
           }
         ],
         "quiz": [
@@ -964,21 +993,29 @@ const CURRICULUM_2 = [
         "resources": [
           {
             "type": "Video",
-            "title": "How to Draw Eyes — Anatomy and Structure",
-            "creator": "Proko (Stan Prokopenko)",
-            "url": "https://www.proko.com/course-lesson/how-to-draw-eyes-anatomy-and-structure",
-            "videoId": "u6-bCgRmcko",
-            "why": "Covers the brow ridge, the ridge along the top of the eye socket, as part of the eye lesson, a useful source for the bone structure the eyebrows sit on.",
-            "verified": true,
-            "summary": "Covers eye terminology (eye socket, brow ridge, lids, tear duct, sclera, iris, pupil, cornea), then the simplified structure: the brow ridge as a block whose front plane is the forehead and bottom plane the roof of the socket, and the eyeball as a ball set deep in the socket. Then moves to placing the eyes using the face's thirds and the glabella between them."
-          },
-          {
-            "type": "Video",
             "title": "Anatomy Basics: Tips for Drawing Eyes and Eyebrows for Realistic Portraits",
             "creator": "Ryanne Levin Art",
             "url": "https://www.youtube.com/watch?v=M0lt5wgaUOw",
             "why": "Covers how the eyebrow wraps over the brow ridge, changes hair direction across its arch, and frames the eye socket naturally.",
             "verified": true
+          },
+          {
+            "type": "Article",
+            "title": "How to Draw Eyebrows – Step by Step Realistic Drawing Tutorial",
+            "creator": "The Drawing Source (Marina Fridman)",
+            "url": "https://www.thedrawingsource.com/how-to-draw-eyebrows.html",
+            "why": "Dedicated eyebrow lesson teaching brow angle changes, eye alignment, value-massing before hairs, and hair-flow shifts.",
+            "verified": true,
+            "summary": "Breaks eyebrows into structural planes, growth direction zones, and value masses so they read as 3D forms rather than flat lines."
+          },
+          {
+            "type": "Video",
+            "title": "How to Draw the Eye Socket & Nose Bridge – Fast & Simple Guide",
+            "creator": "Marco Bucci",
+            "url": "https://www.youtube.com/watch?v=aPleWGhPRqo",
+            "why": "Clarifies the 3D brow-ridge and glabella bone structure that eyebrows wrap over.",
+            "verified": true,
+            "summary": "Explains the keystone glabella plane and orbital rim that control how eyebrows turn in perspective and catch light."
           }
         ],
         "quiz": [
@@ -1370,21 +1407,21 @@ const CURRICULUM_2 = [
         },
         "resources": [
           {
-            "type": "Course",
-            "title": "Quickly Draw Heads with the Loomis Method — Part 1",
-            "creator": "Proko (Stan Prokopenko)",
-            "url": "https://www.proko.com/course-lesson/quickly-draw-heads-with-the-loomis-method-part-1",
-            "why": "Revisits Loomis head construction, worth reviewing now that all four features sit on top of it.",
-            "verified": true,
-            "summary": "A recap of Proko's first Loomis head video, made six years later with new information: quicksketch studies of the average Loomis head from different angles. It is the first of three parts, followed by adjusting the head to any head type and an intuitive approach."
-          },
-          {
             "type": "Video",
             "title": "How to Draw the Head - Side View",
             "creator": "Proko",
             "url": "https://www.youtube.com/watch?v=yS6R2l8t8wo",
             "why": "Establishes profile proportion relationships — ear placement, nose-to-chin angle, and cranial depth — complementing front-view facial proportions.",
             "verified": true
+          },
+          {
+            "type": "Video",
+            "title": "How to Draw Accurate Proportions",
+            "creator": "Proko",
+            "url": "https://www.youtube.com/watch?v=1J7RQvKnWf4",
+            "why": "Teaches comparative measuring and landmark cross-checking so students check facial features against each other.",
+            "verified": true,
+            "summary": "Demonstrates checking relative heights, widths, and plumb alignments across facial landmarks to spot proportion errors early."
           }
         ],
         "quiz": [
@@ -1579,20 +1616,21 @@ const CURRICULUM_2 = [
         "resources": [
           {
             "type": "Video",
-            "title": "How to Draw the Head (full construction, ~3 hrs)",
-            "creator": "New Masters Academy",
-            "url": "https://www.youtube.com/watch?v=2T7cDY7YDsg",
-            "why": "A free, long head-construction session from New Masters Academy: building the head from boxes, cylinders and spheres in different perspectives, then moving to the features. Long, so watch it in sittings.",
+            "title": "How to Block-In the Head (HYBRID Method)",
+            "creator": "Proko",
+            "url": "https://www.youtube.com/watch?v=K8z4NQMiFKM",
+            "why": "Concise integration workflow combining Loomis construction with observational block-in and feature placement.",
             "verified": true,
-            "summary": "Per its description, NMA instructor Steve Huston builds the head's basic structure from boxes, cylinders and spheres and constructs it in different perspectives to give the features a solid foundation, with intermediate constructs for the eyes, nose, mouth and ears. He also shows how the Old Masters approached head construction and sets a timed practice assignment."
+            "summary": "Shows how to merge constructive head geometry with observational alignment so every feature locks together accurately."
           },
           {
             "type": "Video",
-            "title": "Intuitive Portrait Sketching with the Loomis Method - Part 3",
+            "title": "Portrait Drawing Basics",
             "creator": "Proko",
-            "url": "https://www.youtube.com/watch?v=P9LOUHmPhS8",
-            "why": "Shows how to move from rigid construction lines to integrated portrait sketching where all features sit cohesively on the head form.",
-            "verified": true
+            "url": "https://www.youtube.com/watch?v=u8-GkWGcL7A",
+            "why": "End-to-end beginner portrait synthesis tying proportions, planes, and all features together in one drawing.",
+            "verified": true,
+            "summary": "Walks through a full portrait from initial lay-in and feature integration to final value structure."
           }
         ],
         "quiz": [

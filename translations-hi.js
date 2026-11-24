@@ -436,7 +436,7 @@ const TRANSLATIONS_HI = {
     ],
     "coreIdea": [
       "Chaar basic forms: <b>sphere</b> (koi bhi round volume — heads, fruit, boulders), <b>cube</b> (koi bhi rigid, angular volume — boxes, torsos, buildings), <b>cylinder</b> (koi bhi tube-jaisa volume — limbs, tree trunks, cups), <b>cone</b> (koi bhi volume jo point tak tapering ho — ek horn, ek stacked skirt). Duniya mein almost har complex object in chaar forms ko combine, stretch, ya cut karke ban sakta hai.",
-      "<b>Cross-contour lines:</b> form ki surface ke around banayi gayi lines, jaise globe pe latitude ki lines ya baseball pe seams, jo bina kisi shading ke bhi rotation aur volume dikha deti hain. Inhe apne basic forms pe draw karna genuine 3D understanding banane ka sabse fast tarika hai — sirf flat outline se, jo bas volume implay karta hai, kahin zyada.",
+      "<b>Cross-contour lines:</b> form ki surface ke around banayi gayi lines, jaise globe pe latitude ki lines ya baseball pe seams, jo bina kisi shading ke bhi rotation aur volume dikha deti hain. Inhe apne basic forms pe draw karna genuine 3D understanding banane ka sabse fast tarika hai — sirf flat outline se, jo bas volume imply karta hai, kahin zyada.",
       "<b>Construction thinking:</b> pehle form ka basic skeleton ya bounding box halka sa sketch karo, phir uske around final volume banao — same logic jo Module 4 ki Drawabox box-construction exercises mein thi, ab actual solid volume pe apply, sirf lines aur ellipses ke bajaye.",
       "<b>Forms combine aur cut karna:</b> koi bhi real object rarely ek single pure form hoti hai. Ye usually kayi forms ka combination hota hai (ek body jo cylindrical torso aur spherical joints se bani ho) ya ek form jisme se pieces cut ki gayi hon (ek mug ek cylinder hi hai, jisme opening ke liye ek chunk nikala gaya ho, plus handle ke liye ek chhota cylinder). Objects ko is tarah dekhna seekhna hi agle arc ke Construction module ki poori foundation hai.",
       "Module 4 ki ellipses yahan directly kaam aati hain — kisi bhi cylinder ya cone ke ends ellipses hote hain, aur unka degree aur minor axis samajhna, jo already practice kar chuke ho, exactly wo cheez hai jo ek drawn cylinder ko lagta hai jaise wo space mein rotate kar raha hai, page pe flat lete hone ki jagah."
@@ -592,7 +592,7 @@ const TRANSLATIONS_HI = {
     ],
     "proTips": [
       "Har session, koi bhi longer study se pehle, 30-second poses ke ek batch se warm up karo — koi exception nahi.",
-      "Pose ke \"stretch side\" aur \"compression side\" dhoondho — torso ka ek side lambhi hoti hai, doosri compress hoti hai — aur action line ko stretch side follow karne do.",
+      "Pose ke \"stretch side\" aur \"compression side\" dhoondho — torso ki ek side lambi hoti hai, doosri compress hoti hai — aur action line ko stretch side follow karne do.",
       "Gesture drawings ka rough aur unfinished dikhna theek hai, expected hai. Wahi roughness poora point hai."
     ],
     "practice": {
@@ -668,9 +668,9 @@ const TRANSLATIONS_HI = {
     ],
     "practice": {
       "warmup": "Teen simple household objects — mug, lamp, shoe — sirf combined aur cut primitive forms use karke construct karo, paanch minute har ek.",
-      "daily": "Around se ek object choose karo aur usse poora construct karo: orientation, primitive blocking, combining-cutting, phir light detail — isi order mein.",
+      "daily": "Aas-paas se ek object choose karo aur usse poora construct karo: orientation, primitive blocking, combining-cutting, phir light detail — isi order mein.",
       "weekly": "Ek hi object ko teen alag angles se construct karo, teeno mein construction logic consistent rakhte hue.",
-      "challenge": "Ek aisi object construct karo jo abhi tumhare saamne nahi hai — memory ya imagination se, jaise ek purana telephone — sirf construction process use karke, bina kisi reference ke."
+      "challenge": "Ek aisa object construct karo jo abhi tumhare saamne nahi hai — memory ya imagination se, jaise ek purana telephone — sirf construction process use karke, bina kisi reference ke."
     },
     "quiz": [
       {
@@ -741,7 +741,7 @@ const TRANSLATIONS_HI = {
       "warmup": "Ek single sphere ko ek clear light source ke neeche shade karo, jaanbujh kar core shadow, cast shadow, terminator, reflected light, aur occlusion shadow include karte hue.",
       "daily": "Ek simple object dhoondho ya set karo ek strong light source ke neeche aur, abhi shade kiye bina, identify karo ki upar wale paanch shadow elements mein se har ek kahan padega.",
       "weekly": "Ek hi simple form — sphere, cube, ya cylinder — ko teen alag light directions ke neeche shade karo, compare karte hue ki shadow shapes kaise change hoti hain.",
-      "challenge": "Ek flat, evenly-lit photo lo aur through karo ki agar ek strong light ek side se introduce ki jaaye to shadows kahan padengi, phir wo lighting form pe sketch karo."
+      "challenge": "Ek flat, evenly-lit photo lo aur socho ki agar ek strong light ek side se introduce ki jaaye to shadows kahan padengi, phir wo lighting form pe sketch karo."
     },
     "quiz": [
       {
@@ -864,7 +864,7 @@ const TRANSLATIONS_HI = {
     "coreIdea": [
       "Har material ka texture asal mein describe karta hai ki us surface pe light kaise behave karti hai. Rough surfaces — wood, stone, fabric — light ko unevenly scatter karte hain, Module 11 ke shadow terminator ko chhote, irregular value shifts mein tod dete hain. Smooth surfaces — metal, glass, polished skin — sharp, high-contrast highlights rakhte hain aur apne surroundings ko reflect karte hain.",
       "Two-step texture process: pehle, underlying form ko already-covered light logic aur shading systems use karke correctly render karo — object ko ek solid 3D shape ki tarah read hona chahiye koi bhi texture add karne se pehle. Phir us already-correct value structure ke upar texture cues layer karo, mid-tones mein zyada concentrate karte hue, jahan aankh sabse zyada detail padhti hai, aur darkest shadows aur brightest highlights mein reduce karte hue, jahan extreme values naturally visible detail suppress kar deti hain.",
-      "Texture density aur contrast distance ke saath decrease honi chahiye, Module se atmospheric depth logic ko echo karte hue — foreground mein ek tree individual bark texture dikhata hai; wahi tree background mein far door se ek soft, textureless mass ki tarah read hota hai. Dono ko equal density pe render karna depth ka sense flatten kar deta hai.",
+      "Texture density aur contrast distance ke saath decrease honi chahiye, atmospheric depth logic ko echo karte hue — foreground mein ek tree individual bark texture dikhata hai; wahi tree background mein door se ek soft, textureless mass ki tarah read hota hai. Dono ko equal density pe render karna depth ka sense flatten kar deta hai.",
       "Professionals aksar ek repetitive texture ka ek chhota, sharply-focused patch render karte hain — individual bricks, wood grain, fabric weave — aur baaki surface ko looser, less detailed marks se wahi texture imply karne dete hain. Poori surface pe har single instance render karna usually zyada mechanical aur kam convincing lagta hai ek well-chosen selective patch se."
     ],
     "mistakes": [

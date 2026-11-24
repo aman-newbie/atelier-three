@@ -155,21 +155,31 @@ const CURRICULUM_1 = [
         },
         "resources": [
           {
-            "type": "Course",
-            "title": "Lesson 0 — Required/Recommended Tools",
-            "creator": "Drawabox (Uncomfortable)",
-            "url": "https://drawabox.com/lesson/0/4",
-            "why": "The course's own tools page: what it recommends and why, why ink instead of digital, 0.5 mm fineliners, paper, and a beginner's shopping list. Worth reading before buying anything.",
-            "verified": true
-          },
-          {
             "type": "Video",
             "title": "Unplugged: Pencils and Erasers",
             "creator": "Ctrl+Paint (Matt Kohr)",
             "url": "https://www.ctrlpaint.com/videos/unplugged-pencils-and-erasers",
-            "why": "The specific traditional-drawing-basics video (not just the library homepage) covering pencil and eraser setup for people without prior experience.",
+            "why": "The specific traditional-drawing-basics video covering pencil and eraser setup for people without prior experience.",
             "verified": true,
             "summary": "A short video introduction to the types of pencils and erasers commonly used in drawing. It also shows how colored pencils, including non-photo blue, can be used in a line drawing to construct form, and ends with a quick homework assignment to test what you learned."
+          },
+          {
+            "type": "Video",
+            "title": "Drawing Supplies I Use in My Videos",
+            "creator": "Proko",
+            "url": "https://www.youtube.com/watch?v=D_W9sZ8S7RM",
+            "why": "Walks beginners through practical graphite/charcoal pencils, erasers, and sharpeners without gear bloat.",
+            "verified": true,
+            "summary": "Reviews core drawing pencils, kneaded and vinyl erasers, sharpeners, and basic setup choices so beginners buy only tools they will actually use."
+          },
+          {
+            "type": "Video",
+            "title": "Ultimate Guide to Sketchbooks and Paper",
+            "creator": "Proko",
+            "url": "https://www.youtube.com/watch?v=Bkd2mjB-8eI",
+            "why": "Covers paper weight, tooth, and sketchbook selection — the exact paper fundamentals beginners struggle with.",
+            "verified": true,
+            "summary": "Explains paper tooth, weight (gsm), cold vs. hot press, and how different papers react to graphite, charcoal, and ink."
           }
         ],
         "quiz": [
@@ -265,12 +275,22 @@ const CURRICULUM_1 = [
             "summary": "Covers the tripod grip and the overhand grip, drawing from the wrist versus the shoulder, and how different parts of the pencil give you control over line weight. Aimed at pencil control for line drawing and shading."
           },
           {
-            "type": "Channel",
-            "title": "Alphonso Dunn — YouTube channel",
+            "type": "Course",
+            "title": "Lesson 1 — Lines: Using Your Arm",
+            "creator": "Drawabox (Uncomfortable)",
+            "url": "https://drawabox.com/lesson/1/2",
+            "why": "Dedicated free text and video lesson on wrist, elbow, and shoulder pivots plus pen/pencil grip mechanics.",
+            "verified": true,
+            "summary": "Breaks down the three drawing pivots (wrist, elbow, shoulder), when to use each, and how locking the wrist produces smoother, more confident strokes."
+          },
+          {
+            "type": "Video",
+            "title": "You can draw like the pros. First break this habit",
             "creator": "Alphonso Dunn",
-            "url": "https://www.youtube.com/c/ALPHONSODUNN/videos",
-            "why": "Free video demonstrations of grip and stroke technique in motion, which is easier to absorb visually than from text alone.",
-            "verified": true
+            "url": "https://www.youtube.com/watch?v=f94aAaCdCgk",
+            "why": "Focused 7-minute demonstration on breaking the handwriting wrist-grip habit for looser, controlled lines.",
+            "verified": true,
+            "summary": "Shows why writing-grip habits cause scratchy, stiff lines and demonstrates switching to arm-driven strokes and lighter pressure."
           }
         ],
         "quiz": [
@@ -471,24 +491,23 @@ const CURRICULUM_1 = [
         },
         "resources": [
           {
-            "type": "Article",
-            "title": "Blind Contour Drawing Can Help You Become a Better Artist",
-            "creator": "Artsy — on Nicolaïdes & Edwards' contour method",
-            "url": "https://www.artsy.net/article/artsy-editorial-blind-contour-drawing-help-better-artist",
-            "why": "A free article covering the same blind-contour observation exercise Edwards popularized in her bestseller, with enough detail to actually run it without buying the book.",
-            "verified": true,
-            "summary": "Explains blind contour drawing, popularized by Kimon Nicolaides, where your eye follows the subject's contour while the pencil follows it on the page without looking down or lifting. The aim is to train observation and draw what you see rather than what you think it looks like, so expect a messy result. Gives a simple recipe: set a 10 to 15 minute timer, anchor eye and pencil together, and keep them moving in sync.",
-            "hasNotes": true
-          },
-          {
             "type": "Video",
             "title": "Visual Measuring",
             "creator": "Ctrl+Paint (Matt Kohr)",
             "url": "https://www.ctrlpaint.com/videos/visual-measuring",
-            "why": "The specific visual-measuring video (not just the library homepage), directly teaching the comparative-measurement technique this module is about.",
+            "why": "The specific visual-measuring video, directly teaching the comparative-measurement technique this module is about.",
             "verified": true,
             "summary": "A short video on visual measuring, a method artists use to observe a subject accurately. Its starting point is that drawing is at least 50% seeing, so you need to look at the subject critically before you can capture it.",
             "hasNotes": true
+          },
+          {
+            "type": "Video",
+            "title": "Drawing Measuring Techniques",
+            "creator": "Proko",
+            "url": "https://www.youtube.com/watch?v=tZtnKp4fAPk",
+            "why": "Hands-on demonstration of sighting, comparative measurement, plumb lines, and angle checking.",
+            "verified": true,
+            "summary": "Demonstrates pencil sighting, horizontal and vertical alignments, and comparative proportions so you draw what you observe instead of guessing."
           }
         ],
         "quiz": [
@@ -574,16 +593,6 @@ const CURRICULUM_1 = [
         },
         "resources": [
           {
-            "type": "Course",
-            "title": "Ellipses: 2D vs 3D",
-            "creator": "Drawabox (Uncomfortable)",
-            "url": "https://drawabox.com/lesson/1/5/2d3d",
-            "why": "Explains how a flat circle becomes an ellipse once it sits in 3D space, which is the step from flat shapes to forms that this module sets up.",
-            "verified": true,
-            "hasNotes": true,
-            "summary": "Drawing in this course means capturing 3D things on a 2D surface, so you need to understand how lines and shapes change as forms rotate in space; the course always says whether something is in 2D or 3D space. Introduces ellipses as the 2D shapes that stand for circles turned in 3D, running from widest to narrowest as the circle turns away."
-          },
-          {
             "type": "Video",
             "title": "Drawing shape: Contour Lines",
             "creator": "Ctrl+Paint (Matt Kohr)",
@@ -591,6 +600,24 @@ const CURRICULUM_1 = [
             "why": "A specific free video on contour-based shape drawing, replacing a generic course-browse page with the actual lesson.",
             "verified": true,
             "summary": "Contour is a linear approach to describing form, focused on descriptive outlines. The key is to draw the unique contour you are actually observing, not a generalized outline from memory, because beginners tend to draw symbols instead of real objects, even with the object in front of them."
+          },
+          {
+            "type": "Video",
+            "title": "Good Shapes - 10 Minutes To Better Painting - Episode 4",
+            "creator": "Marco Bucci",
+            "url": "https://www.youtube.com/watch?v=-ZknWKTpc90",
+            "why": "Masterclass on simplifying messy subjects into clear, graphic 2D shapes before adding detail.",
+            "verified": true,
+            "summary": "Explains big-medium-small shape grouping, silhouette clarity, and how strong 2D shapes carry a drawing before any rendering starts."
+          },
+          {
+            "type": "Video",
+            "title": "Design Theory: Shape Appeal",
+            "creator": "Sinix Design",
+            "url": "https://www.youtube.com/watch?v=P6yJO9gKSAI",
+            "why": "Directly teaches the basic shape alphabet (circles, squares, triangles) and shape hierarchy.",
+            "verified": true,
+            "summary": "Breaks down shape contrast, primary/secondary/tertiary shapes, and how simple 2D shape choices create visual clarity and appeal."
           }
         ],
         "quiz": [
@@ -689,7 +716,7 @@ const CURRICULUM_1 = [
             "title": "Constructive Form pt. 1",
             "creator": "Ctrl+Paint (Matt Kohr)",
             "url": "https://www.ctrlpaint.com/videos/constructive-form-pt-1",
-            "why": "A specific free video on constructing 3D form (not a course-browse page), directly matching this module's topic.",
+            "why": "A specific free video on constructing 3D form, directly matching this module's topic.",
             "verified": true,
             "summary": "Constructive form is a mindset for making big drawing challenges smaller by thinking first of basic primitives such as the cube, cone and sphere. The video shows this by drawing a World of Warcraft character from those primitives. It is part one of a miniseries."
           }
@@ -766,7 +793,7 @@ const CURRICULUM_1 = [
           "<b>Vanishing points</b> are where sets of parallel lines converge as they recede into the distance. One-point perspective uses a single vanishing point directly ahead — think of looking straight down a hallway or road. Two-point uses two vanishing points on the horizon, for viewing a box or building at an angle. Three-point adds a vanishing point above or below the horizon for extreme upward or downward views, like a skyscraper seen from its base.",
           "If you can draw a cube correctly in perspective, you can draw practically anything — this idea, taught by nearly every perspective instructor worth listening to, is why so much of this course keeps returning to box construction. Almost every man-made object and most natural forms can be built starting from a perspective-correct box.",
           "Rigid, ruler-plotted perspective should be learned first, to internalize why the system works, then deliberately loosened into freehand, intuitive perspective — because most real work (sketching, comics, animation, concept art) can't afford to plot every vanishing point precisely, and freehand accuracy only comes from having done the rigid version enough times to internalize it.",
-          "Circles lying on a receding surface — a wheel, a plate, a manhole cover — become ellipses whose degree and angle are dictated by the same perspective system as everything else in the scene. This connects directly back to the ellipse work from Module 4: getting this wrong is one of the fastest ways a otherwise-correct perspective drawing falls apart."
+          "Circles lying on a receding surface — a wheel, a plate, a manhole cover — become ellipses whose degree and angle are dictated by the same perspective system as everything else in the scene. This connects directly back to the ellipse work from Module 4: getting this wrong is one of the fastest ways an otherwise-correct perspective drawing falls apart."
         ],
         "mistakes": [
           "Drawing every object from a flat, front-on \"elevation\" view specifically to avoid dealing with perspective at all.",
@@ -798,21 +825,30 @@ const CURRICULUM_1 = [
           },
           {
             "type": "Course",
-            "title": "Drawing Basics — Structure & Perspective section",
-            "creator": "Proko (Stan Prokopenko)",
-            "url": "https://www.proko.com/course/drawing-basics",
-            "why": "Covers one-, two-, and three-point perspective, then deliberately transitions into freehand \"intuitive perspective\" without grids — exactly the progression this module teaches. Partly free, extends further as a paid course.",
-            "verified": true,
-            "summary": "Overview of Proko's Drawing Basics course. Its perspective section covers five ways to create depth, how perspective works, 2 and 3 point perspective, boxes and cylinders, then intuitive perspective, where you construct forms freehand without grids or vanishing points. The page marks some lessons free and sells the full course."
-          },
-          {
-            "type": "Course",
             "title": "Boxes: simplified 1, 2 and 3 point perspective",
             "creator": "Drawabox (Uncomfortable)",
             "url": "https://drawabox.com/lesson/1/9",
             "why": "Drawabox's rules of thumb for 1-, 2- and 3-point perspective: the same one- and two-point construction this module covers, in a simplified, practical form.",
             "verified": true,
             "summary": "Rules of thumb for deciding whether a single box can be drawn in 1, 2 or 3 point perspective, based on where the center of its silhouette sits: roughly over a face suggests 1 point, near an edge suggests 2 point, and near a corner means 3 point, where forcing vanishing points to infinity causes heavy distortion. Presented as loose guidelines for use outside the course exercises."
+          },
+          {
+            "type": "Video",
+            "title": "Two-Point Perspective Drawing Made Simple",
+            "creator": "Proko",
+            "url": "https://www.youtube.com/watch?v=9-Y4K4hqZwo",
+            "why": "Direct, free Proko lesson teaching vanishing points and 2-point box construction step by step.",
+            "verified": true,
+            "summary": "Walks through horizon line placement, vanishing point spacing, and building distortion-free boxes in two-point perspective."
+          },
+          {
+            "type": "Video",
+            "title": "An Easier Way to Draw Perspective",
+            "creator": "Proko",
+            "url": "https://www.youtube.com/watch?v=ZMuoU_NWmlE",
+            "why": "Directly covers the freehand intuitive perspective transition without relying on rulers for every line.",
+            "verified": true,
+            "summary": "Shows how to estimate convergence and foreshortening visually so perspective stays natural in everyday sketching."
           }
         ],
         "quiz": [
@@ -1088,7 +1124,7 @@ const CURRICULUM_1 = [
         "proTips": [
           "Before shading anything, say out loud or write down exactly where the light source is. If that can't be answered in one sentence, the shading will show it.",
           "Squint at a real object under a single light source and note where the terminator, cast shadow, and occlusion shadow actually fall, before trying to invent it from imagination.",
-          "Reflected light should almost always stay darker than the core shadow's lightest edge, or it reads as an accidental second light source."
+          "Reflected light should almost always stay darker than the halftones on the lit side, or it reads as an accidental second light source."
         ],
         "practice": {
           "warmup": "Shade a single sphere under one clear light source, deliberately including core shadow, cast shadow, terminator, reflected light, and occlusion shadow.",
@@ -1306,22 +1342,22 @@ const CURRICULUM_1 = [
         },
         "resources": [
           {
-            "type": "Video",
-            "title": "Real Object, Imaginary Details",
-            "creator": "Ctrl+Paint (Matt Kohr)",
-            "url": "https://www.ctrlpaint.com/videos/real-object-imaginary-details",
-            "why": "A specific free video on grounding invented surface/material details in observed reality, replacing the generic library homepage with the actual lesson.",
+            "type": "Course",
+            "title": "Lesson 2 — Texture Analysis",
+            "creator": "Drawabox (Uncomfortable)",
+            "url": "https://drawabox.com/lesson/2/textureanalysis",
+            "why": "Directly teaches the implicit texture-gradient and cast-shadow method that prevents texture from turning into visual noise.",
             "verified": true,
-            "summary": "An exercise for bridging observational drawing and drawing from imagination: start from a real, observed object and add your own imaginary details. The author says it has little portfolio use but is a good first step toward drawing dragons and space marines."
+            "summary": "Explains how to imply surface texture through cast shadows concentrated along the light-to-dark transition rather than outlining every individual detail."
           },
           {
             "type": "Video",
-            "title": "The Illusion of Depth — Edge, Line, Cast Shadow and Paint Thickness",
-            "creator": "Proko (Stan Prokopenko)",
-            "url": "https://www.proko.com/lesson/the-illusion-of-depth-edge-line-cast-shadow-and-paint-thickness/",
-            "why": "A free Proko lesson on how sharp versus soft edges, line weight and value, and cast shadows add depth, relevant to how texture and detail should behave across a scene.",
+            "title": "Pen and Ink Drawing Tutorials | How to create realistic textures",
+            "creator": "Alphonso Dunn",
+            "url": "https://www.youtube.com/watch?v=smAJFoedfvE",
+            "why": "Hands-on demonstration of distinct mark-making across materials (wood, stone, brick, foliage) under light.",
             "verified": true,
-            "summary": "Part 3 of Proko's Illusion of Depth lessons. Sharp edges pop forward and separate objects while soft edges recede and merge them, and a narrower depth of field adds depth. It also covers using thinner, lighter lines as forms recede, and, per its title, cast shadows and paint thickness."
+            "summary": "Demonstrates building believable material textures by varying line weight, dot/stroke rhythm, and spacing across lit and shadowed planes."
           }
         ],
         "quiz": [
@@ -1418,13 +1454,22 @@ const CURRICULUM_1 = [
             "summary": "Per its description, Sycra explains why he thinks considering shapes is a vital part of creating good compositions, and points to videos by Kienan Lafferty and Sinix on the same subject."
           },
           {
-            "type": "Video Series",
-            "title": "Composition for Artists, Episode 1: Visualization",
-            "creator": "Sycra",
-            "url": "https://www.youtube.com/watch?v=Q7qonaAIDUk",
-            "why": "A free multi-part series expanding on composition fundamentals beyond the single video above.",
+            "type": "Video",
+            "title": "Principles of Design: Visual Hierarchy",
+            "creator": "Ctrl+Paint — Matt Kohr",
+            "url": "https://www.youtube.com/watch?v=tlyyq4XhZ_Y",
+            "why": "Concise, beginner-friendly breakdown of directing the viewer's eye intentionally.",
             "verified": true,
-            "summary": "Per its description, the first episode of Sycra's composition series, covering how to use visualization when drawing."
+            "summary": "Shows how contrast, scale, and grouping establish primary, secondary, and tertiary reads inside a composition."
+          },
+          {
+            "type": "Video",
+            "title": "3 Rules for Better Composition in Your Art",
+            "creator": "Artwod",
+            "url": "https://www.youtube.com/watch?v=te9Efr1VT9U",
+            "why": "Tight visual guide to focal points, grouping, and eye flow across a frame.",
+            "verified": true,
+            "summary": "Summarizes three practical composition rules for placing focal points, avoiding tangents, and guiding viewer attention cleanly."
           }
         ],
         "quiz": [

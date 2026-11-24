@@ -55,15 +55,6 @@ const CURRICULUM_4 = [
         },
         "resources": [
           {
-            "type": "Video",
-            "title": "Digital Painting Basics - Simple Forms to Complex Paintings",
-            "creator": "Tayler Olivas (Proko)",
-            "url": "https://www.youtube.com/watch?v=fJvcllrOrr4",
-            "why": "A free 21-minute beginner lesson from the same instructor as the Wacom article below, showing the workspace and tools in actual use.",
-            "summary": "Tayler Olivas shows how to set up your workspace, the digital tools he relies on and their shortcuts, how to practice non-destructive editing and use texture brushes, then combines them into a finished painting.",
-            "verified": true
-          },
-          {
             "type": "Article",
             "title": "Digital Painting Basics For Beginners",
             "creator": "Tayler Olivas, via Wacom Community",
@@ -73,13 +64,22 @@ const CURRICULUM_4 = [
             "verified": true
           },
           {
-            "type": "Article",
-            "title": "Tips for Beginners: Getting Started in Digital Art",
-            "creator": "Allard Lavaritte",
-            "url": "https://lavaritte.com/blogs/how-to-start-digital-art/",
-            "why": "A free, honest, detailed guide covering exact minimum setup steps for three different free/common software options (Krita, Clip Studio Paint, Procreate), plus a clear explanation of layers.",
-            "summary": "Gives exact minimum setup steps to open a first canvas in Krita, Clip Studio Paint, and Procreate, explains layers as stacked transparent sheets with a basic sketch/line/color structure, and argues that researching the \"best\" brush or software before drawing is a common trap that delays real practice.",
-            "verified": true
+            "type": "Docs",
+            "title": "Basic Concepts — Krita Manual",
+            "creator": "Krita Official Documentation",
+            "url": "https://docs.krita.org/en/user_manual/getting_started/basic_concepts.html",
+            "why": "Clear, free reference explaining universal digital workspace concepts (canvas, dockers, raster vs. vector, layers, brushes, navigation).",
+            "verified": true,
+            "summary": "Introduces core digital art software architecture cleanly so beginners can navigate Krita, Photoshop, or Clip Studio without overwhelm."
+          },
+          {
+            "type": "Video",
+            "title": "THE BEGINNER'S GUIDE TO DIGITAL ART (from an art teacher)",
+            "creator": "Marc Brunet",
+            "url": "https://www.youtube.com/watch?v=O40KGoCmpNA",
+            "why": "Structured orientation to digital art workspaces, essential panels, and avoiding beginner menu overwhelm.",
+            "verified": true,
+            "summary": "Walks through setting up a clean workspace, shortcuts, and core painting habits for new digital artists."
           }
         ],
         "quiz": [
@@ -198,13 +198,22 @@ const CURRICULUM_4 = [
             "verified": true
           },
           {
-            "type": "Article",
-            "title": "How to Use a Drawing Tablet: Complete Setup Guide for Beginners",
-            "creator": "ugee",
-            "url": "https://shop.ugee.com/blogs/tips-tricks/how-to-use-drawing-tablet",
-            "why": "A free, detailed, step-by-step setup guide covering the specific configuration steps (driver, area mapping, pressure curve) that prevent common beginner frustrations.",
-            "summary": "Walks through driver installation, connecting and verifying tablet detection, correctly mapping the tablet's physical area to your monitor's aspect ratio to avoid skewed lines, softening the pressure curve for a more natural feel, and sets realistic expectations that the hand-eye adjustment period normally takes about one to two weeks of consistent practice.",
-            "verified": true
+            "type": "Video",
+            "title": "14 Tips for How to Draw on a Tablet Without a Screen",
+            "creator": "Aaron Rutten",
+            "url": "https://www.youtube.com/watch?v=c6HJt-ldZ1I",
+            "why": "Directly addresses screenless tablet ergonomics, hand-eye coordination, and muscle-memory drills.",
+            "verified": true,
+            "summary": "Gives practical posture, mapping, and practice drills to adapt smoothly to drawing on a screenless pen tablet."
+          },
+          {
+            "type": "Video",
+            "title": "How to get used to your Drawing Tablet",
+            "creator": "JP Art",
+            "url": "https://www.youtube.com/watch?v=MzpdGBs0S2w",
+            "why": "Practical beginner walkthrough on overcoming the initial tablet-to-monitor disconnect.",
+            "verified": true,
+            "summary": "Demonstrates daily line-control exercises and ergonomic setup tweaks that speed up tablet hand-eye adaptation."
           }
         ],
         "quiz": [
@@ -323,13 +332,22 @@ const CURRICULUM_4 = [
             "verified": true
           },
           {
-            "type": "Article",
-            "title": "Quick Tip: How to Blend With the Brush Tool for Digital Paintings",
-            "creator": "Melody Nieves, Envato Tuts+",
-            "url": "https://design.tutsplus.com/tutorials/quick-tip-how-to-blend-with-the-brush-tool-for-digital-paintings--cms-23052",
-            "why": "A free, practical, step-by-step exercise for the core manual blending technique using hardness, opacity, and the eyedropper tool together.",
-            "summary": "Teaches a concrete blending technique: start a stroke at 100% opacity and hardness, drop both to around 50%, then repeatedly use the eyedropper tool to sample the edge of a stroke and paint a new one beside it, gradually fading colors into each other — with a clear warning that constantly adjusting hardness and opacity through a painting, not settling on one setting, is the normal workflow.",
-            "verified": true
+            "type": "Video",
+            "title": "Opacity Vs. Flow",
+            "creator": "Ctrl+Paint — Matt Kohr",
+            "url": "https://www.ctrlpaint.com/videos/opacity-vs-flow",
+            "why": "Short, crystal-clear visual demonstration of the exact Opacity vs. Flow distinction.",
+            "verified": true,
+            "summary": "Contrasts how Opacity caps a single stroke's max value while Flow accumulates paint continuously like an airbrush."
+          },
+          {
+            "type": "Video",
+            "title": "The Best Brush for Digital Painting (Beginners)",
+            "creator": "Sinix Design",
+            "url": "https://www.youtube.com/watch?v=-Nt9fa8jZUE",
+            "why": "Teaches brush economy — mastering hard/soft edges and stroke control with minimal brushes rather than hoarding presets.",
+            "verified": true,
+            "summary": "Explains why limiting yourself to 1–2 reliable brushes builds better edge control and cleaner brushwork."
           }
         ],
         "quiz": [
@@ -439,15 +457,6 @@ const CURRICULUM_4 = [
         },
         "resources": [
           {
-            "type": "Video",
-            "title": "How to ACTUALLY Use Layer Blend Modes",
-            "creator": "khloe 🧸🎀 (CLIP STUDIO TIPS)",
-            "url": "https://www.youtube.com/watch?v=GxxJ2OkRdFg",
-            "why": "A free 7-minute walkthrough of the most useful blend modes, with a written version on Clip Studio TIPS.",
-            "summary": "Explains blend modes as a non-destructive way to change how a layer interacts with the layers beneath it, then demonstrates Multiply for dim lighting and shadow, Screen for highlights, snow, and rain textures, and Overlay for adding soft, vibrant color washes over a finished illustration.",
-            "verified": true
-          },
-          {
             "type": "Article",
             "title": "Ultimate Guide to Blending Modes",
             "creator": "Art Rocket (Clip Studio)",
@@ -455,6 +464,24 @@ const CURRICULUM_4 = [
             "why": "A free, comprehensive reference covering every major blend mode with a clear description of what each one does, plus a worked example turning a daytime scene into a sunset.",
             "summary": "Catalogs every major blend mode grouped by effect (darkening, lightening, contrast-boosting), then demonstrates a concrete example: adding an orange gradient layer set to Hard Light at 85% opacity over a daytime sky to convincingly transform the entire scene into a sunset.",
             "verified": true
+          },
+          {
+            "type": "Docs",
+            "title": "Introduction to Layers and Masks — Krita Manual",
+            "creator": "Krita Official Documentation",
+            "url": "https://docs.krita.org/en/user_manual/layers_and_masks.html",
+            "why": "Thorough free guide covering layer stacks, group layers, alpha inheritance (clipping), transparency/filter masks, and non-destructive editing.",
+            "verified": true,
+            "summary": "Explains the full layer hierarchy and masking architecture used across modern digital art programs."
+          },
+          {
+            "type": "Article",
+            "title": "A Comprehensive Guide to Layer Masks and Similar Functions",
+            "creator": "KuangKuang (CLIP STUDIO TIPS)",
+            "url": "https://tips.clip-studio.com/en-us/articles/2265",
+            "why": "Explains layer masks, clipping masks, and lock transparent pixels side by side with clear visual examples.",
+            "verified": true,
+            "summary": "Compares when to use alpha lock, clipping masks, or layer masks so students keep edits clean and reversible."
           }
         ],
         "quiz": [
@@ -573,13 +600,22 @@ const CURRICULUM_4 = [
             "verified": true
           },
           {
+            "type": "Docs",
+            "title": "Selections — Krita Manual",
+            "creator": "Krita Official Documentation",
+            "url": "https://docs.krita.org/en/user_manual/selections.html",
+            "why": "Comprehensive free reference on marquee, lasso, add/subtract/intersect modifiers, feathering, inverting, and selection masks.",
+            "verified": true,
+            "summary": "Documents every selection mode and modifier needed for crisp shape painting and clean masking."
+          },
+          {
             "type": "Article",
-            "title": "Selection Tools",
-            "creator": "University of Washington, AccessComputing WebD2",
-            "url": "https://www.washington.edu/accesscomputing/webd2/student/unit4/module4/selection_tools.html",
-            "why": "A free, clear educational resource covering all core selection concepts — marquee, lasso, magic wand, feathering, and inverse selection — explicitly licensed for free educational use.",
-            "summary": "Covers the core selection toolkit: the marquee for basic shapes, the lasso for freeform outlines, the magic wand for color-based selection with adjustable tolerance, and explains the practical trick of selecting a plain background and using inverse selection to isolate a more complex object, plus feathering to soften a selection's edge.",
-            "verified": true
+            "title": "Selection Tools and Layers",
+            "creator": "Cheishiru (CLIP STUDIO TIPS)",
+            "url": "https://tips.clip-studio.com/en-us/articles/8642",
+            "why": "Practical digital-art guide to selection workflows, feather borders, quick masks, and reusable selection layers.",
+            "verified": true,
+            "summary": "Shows real illustration workflows for saving, expanding, and refining selections without jagged edges."
           }
         ],
         "quiz": [
@@ -832,13 +868,22 @@ const CURRICULUM_4 = [
             "verified": true
           },
           {
+            "type": "Video",
+            "title": "DRAW BETTER LINEART! (6 easy tips)",
+            "creator": "Marc Brunet",
+            "url": "https://www.youtube.com/watch?v=XoPOajk9Zl0",
+            "why": "Directly covers stabilizer/smoothing, confident long strokes, canvas rotation, and deliberate line-weight variation.",
+            "verified": true,
+            "summary": "Demonstrates six practical digital inking habits that immediately turn hairy lines into confident, varied line art."
+          },
+          {
             "type": "Article",
-            "title": "15 Quick Tips to Improve your Digital Lineart!",
-            "creator": "CrimsyCreates, CLIP STUDIO TIPS",
-            "url": "https://tips.clip-studio.com/en-us/articles/3891",
-            "why": "The free written companion to the same 15 tips, useful as a reference to revisit specific techniques without rewatching the full video.",
-            "summary": "A written, tip-by-tip breakdown covering sketch preparation, canvas size and resolution, stabilization settings, relaxed arm movement for smoother curves, rotating and flipping the canvas, multi-layered lineart organization by body part or material, and how to build line weight to show where forms connect and simulate proximity to the viewer.",
-            "verified": true
+            "title": "How To Use Vector Layers: A Quick & Easy Guide",
+            "creator": "mannygart (CLIP STUDIO TIPS)",
+            "url": "https://tips.clip-studio.com/en-us/articles/7506",
+            "why": "Clear guide to using vector layers for clean, editable digital line art and post-stroke line-weight control.",
+            "verified": true,
+            "summary": "Explains how vector erasers and line-width tools let you clean up intersections and adjust weight non-destructively."
           }
         ],
         "quiz": [
@@ -1591,15 +1636,6 @@ const CURRICULUM_4 = [
         },
         "resources": [
           {
-            "type": "Video",
-            "title": "How to draw and paint reflective windows — 4 mediums (and a freebie!)",
-            "creator": "Sandy Allnock",
-            "url": "https://www.youtube.com/watch?v=J0CKna8A51I",
-            "why": "A free video from an established art educator specifically on reading and simplifying reflections in glass, a core hard-surface skill.",
-            "summary": "Sandy Allnock demonstrates how to simplify complicated glass reflections into simple, recognizable shapes rather than trying to render every detail, showing how squinting to find the essential shapes in a reflection is more effective than attempting photorealistic accuracy.",
-            "verified": true
-          },
-          {
             "type": "Article",
             "title": "How to Render Realistic Metal and Gold Digital Art Tutorial",
             "creator": "Allard Lavaritte",
@@ -1607,6 +1643,24 @@ const CURRICULUM_4 = [
             "why": "An exceptionally thorough, free guide covering the physics of metal reflectivity, a complete step-by-step process, six specific metal types with color palettes, and common mistakes with fixes.",
             "summary": "Explains that metal borrows its color entirely from its environment rather than having a fixed local color, walks through a complete layer-based painting process (base color, Multiply shadows, a reflected light band, a sharp Screen/Add highlight, and environment reflections), and gives specific base colors, highlight qualities, and shadow behavior for six metal types (steel, gold, copper, bronze, silver, rusted iron), plus common mistakes like insufficient value contrast that make metal read as plastic.",
             "verified": true
+          },
+          {
+            "type": "Video",
+            "title": "How To Paint METAL (and every other material)",
+            "creator": "Marco Bucci",
+            "url": "https://www.youtube.com/watch?v=F5m9wrEY-mM",
+            "why": "Directly explains environmental reflections, contrast bands, and the reflectivity spectrum across metal and hard surfaces.",
+            "verified": true,
+            "summary": "Demonstrates how glossy and metallic surfaces mirror their environment with compressed high-contrast value bands."
+          },
+          {
+            "type": "Video",
+            "title": "How to paint [METAL] - Digital Photoshop Tutorial",
+            "creator": "Gammatrap",
+            "url": "https://www.youtube.com/watch?v=F-0XkxwfDJk",
+            "why": "In-depth digital rendering walkthrough focused specifically on metallic values, specular highlights, and surface wear.",
+            "verified": true,
+            "summary": "Walks through blocking armor/metal values, crisp specular edges, bounce light, and scratches digitally."
           }
         ],
         "quiz": [
@@ -1716,22 +1770,22 @@ const CURRICULUM_4 = [
         },
         "resources": [
           {
-            "type": "Article",
-            "title": "How to Handle the Edges in Your Paintings",
-            "creator": "Krista Hasson",
-            "url": "https://kristahasson.com/edges-in-painting/",
-            "why": "A free, clear, visually-demonstrated breakdown of hard versus soft edges and how they direct a viewer's eye through a composition.",
-            "summary": "Explains that hard or high-contrast edges attract the eye and pull it along their length, making them ideal for a focal area, while soft edges let the eye travel over them into the next shape and are better suited to backgrounds, with a concrete example showing how a softer edge at a composition's outer border keeps the viewer's eye from exiting the painting.",
-            "verified": true
+            "type": "Video",
+            "title": "The 4 Types of Edges in Painting",
+            "creator": "Proko",
+            "url": "https://www.youtube.com/watch?v=zpSlGmbUB08",
+            "why": "Clear, structured breakdown of hard, firm, soft, and lost edges and how they direct viewer focus.",
+            "verified": true,
+            "summary": "Explains when to sharpen edges for focal points and soften or lose edges in shadows and background planes."
           },
           {
-            "type": "Article",
-            "title": "Mastering Edge Control in Painting: Skip Whitcomb Guide",
-            "creator": "Gabor Svagrik (Skip Whitcomb), TAAO",
-            "url": "https://tucsonartacademyonline.com/blog/2025/11/5/controlling-your-edges",
-            "why": "A free, in-depth lesson from a working professional painter's teaching, covering hard, soft, and lost edges as a design tool with concrete practice exercises.",
-            "summary": "Skip Whitcomb categorizes edges into hard (clear, attention-grabbing transitions), soft (gradual, atmosphere-creating transitions), and lost-and-found (edges that dissolve and reappear, adding rhythm and inviting the viewer to mentally complete the form), and explains that when two shapes share nearly identical values their edge can vanish entirely as a deliberate tool for unity, recommending painters decide their sharpest, softest, and lost edge in advance as part of composition planning.",
-            "verified": true
+            "type": "Video",
+            "title": "Painting Hard and Soft Shadow Edges",
+            "creator": "Ctrl+Paint — Matt Kohr",
+            "url": "https://www.youtube.com/watch?v=fEjKKiNjvBM",
+            "why": "Focused digital painting demonstration showing how to control edge transitions cleanly with digital brushes.",
+            "verified": true,
+            "summary": "Demonstrates using hard brushes, masking, and controlled blending to avoid the muddy airbrushed look."
           }
         ],
         "quiz": [
@@ -1842,21 +1896,21 @@ const CURRICULUM_4 = [
         "resources": [
           {
             "type": "Video",
-            "title": "Quick Painting Tips | Atmospheric Perspective",
-            "creator": "Roxane Lapa",
-            "url": "https://www.youtube.com/watch?v=Wj7y3dtUTzQ",
-            "why": "A free, fast, digital-art-focused explanation of atmospheric perspective as a practical painting technique.",
-            "summary": "A quick, practical digital painting lesson demonstrating how to use (and deliberately push, or 'abuse') atmospheric perspective as a fast technique for separating foreground, middle-ground, and background elements in a painting.",
-            "verified": true
+            "title": "How to Paint Atmospheric Landscapes Step-By-Step (Concept Art Tutorial)",
+            "creator": "Victor Staris",
+            "url": "https://www.youtube.com/watch?v=NjeZG6kPOoA",
+            "why": "Directly demonstrates value compression, atmospheric haze, and foreground-to-background separation in a concept art workflow.",
+            "verified": true,
+            "summary": "Walks through stacking receding depth planes, cooling distant shadows, and dropping detail with distance."
           },
           {
-            "type": "Article",
-            "title": "Aerial Perspective — How To Create Depth In Your Paintings",
-            "creator": "Felix Auer, TwoInchBrush.com",
-            "url": "https://blog.twoinchbrush.com/article/aerial-perspective-how-to-create-depth-in-your-paintings/",
-            "why": "A free, clearly organized breakdown of the three core principles of atmospheric perspective, illustrated with real paintings by Monet.",
-            "summary": "Explains that atmospheric perspective comes from light scattering through particles in the air, then organizes the effect into three principles: reduced detail and texture with distance, reduced value contrast (distant objects become lighter and lower-contrast), and a color shift toward cooler, less saturated hues, illustrated with Monet's 'The Thames at Westminster' and a tip about blending a touch of sky color into distant elements.",
-            "verified": true
+            "type": "Video",
+            "title": "How to paint LANDSCAPES with DEPTH - Atmospheric PERSPECTIVE!",
+            "creator": "Andrew Tischler",
+            "url": "https://www.youtube.com/watch?v=34V7VFOX7ow",
+            "why": "Thorough explanation of color temperature shifts, detail drop-off, and value contrast across receding planes.",
+            "verified": true,
+            "summary": "Explains the physical optics of atmospheric scattering and how to control contrast and chroma from foreground to horizon."
           }
         ],
         "quiz": [
@@ -1966,22 +2020,22 @@ const CURRICULUM_4 = [
         },
         "resources": [
           {
-            "type": "Article",
-            "title": "[Custom Noise] Use noise filters to create textured art",
-            "creator": "MediBang Paint (official)",
-            "url": "https://medibangpaint.com/en/use/2022/09/how-to-use-the-custom-noise-function/",
-            "why": "A free, official software tutorial from a completely free digital painting program, showing exactly how to add a fast, effective noise/grain texture pass.",
-            "summary": "Demonstrates MediBang Paint's Custom Noise filter, walking through choosing a noise type, adjusting grain size and posterization, selecting a blend mode, and controlling opacity to add a fast, analog-style grain texture to a finished digital illustration.",
-            "verified": true
+            "type": "Video",
+            "title": "How to Paint Material Textures | Render Metals, Wood and More for Digital Art",
+            "creator": "Alex Huneycutt",
+            "url": "https://www.youtube.com/watch?v=NpoPOl6aSt8",
+            "why": "Dedicated digital painting guide covering brushwork, surface grain, wear, and rendering distinct material textures.",
+            "verified": true,
+            "summary": "Demonstrates painting varied material surfaces using value control, edge variation, and selective texture brushes."
           },
           {
             "type": "Video",
-            "title": "Digital Sketching: Real Object, Imaginary Details",
-            "creator": "Matt Kohr (Ctrl+Paint)",
-            "url": "https://www.youtube.com/watch?v=NCcd3xrNbzw",
-            "why": "A short, free 4-minute exercise showing how added surface detail should follow the form underneath it.",
-            "summary": "Matt Kohr has you draw an object from observation, then add imaginary details on a new layer that follow the object's form, mirroring curves and extending them off the form, as practice for drawing detail on top of a basic three-dimensional shape.",
-            "verified": true
+            "title": "Quick Overlays: Tool Pairs | Digital Painting",
+            "creator": "Ctrl+Paint — Matt Kohr",
+            "url": "https://www.youtube.com/watch?v=o3hKdCwg5Pw",
+            "why": "Directly matches integrating photographic texture overlays and painting over them cleanly.",
+            "verified": true,
+            "summary": "Shows how to warp, blend, and paint back over photo textures so they integrate naturally with brushwork."
           }
         ],
         "quiz": [
@@ -2224,21 +2278,21 @@ const CURRICULUM_4 = [
         "resources": [
           {
             "type": "Video",
-            "title": "PAINTOVER PALS: Episode 5",
-            "creator": "Sinix Design",
-            "url": "https://www.youtube.com/watch?v=9XIWD9o2Kjw",
-            "why": "A free, real critique episode focused on rendering tips, from a channel specifically known for diagnosing why competent art doesn't yet look professional.",
-            "summary": "A paintover critique episode from Sinix Design focused on rendering tips.",
-            "verified": true
+            "title": "Digital Painting and Illustration Demonstration - full concept",
+            "creator": "Marco Bucci",
+            "url": "https://www.youtube.com/watch?v=XtTTBjxf6wc",
+            "why": "Start-to-finish advanced illustration demonstration tying together value, light, edges, brushwork, and color.",
+            "verified": true,
+            "summary": "Walks through a full painted illustration from rough shape design through lighting, edge control, and color harmony."
           },
           {
-            "type": "Article",
-            "title": "How to Color Digitally: A Step-by-Step Guide for Beginners",
-            "creator": "Artwod",
-            "url": "https://artwod.com/blog/how-to-color-digitally-a-step-by-step-guide-for-beginners",
-            "why": "A free, concrete reference for the sketch-to-shading sequence this capstone piece should follow, useful to revisit while working through each stage.",
-            "summary": "Reinforces the staged workflow (sketch, line art, flat colors, shading) with an emphasis on committing to a light direction before shading and pushing contrast confidently once that direction is chosen, both directly applicable to completing a capstone piece.",
-            "verified": true
+            "type": "Video",
+            "title": "How to Paint Environment Concept Art ( Start to Finish )",
+            "creator": "Victor Staris",
+            "url": "https://www.youtube.com/watch?v=VW7DpsFgj8o",
+            "why": "Complete capstone walkthrough integrating atmospheric depth, lighting, and surface rendering from blank canvas to finished piece.",
+            "verified": true,
+            "summary": "Demonstrates every rendering pass required to push a rough concept into a polished final illustration."
           }
         ],
         "quiz": [
@@ -2375,13 +2429,13 @@ const CURRICULUM_4 = [
             "verified": true
           },
           {
-            "type": "Article",
-            "title": "Master Smart Objects in Photoshop: The Non-Destructive Editing Game-Changer",
-            "creator": "Kelvin Designs",
-            "url": "https://photoshoptutorial.com/posts/master-smart-objects-in-photoshop-the-non-destructive-editing-game-changer/",
-            "why": "A free, practical, first-person account of how Smart Objects change a working professional's compositing workflow, including linked Smart Objects for collaborative work.",
-            "summary": "A working compositor explains how converting imported elements to Smart Objects immediately eliminated the fear of permanently damaging quality through repeated transforms, and shows how Linked Smart Objects let a composite automatically update when a source file elsewhere is changed, a significant time-saver for collaborative or iterative work.",
-            "verified": true
+            "type": "Video",
+            "title": "Layer Mask - Photoshop for Beginners | Lesson 4",
+            "creator": "PiXimperfect",
+            "url": "https://www.youtube.com/watch?v=aNpO6G72O3w",
+            "why": "Comprehensive visual masterclass on non-destructive masking, directly reinforcing reversible digital workflows.",
+            "verified": true,
+            "summary": "Explains black/white mask painting, feathering, refining edges, and editing without permanently erasing pixels."
           }
         ],
         "quiz": [
@@ -2492,21 +2546,21 @@ const CURRICULUM_4 = [
         "resources": [
           {
             "type": "Video",
-            "title": "Couch to Photoshop: Episode 7 — Curves, Levels, and Color Grading Tutorial",
-            "creator": "Scott Detweiler",
-            "url": "https://www.youtube.com/watch?v=Wehtu7okml4",
-            "why": "A free, structured lesson covering Curves and Levels together, including S-curves, sliders, and color grading built from the same tool.",
-            "summary": "Covers the Curves tool in depth alongside Levels, including how to build a line S-curve for contrast, use curve masks to limit an adjustment's area, and apply Curves adjustment layers for stylistic color grading, along with common pitfalls to avoid when using the tool.",
-            "verified": true
+            "title": "Photoshop's Blending Modes for Digital Painting",
+            "creator": "Swatches",
+            "url": "https://www.youtube.com/watch?v=OgQCKYovKXM",
+            "why": "Built specifically for digital painters, demonstrating how Multiply, Overlay, Color Dodge, and Screen behave on painted lighting and shadows.",
+            "verified": true,
+            "summary": "Shows practical painting uses for key blend modes — shadow passes, rim glows, and bounce light — without muddying colors."
           },
           {
-            "type": "Article",
-            "title": "Color Correction Using Curves",
-            "creator": "Dan Rodney, Noble Desktop",
-            "url": "https://www.nobledesktop.com/learn/photoshop/color-correction-using-curves-photoshop",
-            "why": "A free, exact step-by-step exercise for setting white, black, and gray points with Curves and manipulating multiple midpoints.",
-            "summary": "Walks through a concrete Curves exercise: setting the white point, black point, and gray point with the tool's eyedroppers to correct an image's tonal range and color cast, then demonstrates adding and manipulating multiple midpoints on the curve to fine-tune brightness in specific tonal ranges independently.",
-            "verified": true
+            "type": "Video",
+            "title": "Blending Modes - Photoshop for Beginners | Lesson 5",
+            "creator": "PiXimperfect",
+            "url": "https://www.youtube.com/watch?v=doI1eH_nCxs",
+            "why": "Clear, thorough explanation of how every blend mode group calculates contrast, darkening, lightening, and color shifts alongside adjustment layers.",
+            "verified": true,
+            "summary": "Demystifies the math and practical grouping behind Darken, Lighten, Contrast, and Color blend modes."
           }
         ],
         "quiz": [
@@ -2875,13 +2929,13 @@ const CURRICULUM_4 = [
             "verified": true
           },
           {
-            "type": "Article",
-            "title": "AI Art Ethics: A Practical Guide for Creators",
-            "creator": "ZSky AI",
-            "url": "https://zsky.ai/blog/ai-art-ethics-guide",
-            "why": "A free, practically-organized guide that lays out both sides of the training-data debate honestly and gives a concrete decision framework for different use cases.",
-            "summary": "Lays out the core training-data consent debate from both the artist and AI-company perspectives without resolving it, explains the current U.S. Copyright Office position that purely AI-generated work isn't copyrightable while AI-assisted work with substantial human direction may be, and offers a practical framework distinguishing clearly-uncontroversial uses (personal ideation, prototyping, accessibility) from genuinely murky ones (mimicking a specific living artist's style, passing AI work off as hand-made).",
-            "verified": true
+            "type": "Docs",
+            "title": "Copyright and Artificial Intelligence",
+            "creator": "U.S. Copyright Office",
+            "url": "https://www.copyright.gov/ai/",
+            "why": "Primary federal authority on AI copyrightability, human authorship requirements, and training-data policy.",
+            "verified": true,
+            "summary": "Provides official legal guidance on human authorship thresholds, disclosure rules, and copyright status for AI-assisted works."
           }
         ],
         "quiz": [
@@ -3000,22 +3054,13 @@ const CURRICULUM_4 = [
             "verified": true
           },
           {
-            "type": "Article",
-            "title": "Expanding your Visual Library: Speed Painting",
-            "creator": "ArtFrog, CLIP STUDIO TIPS",
-            "url": "https://tips.clip-studio.com/en-us/articles/2766",
-            "why": "A free, practical breakdown of concrete speed-painting preparation tips — timers, limited tools, and the eyedropper-based limited palette technique.",
-            "summary": "Defines a speed painting simply as art made within a time limit, then gives concrete preparation tips: setting and sticking to a timer (restarting rather than continuing if time runs out), using a limited number of brushes and tools to avoid switching time, and establishing a limited color palette used with the eyedropper tool to mix new colors directly from the canvas rather than the color wheel.",
-            "verified": true
-          },
-          {
-            "type": "Article",
-            "title": "Speed Painting: How to Do It and Why?",
-            "creator": "Chloé Pouteau, Dessindigo",
-            "url": "https://dessindigo.com/en/blog/digital-painting-tutorial/speed-painting",
-            "why": "A free, detailed walkthrough of speed painting as a structured study tool, with three separate worked examples for composition, values, and color under specific time limits.",
-            "summary": "Demonstrates speed painting as a study method through three separate worked examples — a 10-minute composition study identifying leading lines and picture planes, a 20-minute grayscale value study of a lit landscape, and a 30-minute color-zone study — each showing how analyzing a reference first, then working within a tight time limit, builds a reusable mental library of compositions and techniques.",
-            "verified": true
+            "type": "Video",
+            "title": "Art Breakthroughs in 10 Minutes - EASY exercises for BIG results",
+            "creator": "Marco Bucci",
+            "url": "https://www.youtube.com/watch?v=c-DzNTPH24A",
+            "why": "Directly demonstrates strict 10-minute timed painting studies focused on big shapes, decisive brushwork, and speed discipline.",
+            "verified": true,
+            "summary": "Shows how short timed studies force big-shape thinking and cure over-rendering habits."
           }
         ],
         "quiz": [
@@ -3125,22 +3170,22 @@ const CURRICULUM_4 = [
         },
         "resources": [
           {
-            "type": "Article",
-            "title": "Some Thoughts on Master Studies",
-            "creator": "Ron Lemen, Muddy Colors",
-            "url": "https://muddycolors.com/2017/12/some-thoughts-on-master-studies/",
-            "why": "A free, first-person account from a working professional illustrator, giving three concrete, focused approaches to master studies instead of unfocused whole-canvas copying.",
-            "summary": "A professional illustrator shares three focused approaches learned from a mentor: studying a painting's design matrix (its compositional armature of lead lines and shapes), studying the pure color relationships underneath a painting's optical blending, and studying just a small section of a canvas in depth to learn specific paint application — while cautioning that unfocused copying with no clear goal can lead to absorbing surface habits rather than real, transferable lessons.",
-            "verified": true
+            "type": "Video",
+            "title": "Digital Master Studies: The Dos and Don’ts",
+            "creator": "Proko",
+            "url": "https://www.youtube.com/watch?v=P_NnGEHVwtg",
+            "why": "Directly teaches goal-driven digital master studies and how to avoid mindless pixel-copying.",
+            "verified": true,
+            "summary": "Explains how to pick a specific study goal (value, color, edges, or brushwork) so master copies build transferable skill."
           },
           {
-            "type": "Article",
-            "title": "Let's Talk About Master Copies",
-            "creator": "Miranda Meeks, Muddy Colors",
-            "url": "https://muddycolors.com/2022/01/lets-talk-about-master-copies/",
-            "why": "A free, practical breakdown of how to approach master copies responsibly, including the important distinction between educational study and passing work off as original.",
-            "summary": "Explains that copying for educational purposes is broadly accepted, provided the copy isn't presented as original work and the source artist is credited when known, walks through a practical process for creating a master copy, and notes that copying an image directly for professional client work (rather than personal study) crosses into a different, more serious category.",
-            "verified": true
+            "type": "Video",
+            "title": "Learn color by understanding THIS painting",
+            "creator": "Marco Bucci",
+            "url": "https://www.youtube.com/watch?v=GWfodZ2L4cI",
+            "why": "Models a targeted color-and-design master study, showing how to extract structural lessons from a finished masterwork.",
+            "verified": true,
+            "summary": "Deconstructs a master painting's value structure, temperature shifts, and edge hierarchy step by step."
           }
         ],
         "quiz": [
@@ -3375,22 +3420,22 @@ const CURRICULUM_4 = [
         },
         "resources": [
           {
-            "type": "Article",
-            "title": "4 Steps to Your Own Signature Art Style",
-            "creator": "Copic Marker Tutorials",
-            "url": "https://copicmarkertutorials.com/how-to-find-your-own-personal-drawing-style/",
-            "why": "A free, step-by-step method for building a style on purpose by analyzing what you love and recombining the elements into your own subject matter.",
-            "summary": "Lays out a four-step process: choose three artists or styles you love, pick one representative image for each, analyze the single artistic element that makes each image special by asking what grabs you, why, and how it was done, then combine those elements (not the subject matter) into an original drawing of your most-drawn subject. The author argues that analyzing rather than simply copying is what lets you deconstruct and rebuild an element in new ways.",
-            "verified": true
+            "type": "Video",
+            "title": "Painting & Art Style - with Batman",
+            "creator": "Marco Bucci",
+            "url": "https://www.youtube.com/watch?v=Fbo6ZAuF914",
+            "why": "Analytical breakdown showing how deliberate shape, edge, and color decisions — not accident — build a recognizable visual style.",
+            "verified": true,
+            "summary": "Compares how different artists interpret the same subject through deliberate choices in proportion, line, and color."
           },
           {
-            "type": "Article",
-            "title": "How to find your own artistic style",
-            "creator": "Mark Harrison, Artists & Illustrators",
-            "url": "https://www.artistsandillustrators.co.uk/how-to/art-theory/how-to-find-your-own-artistic-style/",
-            "why": "A free, first-person account from a working painter covering medium, influences, strengths, inspiration and the value of working in a small series.",
-            "summary": "A working painter shares five ways to develop a recognizable style: settle on a medium that suits how you work, study other artists but adapt only the aspects you find useful, play to your real strengths and interests, keep a personal inspiration collection while respecting copyright, and confront the blank canvas by painting a series of small pieces where each one informs the next.",
-            "verified": true
+            "type": "Video",
+            "title": "How to Find Your Art Style | Sam's digital art tips",
+            "creator": "SamDoesArts",
+            "url": "https://www.youtube.com/watch?v=AwksDpgTmas",
+            "why": "Practical digital-artist method for deconstructing influences and combining specific elements into an original style.",
+            "verified": true,
+            "summary": "Explains studying 3–5 favorite artists intentionally to identify what you love and synthesize a personal visual voice."
           }
         ],
         "quiz": [
@@ -3515,12 +3560,21 @@ const CURRICULUM_4 = [
           },
           {
             "type": "Video",
-            "title": "How to Match Light & Color for Composites Photoshop | Day 28",
-            "creator": "Aaron Nace (PHLEARN)",
-            "url": "https://www.youtube.com/watch?v=eNnqPKxHnjs",
-            "why": "A free 10-minute lesson on the check-layer technique that matters most when a capstone piece combines elements from different sources.",
-            "summary": "Introduces check layers: a temporary Black & White adjustment layer to compare light levels between elements, and a solid color fill layer set to Saturation to compare color, then correcting the mismatch with clipped Levels and Color Balance adjustment layers.",
-            "verified": true
+            "title": "My Advice for Creating an Effective Portfolio - Concept Art and Illustration",
+            "creator": "Grady Frederick Art",
+            "url": "https://www.youtube.com/watch?v=h-gsHYn0fz0",
+            "why": "Industry breakdown of what elevates a personal digital illustration or concept piece to studio portfolio quality.",
+            "verified": true,
+            "summary": "Covers piece selection, presentation, finish standards, and avoiding common portfolio pitfalls."
+          },
+          {
+            "type": "Video",
+            "title": "How to Build a Portfolio as a Game Artist",
+            "creator": "J Hill",
+            "url": "https://www.youtube.com/watch?v=44aPVgi6S6E",
+            "why": "Clear, practical standards for scoping, polishing, and presenting portfolio-grade digital art pieces.",
+            "verified": true,
+            "summary": "Explains tailoring portfolio pieces to target studio quality, cutting weak work, and presenting process breakdowns."
           }
         ],
         "quiz": [

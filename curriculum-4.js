@@ -2030,12 +2030,12 @@ const CURRICULUM_4 = [
           },
           {
             "type": "Video",
-            "title": "Quick Overlays: Tool Pairs | Digital Painting",
+            "title": "Digital Painting: Selective Blending for Overlays",
             "creator": "Ctrl+Paint — Matt Kohr",
-            "url": "https://www.youtube.com/watch?v=o3hKdCwg5Pw",
-            "why": "Directly matches integrating photographic texture overlays and painting over them cleanly.",
+            "url": "https://www.youtube.com/watch?v=hE2kYYqVywQ",
+            "why": "Directly demonstrates applying photographic texture overlays with blending modes and Blend If so texture integrates cleanly into painted surfaces.",
             "verified": true,
-            "summary": "Shows how to warp, blend, and paint back over photo textures so they integrate naturally with brushwork."
+            "summary": "Shows how to isolate rust, grain, and photo-texture details using overlay blend modes and Blend If sliders without flattening the painting."
           }
         ],
         "quiz": [
@@ -2555,12 +2555,21 @@ const CURRICULUM_4 = [
           },
           {
             "type": "Video",
-            "title": "Blending Modes - Photoshop for Beginners | Lesson 5",
+            "title": "Master Curves from Start to Finish in Photoshop",
             "creator": "PiXimperfect",
-            "url": "https://www.youtube.com/watch?v=doI1eH_nCxs",
-            "why": "Clear, thorough explanation of how every blend mode group calculates contrast, darkening, lightening, and color shifts alongside adjustment layers.",
+            "url": "https://www.youtube.com/watch?v=Bvyiydd2dMc",
+            "why": "Comprehensive visual guide to Curves adjustment layers for tonal control, contrast shaping, and non-destructive color grading.",
             "verified": true,
-            "summary": "Demystifies the math and practical grouping behind Darken, Lighten, Contrast, and Color blend modes."
+            "summary": "Explains the histogram, S-curves, per-channel RGB color shifts, and masked Curves adjustment layers from scratch."
+          },
+          {
+            "type": "Video",
+            "title": "Difference Between Levels and Curves in Photoshop",
+            "creator": "PiXimperfect",
+            "url": "https://www.youtube.com/watch?v=NsXzzCuKrdw",
+            "why": "Directly answers when to use Curves versus Levels adjustment layers for precise tonal and value adjustments.",
+            "verified": true,
+            "summary": "Compares Levels' three fixed tonal sliders against Curves' multi-point control over shadows, midtones, highlights, and color balance."
           }
         ],
         "quiz": [
@@ -3046,21 +3055,30 @@ const CURRICULUM_4 = [
         "resources": [
           {
             "type": "Video",
-            "title": "Expanding your Visual Library: Speed Painting",
-            "creator": "The Art Frog (CLIP STUDIO TIPS)",
-            "url": "https://www.youtube.com/watch?v=DlvI_13F0S4",
-            "why": "The free 40-minute video version of the article below, where a speed painting is actually done in Clip Studio Paint.",
-            "summary": "Art Frog looks at different tools and techniques in Clip Studio Paint for creating a speed painting, including lasso, eyedropper and reference use, then paints one from start to finish.",
-            "verified": true
-          },
-          {
-            "type": "Video",
             "title": "Art Breakthroughs in 10 Minutes - EASY exercises for BIG results",
             "creator": "Marco Bucci",
             "url": "https://www.youtube.com/watch?v=c-DzNTPH24A",
             "why": "Directly demonstrates strict 10-minute timed painting studies focused on big shapes, decisive brushwork, and speed discipline.",
             "verified": true,
             "summary": "Shows how short timed studies force big-shape thinking and cure over-rendering habits."
+          },
+          {
+            "type": "Video",
+            "title": "Speed Painting Secrets—Create Stunning Concept Artwork in Half the Time",
+            "creator": "Hardy Fowler - Digital Painting Studio",
+            "url": "https://www.youtube.com/watch?v=99RpjtlQh-w",
+            "why": "Narrated pro workflow focused on big value shapes, fast brushwork economy, and finishing concept sketches under time pressure.",
+            "verified": true,
+            "summary": "Breaks down how working big-to-small with disciplined value grouping and minimal brushes cuts concept painting time in half."
+          },
+          {
+            "type": "Video",
+            "title": "Number 1 PRO TIP to create like a Professional Artist_ Speed Painting Tutorial",
+            "creator": "Miguel IglesiasART",
+            "url": "https://www.youtube.com/watch?v=1SglfH3td8o",
+            "why": "Narrated speed-painting demonstration emphasizing intentional direction, focal clarity, and avoiding aimless detailing.",
+            "verified": true,
+            "summary": "Shows how defining a single visual goal before laying down strokes keeps fast paintings cohesive and readable."
           }
         ],
         "quiz": [

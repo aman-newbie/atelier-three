@@ -366,20 +366,30 @@ const CURRICULUM_3 = [
         "resources": [
           {
             "type": "Course",
-            "title": "The Torso",
-            "creator": "Proko (Stan Prokopenko)",
-            "url": "https://www.proko.com/course-lesson/the-torso",
-            "why": "Free lesson from Proko's Figure Drawing Fundamentals course on the torso. (This page needs JavaScript, so its text could not be read automatically and has no summary here.)",
-            "verified": true
-          },
-          {
-            "type": "Course",
             "title": "How to Simplify the Motion of the Torso — The Bean",
             "creator": "Proko (Stan Prokopenko)",
             "url": "https://www.proko.com/course-lesson/how-to-simplify-the-motion-of-the-torso-the-bean",
             "why": "Free follow-up lesson on simplifying the torso into the rib cage and hips (the bean) and why practicing it helps.",
             "verified": true,
             "summary": "Proko explains the head, rib cage and pelvis as three masses, and the torso as two forms (the rib cage and the hips) joined by soft 'skin'. The lesson explains why practicing this 'bean' simplification is worth the effort."
+          },
+          {
+            "type": "Video",
+            "title": "How to Draw Structure in the Body - Robo Bean",
+            "creator": "Proko",
+            "url": "https://www.youtube.com/watch?v=yqxPHew5bGQ",
+            "why": "Bridges the 2D Bean directly into 3D perspective boxes for the ribcage and pelvis so torso tilt reads clearly.",
+            "verified": true,
+            "summary": "Shows how converting the Bean into boxy 3D planes (Robo Bean) reveals twisting, leaning, and foreshortened torso volumes."
+          },
+          {
+            "type": "Video",
+            "title": "How to Draw the Rib Cage in 3/4 View (Stop Flattening It!)",
+            "creator": "Roberto Osti",
+            "url": "https://www.youtube.com/watch?v=8npiFYvQoAY",
+            "why": "Dedicated anatomical breakdown of the 3D egg-like ribcage, sternum centerline, and thoracic arch in 3/4 view.",
+            "verified": true,
+            "summary": "Prevents flat-chest drawings by demonstrating how to construct the volumetric ribcage and landmarks from rotating angles."
           }
         ],
         "quiz": [
@@ -693,14 +703,6 @@ const CURRICULUM_3 = [
           "challenge": "Draw the same simple scene with two versions of a hand gesture that should communicate opposite emotional states (relaxed and welcoming versus tense and closed off), keeping the rest of the pose identical."
         },
         "resources": [
-          {
-            "type": "Reference Tool",
-            "title": "Hands & feet practice tool",
-            "creator": "Line of Action",
-            "url": "https://line-of-action.com/practice-tools/app/hands-feet",
-            "why": "The same free timed reference tool used in the previous module. This link opens its general figure-drawing mode, not a hands-specific one.",
-            "verified": true
-          },
           {
             "type": "Video",
             "title": "How to Draw Expressive Hands",
@@ -3101,21 +3103,21 @@ const CURRICULUM_3 = [
         "resources": [
           {
             "type": "Video",
-            "title": "Architecture History: All Architectural Styles & Epoches, Complete Overview [University Lecture]",
-            "creator": "Sebastian von Thaden",
-            "url": "https://www.youtube.com/watch?v=JHClCthMK-g",
-            "why": "Comprehensive visual lecture walking through historical periods, proportions, rooflines, and ornament vocabularies.",
-            "verified": true,
-            "summary": "Surveys major Western and global architectural eras with clear visual comparisons of arches, columns, roofs, and facades."
-          },
-          {
-            "type": "Video",
             "title": "Every Architectural Style Explained In 15 Minutes",
             "creator": "Sahari",
             "url": "https://www.youtube.com/watch?v=12__WSxFaaw",
             "why": "Fast visual primer comparing signature silhouettes and ornament markers across Classical, Gothic, Baroque, Art Deco, and Modernist buildings.",
             "verified": true,
             "summary": "Highlights the recognizable structural cues and silhouettes that distinguish each historical style at a glance."
+          },
+          {
+            "type": "Video",
+            "title": "the Way to Think that Turns Complex Architecture into a Simple Drawing Process!",
+            "creator": "Stephen Travers Art",
+            "url": "https://www.youtube.com/watch?v=sd4y_le_-hE",
+            "why": "Shows artists how to simplify ornate historical facades, arches, and classical details into clear structural shapes.",
+            "verified": true,
+            "summary": "Demonstrates breaking complex historical architecture into major geometric silhouettes and repeating rhythms before drawing ornament."
           }
         ],
         "quiz": [
@@ -3314,12 +3316,21 @@ const CURRICULUM_3 = [
           },
           {
             "type": "Video",
-            "title": "One Point Perspective: Rooms and Furniture",
-            "creator": "Kristina Smethers",
-            "url": "https://www.youtube.com/watch?v=Vz57CUelPu8",
-            "why": "Walks through scaling and grounding multiple furniture pieces and interior props onto the same room floor plane.",
+            "title": "2 point perspective - drawing a room interior",
+            "creator": "Mario Pires",
+            "url": "https://www.youtube.com/watch?v=ZTHePfV7cyc",
+            "why": "Intermediate 2-point interior demo showing how to construct and ground multiple furniture pieces inside one cohesive room.",
             "verified": true,
-            "summary": "Demonstrates aligning beds, tables, and shelving to shared room vanishing points so props never float or warp."
+            "summary": "Walks through blocking beds, desks, shelving, and interior props accurately onto a shared two-point room grid."
+          },
+          {
+            "type": "Video",
+            "title": "How to Draw a Room in 2-Point Perspective for beginners -interior design",
+            "creator": "First Architecture School",
+            "url": "https://www.youtube.com/watch?v=GmvdM7xP7ms",
+            "why": "Architectural interior sketching walkthrough scaling seating, tables, and room fixtures consistently in 2-point perspective.",
+            "verified": true,
+            "summary": "Demonstrates proportioning and placing multiple interior furnishings cleanly along shared floor and wall vanishing lines."
           }
         ],
         "quiz": [
@@ -3623,7 +3634,7 @@ const CURRICULUM_3 = [
             "title": "Design Cinema - Episode 107 - How to Add Details",
             "creator": "FZD School — Feng Zhu",
             "url": "https://www.youtube.com/watch?v=9_XZtUVPoOs",
-            "why": "Feng Zhu on where, why and when to add detail and wear so an environment reads as lived-in rather than noisy — the exact lesson this module is built on, now linked directly instead of through a tutorials index page.",
+            "why": "Feng Zhu on where, why and when to add detail and wear so an environment reads as lived-in rather than noisy — the exact lesson this module is built on.",
             "verified": true
           },
           {

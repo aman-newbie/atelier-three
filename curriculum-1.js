@@ -270,7 +270,7 @@ const CURRICULUM_1 = [
             "url": "https://youtu.be/pMC0Cx3Uk84",
             "lessonUrl": "https://www.proko.com/course-lesson/how-to-hold-and-control-your-pencil",
             "hasNotes": true,
-            "why": "Covers tripod vs overhand grip, and wrist-vs-shoulder control, as one system — exactly this module's core idea. Now linked directly to the free YouTube upload so it plays inline instead of opening Proko's site.",
+            "why": "Covers tripod vs overhand grip, and wrist-vs-shoulder control, as one system — exactly this module's core idea.",
             "verified": true,
             "summary": "Covers the tripod grip and the overhand grip, drawing from the wrist versus the shoulder, and how different parts of the pencil give you control over line weight. Aimed at pencil control for line drawing and shading."
           },
@@ -597,7 +597,7 @@ const CURRICULUM_1 = [
             "title": "Drawing shape: Contour Lines",
             "creator": "Ctrl+Paint (Matt Kohr)",
             "url": "https://www.ctrlpaint.com/videos/drawing-shape-contour",
-            "why": "A specific free video on contour-based shape drawing, replacing a generic course-browse page with the actual lesson.",
+            "why": "A specific free video on contour-based shape drawing.",
             "verified": true,
             "summary": "Contour is a linear approach to describing form, focused on descriptive outlines. The key is to draw the unique contour you are actually observing, not a generalized outline from memory, because beginners tend to draw symbols instead of real objects, even with the object in front of them."
           },
@@ -1238,7 +1238,7 @@ const CURRICULUM_1 = [
             "title": "How to Shade a Drawing",
             "creator": "Proko (Stan Prokopenko)",
             "url": "https://www.youtube.com/watch?v=-dqGkHWC5IU",
-            "why": "A free video walking through the actual shading process step by step, now linked directly so it plays inline instead of through a course-index page.",
+            "why": "A free video walking through the actual shading process step by step.",
             "verified": true,
             "summary": "Per its description, explores form, planes and light on form, and walks through the elements of light on form (highlight, center light, halftones, core shadow, reflected light, cast shadow, occlusion shadow), plus how an object's local value and the intensity of the light affect the tones."
           },
@@ -1247,7 +1247,7 @@ const CURRICULUM_1 = [
             "title": "Top 5 Shading Mistakes",
             "creator": "Proko (Stan Prokopenko)",
             "url": "https://www.youtube.com/watch?v=LrHfrncvODQ",
-            "why": "Free, focused directly on the failure modes this module warns about — a good check after practicing the techniques above, now linked to the specific video directly.",
+            "why": "Free, focused directly on the failure modes this module warns about — a good check after practicing the techniques above.",
             "verified": true,
             "summary": "Per its description, Proko lists the five most common shading mistakes he has seen while critiquing students for years, and how to fix each. The description does not name them, so watch the video for the specifics."
           },
@@ -1256,7 +1256,7 @@ const CURRICULUM_1 = [
             "title": "Crosshatching",
             "creator": "Ctrl+Paint (Matt Kohr)",
             "url": "https://www.ctrlpaint.com/videos/crosshatching",
-            "why": "A specific free video on crosshatching shading technique, replacing the generic library homepage with the actual lesson.",
+            "why": "A specific free video on crosshatching shading technique.",
             "verified": true,
             "summary": "A short video showing crosshatching as a quick way to build tone and volume with a pencil, as you start indicating a light source and cast shadows in traditional drawing."
           }

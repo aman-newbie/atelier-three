@@ -777,21 +777,21 @@ const CURRICULUM_2 = [
         "resources": [
           {
             "type": "Video",
-            "title": "Easy Way To Draw The Planes of the Head For Beginners",
-            "creator": "DRAW JUICE ART TUTORIALS",
-            "url": "https://www.youtube.com/watch?v=EA2qP94zkqg",
-            "why": "Beginner-focused breakdown mapping the major facial plane transitions step by step.",
-            "verified": true,
-            "summary": "Maps the front, side, top, and bottom planes of the brow, cheekbones, nose, and mouth muzzle clearly for portrait construction."
-          },
-          {
-            "type": "Video",
             "title": "How I Draw the Planes of the Head",
             "creator": "Robert Marzullo",
             "url": "https://www.youtube.com/watch?v=HBMjihGMlqk",
             "why": "Clear drawing demonstration of brow, cheek, nose, and jaw planes for portrait construction.",
             "verified": true,
             "summary": "Shows how to block in planar breaks cleanly during a sketch so shading follows real 3D surfaces."
+          },
+          {
+            "type": "Video",
+            "title": "Planes and Rhythm Lines of the Face",
+            "creator": "Draw & Paint with Ja'Rie Gray",
+            "url": "https://www.youtube.com/watch?v=cjSm-KcCp-I",
+            "why": "Demonstrates mapping forehead, cheek, and facial rhythm planes directly onto a portrait cast.",
+            "verified": true,
+            "summary": "Walks through identifying front-to-side planar shifts and connecting rhythm lines across the brow, cheeks, and muzzle."
           }
         ],
         "quiz": [

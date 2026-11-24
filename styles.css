@@ -720,7 +720,7 @@ svg{display:block;}
 [data-theme="sketchbook"]{
   --bg:#F3ECDC; --bg-raised:#FAF5E9; --surface:#FFFCF4; --surface-2:#F0E8D5;
   --border:#DED0AE; --border-soft:#E9E0C9;
-  --text:#3A2E1E; --text-muted:#6E6047; --text-faint:#7A6C50;
+  --text:#3A2E1E; --text-muted:#6E6047; --text-faint:#685B42;
   --blue:#3D6E8C; --blue-ink:#E3EEF3; --blue-soft:#E3EEF3;
   --red:#A6472E; --red-ink:#F7E5DE; --red-soft:#F7E5DE;
   --green:#4C7A4A;
@@ -828,7 +828,7 @@ svg{display:block;}
 [data-theme="custom"]{
   --bg:#EDECE8; --bg-raised:#F5F4F0; --surface:#FCFBF8; --surface-2:#EFEEE9;
   --border:#D8D5CC; --border-soft:#E5E2D9;
-  --text:#22201B; --text-muted:#5C584D; --text-faint:#726D5E;
+  --text:#22201B; --text-muted:#5C584D; --text-faint:#5E5A4D; --green:#3E7A56;
   --blue:#2F6CA6; --blue-ink:#E3EEF5; --blue-soft:#E3EEF5;
   --red:#B23F26; --red-ink:#F7E5DE; --red-soft:#F7E5DE;
 }
@@ -1116,3 +1116,45 @@ body:has(.sidebar.open) .doubt-fab { pointer-events: none; opacity: 0; }
 .confirm-title { font-family: var(--font-display); font-size: calc(22px * var(--font-scale)); margin: 0 0 8px; }
 .confirm-desc { color: var(--text-muted); margin: 0 0 20px; line-height: 1.5; }
 .confirm-actions { display: flex; justify-content: flex-end; gap: 10px; }
+
+/* Custom Theme Sharpness & Frosted Backing + Doubt Quick Chips */
+[data-theme="custom"] .mcard,
+[data-theme="custom"] .res-card,
+[data-theme="custom"] .note-card,
+[data-theme="custom"] .practice-block,
+[data-theme="custom"] .quiz-card,
+[data-theme="custom"] .cal-card,
+[data-theme="custom"] .dash-stat-card,
+[data-theme="custom"] .prompt-card,
+[data-theme="custom"] .timer-station,
+[data-theme="custom"] .quote-card,
+[data-theme="custom"] .theme-custom-panel,
+[data-theme="custom"] .sidebar,
+[data-theme="custom"] .topbar {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  text-shadow: none;
+}
+.doubt-chips-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px 12px 4px;
+  border-top: 1px solid var(--border-soft);
+  background: var(--surface);
+}
+.doubt-quick-chip {
+  font-family: var(--font-sans);
+  font-size: calc(12px * var(--font-scale));
+  padding: 5px 10px;
+  border-radius: var(--radius-full, 999px);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 120ms ease, color 120ms ease;
+}
+.doubt-quick-chip:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}

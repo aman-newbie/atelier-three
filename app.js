@@ -743,7 +743,7 @@ function applyCustomBackground(url){
   img.onload = ()=>{
     if(STATE.customBgUrl === url){
       document.documentElement.style.setProperty('--custom-bg-image', `url("${url.replace(/"/g,'')}")`);
-      let brightness = 128, bands = null;
+      let brightness = 64, bands = null;
       try {
         const probe = new Image();
         probe.crossOrigin = 'anonymous';
@@ -2444,12 +2444,12 @@ function applyCustomThemeColors(brightness, bands){
   }
   const root = document.documentElement.style;
   if(dark){
-    root.setProperty('--custom-text-shadow', '0 1px 4px rgba(0,0,0,0.75), 0 1px 12px rgba(0,0,0,0.45)');
+    root.setProperty('--custom-text-shadow', '0 1px 3px rgba(0,0,0,0.55)');
     root.setProperty('--bg', '#17151199');
     root.setProperty('--bg-raised', '#1B1920'); // fully opaque — backs the sidebar; was never updated here, so it stayed stuck at the static light fallback even in dark mode, making sidebar text unreadable against its own nav background
     root.setProperty('--custom-scrim-color', '#0F0D0A');
-    root.setProperty('--surface', 'rgba(24,22,19,0.92)');
-    root.setProperty('--surface-2', 'rgba(34,31,26,0.93)');
+    root.setProperty('--surface', 'rgba(24,22,19,0.95)');
+    root.setProperty('--surface-2', 'rgba(34,31,26,0.96)');
     root.setProperty('--text', '#F7F4EC');
     root.setProperty('--text-muted', '#DDD7C8');
     root.setProperty('--text-faint', '#BEB7A6');
@@ -2536,6 +2536,7 @@ function toggleDoubtPanel(open){
   if(open){
     const wrap = document.getElementById('doubtMessages');
     if(wrap) wrap.scrollTop = wrap.scrollHeight;
+    renderDoubtQuickChips();
     const input = document.getElementById('doubtInput');
     if(input) input.focus();
   } else {
@@ -2854,16 +2855,22 @@ async function sendDoubtMessage(){
         const evidence=await searchCurriculumEvidence(question,3);
         const strong=evidence.filter(x=>x.score>=1.15);
         if(strong.length){
-          const lines=[]; const seen=new Set();
-          strong.slice(0,2).forEach(item=>{
-            const m=findModuleForSearchChunk(item.chunk);
-            const title=m ? (m.id.toUpperCase()+' '+L(m,'title')) : String(item.chunk.m||'Course lesson');
-            if(seen.has(title)) return; seen.add(title);
-            const excerpt=String(item.chunk.t||'').replace(/\s+/g,' ').trim().slice(0,650);
+        const lines=[]; const seen=new Set();
+        strong.slice(0,2).forEach(item=>{
+          const m=findModuleForSearchChunk(item.chunk);
+          const title=m ? (m.id.toUpperCase()+' — '+L(m,'title')) : String(item.chunk.m||'Course lesson');
+          if(seen.has(title)) return; seen.add(title);
+          if(m){
+            const hook = String(L(m,'hook')||'').replace(/<[^>]*>/g,'').trim();
+            const core = Array.isArray(L(m,'coreIdea')) ? L(m,'coreIdea').slice(0,2).map(x=>'• '+String(x).replace(/<[^>]*>/g,'').trim()).join('\n') : '';
+            lines.push('**'+title+'**'+(hook?'\n'+hook:'')+(core?'\n'+core:''));
+          } else {
+            const excerpt=String(item.chunk.t||'').replace(/\s+/g,' ').trim().slice(0,380);
             lines.push('**'+title+'**\n'+excerpt);
-          });
-          answer=(isHi?'Atelier course mein is sawaal se related material mila:\n\n':'I found relevant material in the Atelier course:\n\n')+lines.join('\n\n')+(isHi?'\n\nYe course lesson ke retrieved excerpts hain. Poora context dekhne ke liye upar diye module ko kholo.':'\n\nThese are retrieved lesson excerpts, not a generated explanation. Open the cited module for the complete context.');
-        }else{
+          }
+        });
+        answer=lines.join('\n\n');
+      }else{
           const external=shouldSearchExternalKnowledge(question) ? await searchExternalKnowledge(question,isHi) : null;
           if(external) answer=external;
           else{
@@ -3384,4 +3391,31 @@ function openConfirmDialog({title, message, confirmLabel, onConfirm}){
   dlg.onclose = cleanup;
   dlg.showModal();
   cancelBtn.focus();
+}
+
+
+function renderDoubtQuickChips(){
+  const bar = document.getElementById('doubtQuickChips');
+  if(!bar) return;
+  const hi = STATE.language === 'hi';
+  const inMod = STATE.route && STATE.route.view === 'module' && STATE.route.moduleId;
+  const chips = inMod
+    ? (hi
+        ? ['Is lesson ko samjhao', 'Common mistakes', 'Practice exercise', 'Minimum tools?']
+        : ['Explain this lesson', 'Common mistakes', 'Practice drill', 'Tools needed?'])
+    : (hi
+        ? ['Drawing kaise start karu?', 'Minimum supplies?', 'Seedhi line kaise banaye?', 'Shading kaise kare?']
+        : ['How do I start drawing?', 'Minimum supplies?', 'How to draw straight lines?', 'How to shade a sphere?']);
+  bar.innerHTML = '';
+  chips.forEach(text=>{
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'doubt-quick-chip';
+    btn.textContent = text;
+    btn.addEventListener('click', ()=>{
+      const inp = document.getElementById('doubtInput');
+      if(inp){ inp.value = text; sendDoubtMessage(); }
+    });
+    bar.appendChild(btn);
+  });
 }

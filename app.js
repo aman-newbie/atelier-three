@@ -346,6 +346,14 @@ const ACHIEVEMENTS = [
     progress:()=>{const p=arcProgress('nature-arch'); return `${p.done}/${p.total} modules`;}},
   {id:'creature-grad', title:'Creature Feature', desc:'Complete every Creatures & Hard Surface module.', check:()=>pathFullyComplete('creatures-hardsurface'),
     progress:()=>{const p=arcProgress('creatures-hardsurface'); return `${p.done}/${p.total} modules`;}},
+  {id:'worldbuilding-grad', title:'World Builder', desc:'Complete every World Building & Concept Art module.', check:()=>pathFullyComplete('worldbuilding'),
+    progress:()=>{const p=arcProgress('worldbuilding'); return `${p.done}/${p.total} modules`;}},
+  {id:'digital-fund-grad', title:'Digital Ready', desc:'Complete every Digital Art Fundamentals module.', check:()=>pathFullyComplete('digital-fundamentals'),
+    progress:()=>{const p=arcProgress('digital-fundamentals'); return `${p.done}/${p.total} modules`;}},
+  {id:'digital-paint-grad', title:'Digital Painter', desc:'Complete every Digital Painting & Rendering module.', check:()=>pathFullyComplete('digital-painting'),
+    progress:()=>{const p=arcProgress('digital-painting'); return `${p.done}/${p.total} modules`;}},
+  {id:'advanced-digital-grad', title:'Studio Grade', desc:'Complete every Advanced Digital Art module.', check:()=>pathFullyComplete('advanced-digital'),
+    progress:()=>{const p=arcProgress('advanced-digital'); return `${p.done}/${p.total} modules`;}},
   {id:'well-rounded', title:'Well-Rounded', desc:'Complete at least one module in every live arc.', check:s=>getLivePaths().every(p=>p.modules.filter(m=>!m.stub).some(m=>s.completed.has(m.id))),
     progress:s=>`${getLivePaths().filter(p=>p.modules.filter(m=>!m.stub).some(m=>s.completed.has(m.id))).length}/${getLivePaths().length} arcs started`},
   {id:'halfway', title:'Halfway There', desc:'Complete half of all live modules.', check:s=>s.completed.size>=Math.ceil(TOTAL_LIVE_MODULES/2),
@@ -529,7 +537,7 @@ function applyState(data){
 
 function restoreLastRoute(route){
   if(!route || typeof route !== 'object' || !route.view) return;
-  const restorableViews = ['module','practice','achievements','bookmarks','dashboard','calendar','library'];
+  const restorableViews = ['module','practice','achievements','bookmarks','dashboard','calendar','library','themes'];
   if(!restorableViews.includes(route.view)) return; /* 'home' and 'search' are not worth resuming into */
   if(route.view === 'module'){
     const m = findModule(route.moduleId);
@@ -599,7 +607,7 @@ async function persistNow(){
       oversizeWarned = true;
       showToast("Your theme photo history got too large to save smoothly \u2014 trimming it down.");
       STATE.customHistory = STATE.customHistory.slice(0, 2);
-      renderThemes();
+      if(STATE.route.view === 'themes') renderThemes();
     }
     return;
   }
@@ -678,6 +686,10 @@ function updateDocumentTitle(){
     title = `Dashboard \u00b7 ${base}`;
   } else if(route.view === 'calendar'){
     title = `Calendar \u00b7 ${base}`;
+  } else if(route.view === 'library'){
+    title = `Library \u00b7 ${base}`;
+  } else if(route.view === 'themes'){
+    title = `Themes \u00b7 ${base}`;
   } else if(route.view === 'search'){
     title = `Search \u00b7 ${base}`;
   }
@@ -975,7 +987,7 @@ function renderModule(pathId, moduleId, tab){
       <div class="meta-item"><span>Difficulty</span><b>${m.difficulty}</b></div>
       <div class="meta-item"><span>Study time</span><b>${m.studyTime}</b></div>
       <div class="meta-item"><span>Practice time</span><b>${m.practiceTime}</b></div>
-      <div class="meta-item"><span>Prerequisite</span><b>${m.prereq.length ? m.prereq.map(id=>findModule(id).title).join(', ') : 'None &mdash; start here'}</b></div>
+      <div class="meta-item"><span>Prerequisite</span><b>${m.prereq.length ? m.prereq.map(id=>findModule(id)).filter(Boolean).map(pm=>L(pm,'title')).join(', ') : 'None &mdash; start here'}</b></div>
     </div>
   </div>
 
@@ -990,8 +1002,8 @@ function renderModule(pathId, moduleId, tab){
   <div class="tabpanel" id="tabpanel" role="tabpanel" aria-labelledby="tab-${tab}">${renderTabContent(m, tab, checkedSet)}</div>
 
   <div class="module-nav">
-    ${prev ? `<button class="nav-link-card" data-path="${pathId}" data-module="${prev.id}"><span>${ICONS.arrowLeft} Previous</span><b>${prev.title}</b></button>` : '<span></span>'}
-    ${next ? `<button class="nav-link-card next" data-path="${pathId}" data-module="${next.id}"><span>Next ${ICONS.chevronRight}</span><b>${next.title}</b></button>` : '<span></span>'}
+    ${prev ? `<button class="nav-link-card" data-path="${pathId}" data-module="${prev.id}"><span>${ICONS.arrowLeft} Previous</span><b>${L(prev,'title')}</b></button>` : '<span></span>'}
+    ${next ? `<button class="nav-link-card next" data-path="${pathId}" data-module="${next.id}"><span>Next ${ICONS.chevronRight}</span><b>${L(next,'title')}</b></button>` : '<span></span>'}
   </div>`;
 
   document.getElementById('main').innerHTML = html;
@@ -1124,6 +1136,7 @@ function handleCalendarReminder(type){
     document.body.appendChild(a);
     a.click();
     a.remove();
+    URL.revokeObjectURL(a.href);
     showToast('Reminder file downloaded - open it to add to your calendar.');
   }
 }
@@ -1444,7 +1457,7 @@ function archiveToHistory(entry, newUrl){
   if(!entry) return;
   STATE.customHistory = [entry, ...STATE.customHistory.filter(h => h !== entry && h !== newUrl)].slice(0, 6);
   saveProgress();
-  renderThemes();
+  if(STATE.route.view === 'themes') renderThemes();
 }
 
 function setCustomThemeBackground(newUrl){
@@ -1540,7 +1553,7 @@ function renderThemes(){
 
 function renderLibrary(){
   const all = getAllLibraryResources();
-  const counts = {all: all.length, video:0, course:0, article:0, book:0, other:0};
+  const counts = {all: all.length, video:0, course:0, article:0, book:0, channel:0, other:0};
   all.forEach(row=>{ counts[categorizeResourceType(row.r)]++; });
 
   let filtered = LIB_FILTER === 'all' ? all : all.filter(row=>categorizeResourceType(row.r) === LIB_FILTER);
@@ -1745,12 +1758,14 @@ ${resActions(r, m)}
    NAVIGATION
    ============================================================ */
 function navigateHome(){
+  pauseTimer();
   flushNotesSave();
   STATE.route = {view:'home', pathId:null, moduleId:null, tab:'overview'};
   renderApp();
   window.scrollTo({top:0, behavior:'auto'});
 }
 function navigateView(view){
+  if(view !== 'practice') pauseTimer();
   flushNotesSave();
   STATE.route = {view, pathId:null, moduleId:null, tab:'overview'};
   renderApp();
@@ -1758,6 +1773,7 @@ function navigateView(view){
   closeMobileSidebar();
 }
 function navigateModule(pathId, moduleId, tab){
+  pauseTimer();
   flushNotesSave();
   STATE.route = {view:'module', pathId, moduleId, tab: tab || 'overview'};
   renderApp();
@@ -1769,7 +1785,7 @@ function openPathOnHome(pathId){
   const path = CURRICULUM.find(p=>p.id===pathId);
   if(!path) return;
   if(path.status !== 'live'){
-    showToast(path.title + ' isn\u2019t built yet \u2014 five other arcs are live now.');
+    showToast(path.title + ' isn\u2019t built yet \u2014 ' + getLivePaths().length + ' arcs are live now.');
     return;
   }
   navigateHome();
@@ -1781,7 +1797,9 @@ function openPathOnHome(pathId){
 function closeMobileSidebar(){
   document.getElementById('sidebar').classList.remove('open');
   document.getElementById('sidebarBackdrop').classList.remove('show');
-  document.getElementById('menuBtn').setAttribute('aria-expanded','false');
+  const menuBtn = document.getElementById('menuBtn');
+  menuBtn.setAttribute('aria-expanded','false');
+  menuBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg>';
 }
 
 function closeMobileSearch(){
@@ -1889,7 +1907,10 @@ function markResourceOpened(moduleId, index){
   saveProgress();
   if(STATE.route.view === 'module' && STATE.route.tab === 'resources'){
     document.getElementById('tabpanel').innerHTML = renderTabContent(findModule(moduleId), 'resources', new Set());
+  } else if(STATE.route.view === 'library'){
+    renderLibrary();
   }
+  checkAchievements();
 }
 
 let notesSaveTimer = null;
@@ -2107,13 +2128,15 @@ function renderRefresherQuestion(){
     wrap.innerHTML = `<div class="empty-state" style="padding:var(--sp-6) var(--sp-4)">${ICONS.empty}<p>Answer a quiz question in any module first, then come back here \u2014 refreshers are pulled from things you've actually already studied.</p></div>`;
     return;
   }
+  const locQuiz = L(pick.m,'quiz');
+  const qObj = (locQuiz && locQuiz[pick.qi]) ? locQuiz[pick.qi] : pick.q;
   refresherState = {moduleId: pick.m.id, qi: pick.qi, answered: false};
   wrap.innerHTML = `
     <div class="quiz-card">
       <p class="res-creator" style="margin-bottom:var(--sp-3)">From: ${L(pick.m,'title')}</p>
-      <p class="quiz-question">${pick.q.q}</p>
+      <p class="quiz-question">${qObj.q}</p>
       <div class="quiz-options" id="refresherOptions">
-        ${pick.q.options.map((opt,oi)=>`<button class="quiz-option" data-refresher-opt="${oi}">${opt}</button>`).join('')}
+        ${qObj.options.map((opt,oi)=>`<button class="quiz-option" data-refresher-opt="${oi}">${opt}</button>`).join('')}
       </div>
       <p class="quiz-explain" id="refresherExplain" style="display:none"></p>
     </div>
@@ -2123,7 +2146,8 @@ function answerRefresher(oi){
   if(!refresherState || refresherState.answered) return;
   refresherState.answered = true;
   const m = findModule(refresherState.moduleId);
-  const q = m.quiz[refresherState.qi];
+  const locQuiz = L(m,'quiz');
+  const q = (locQuiz && locQuiz[refresherState.qi]) ? locQuiz[refresherState.qi] : m.quiz[refresherState.qi];
   document.querySelectorAll('#refresherOptions .quiz-option').forEach((btn,idx)=>{
     btn.disabled = true;
     if(idx===q.correct) btn.classList.add('correct');
@@ -2133,7 +2157,7 @@ function answerRefresher(oi){
   if(explainEl){ explainEl.textContent = q.explain; explainEl.style.display = 'block'; }
 }
 
-let timerInterval = null, timerSeconds = 300, timerRunning = false;
+let timerInterval = null, timerSeconds = 300, timerRunning = false, lastTimerMinutes = 5;
 function updateTimerDisplay(){
   const el = document.getElementById('timerDisplay');
   if(!el) return;
@@ -2144,6 +2168,7 @@ function updateTimerDisplay(){
 function setTimerPreset(mins, btn){
   clearInterval(timerInterval);
   timerRunning = false;
+  lastTimerMinutes = mins;
   timerSeconds = mins*60;
   updateTimerDisplay();
   document.querySelectorAll('.timer-presets button').forEach(b=>b.classList.remove('active'));
@@ -2167,7 +2192,7 @@ function pauseTimer(){ clearInterval(timerInterval); timerRunning=false; }
 function resetTimer(){
   pauseTimer();
   const activeBtn = document.querySelector('.timer-presets button.active');
-  const mins = activeBtn ? parseInt(activeBtn.dataset.mins,10) : 5;
+  const mins = activeBtn ? parseInt(activeBtn.dataset.mins,10) : (lastTimerMinutes || 5);
   timerSeconds = mins*60;
   updateTimerDisplay();
 }
@@ -2195,12 +2220,14 @@ function handleSearch(query){
   if(!q){ STATE.route.view = STATE.route.moduleId ? 'module' : 'home'; renderApp(); return; }
   const matches = [];
   CURRICULUM.forEach(path=>{
-    if(!path.modules) return;
+    if(path.status !== 'live' || !path.modules) return;
     path.modules.forEach(m=>{
       if(m.stub) return;
       const resText = (m.resources||[]).map(r=>r.title+' '+r.creator).join(' ');
       const checklistText = (m.checklist||[]).join(' ');
-      const hay = (m.title + ' ' + (m.hook||'') + ' ' + resText + ' ' + checklistText).toLowerCase();
+      const locTitle = L(m,'title') || '';
+      const locHook = L(m,'hook') || '';
+      const hay = (m.title + ' ' + locTitle + ' ' + (m.hook||'') + ' ' + locHook + ' ' + resText + ' ' + checklistText).toLowerCase();
       if(hay.includes(q)) matches.push({path, m});
     });
   });
@@ -2338,7 +2365,8 @@ function buildScrimGradient(bands, dark, baseOpacity){
 function clearCustomThemeOverrides(){
   const root = document.documentElement.style;
   ['--bg','--bg-raised','--surface','--surface-2','--text','--text-muted','--text-faint',
-   '--border','--border-soft','--custom-scrim-color','--custom-scrim-gradient',
+   '--border','--border-soft','--blue','--blue-ink','--blue-soft','--red','--red-ink','--red-soft','--green',
+   '--custom-scrim-color','--custom-scrim-gradient','--custom-text-shadow',
    '--custom-bg-image'].forEach(prop => root.removeProperty(prop));
   /* --bg-raised was missing here — same variable, same class of bug as the
      sidebar-illegibility fix, just in the clearing path this time: it stayed
@@ -2369,6 +2397,13 @@ function applyCustomThemeColors(brightness, bands){
     root.setProperty('--text-faint', '#A39C8B');
     root.setProperty('--border', 'rgba(255,255,255,0.16)');
     root.setProperty('--border-soft', 'rgba(255,255,255,0.10)');
+    root.setProperty('--blue', '#6FB2E8');
+    root.setProperty('--blue-ink', '#0E2A3E');
+    root.setProperty('--blue-soft', '#1C2E3B');
+    root.setProperty('--red', '#E2664A');
+    root.setProperty('--red-ink', '#3A1712');
+    root.setProperty('--red-soft', '#33201C');
+    root.setProperty('--green', '#7CB88F');
   } else {
     root.setProperty('--custom-text-shadow', '0 1px 4px rgba(255,255,255,0.85), 0 1px 12px rgba(255,255,255,0.5)');
     root.setProperty('--bg', '#EDECE899');
@@ -2381,6 +2416,13 @@ function applyCustomThemeColors(brightness, bands){
     root.setProperty('--text-faint', '#726D5E');
     root.setProperty('--border', 'rgba(0,0,0,0.14)');
     root.setProperty('--border-soft', 'rgba(0,0,0,0.08)');
+    root.setProperty('--blue', '#2F6CA6');
+    root.setProperty('--blue-ink', '#E4EEF7');
+    root.setProperty('--blue-soft', '#E4EEF7');
+    root.setProperty('--red', '#B23F26');
+    root.setProperty('--red-ink', '#FBE7E1');
+    root.setProperty('--red-soft', '#FBE7E1');
+    root.setProperty('--green', '#3E7A56');
   }
 }
 
@@ -2710,7 +2752,7 @@ async function sendDoubtMessage(){
           const m=findModuleForSearchChunk(item.chunk);
           const title=m ? (m.id.toUpperCase()+' '+L(m,'title')) : String(item.chunk.m||'Course lesson');
           if(seen.has(title)) return; seen.add(title);
-          const excerpt=String(item.chunk.t||'').replace(/\\s+/g,' ').trim().slice(0,650);
+          const excerpt=String(item.chunk.t||'').replace(/\s+/g,' ').trim().slice(0,650);
           lines.push('**'+title+'**\n'+excerpt);
         });
         answer=(isHi?'Atelier course mein is sawaal se related material mila:\n\n':'I found relevant material in the Atelier course:\n\n')+lines.join('\n\n')+'\n\nThese are retrieved lesson excerpts, not a generated explanation. Open the cited module for the complete context.';
@@ -2813,8 +2855,11 @@ function initEvents(){
       flushNotesSave();
       STATE.route.tab = tabBtn.dataset.tab;
       const m = findModule(STATE.route.moduleId);
-      document.getElementById('tabpanel').innerHTML = renderTabContent(m, STATE.route.tab, STATE.checklist[STATE.route.moduleId] || new Set());
+      const tp = document.getElementById('tabpanel');
+      tp.innerHTML = renderTabContent(m, STATE.route.tab, STATE.checklist[STATE.route.moduleId] || new Set());
+      tp.setAttribute('aria-labelledby', 'tab-' + STATE.route.tab);
       document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-selected', String(t===tabBtn)));
+      saveProgress();
       return;
     }
 
@@ -3010,6 +3055,7 @@ function initEvents(){
     const btn = document.getElementById('themeToggle');
     btn.setAttribute('aria-pressed', String(showingOriginalTheme));
     if(showingOriginalTheme){
+      clearCustomThemeOverrides();
       document.documentElement.setAttribute('data-theme', ORIGINAL_THEME);
     } else {
       document.documentElement.setAttribute('data-theme', STATE.theme);
@@ -3019,7 +3065,6 @@ function initEvents(){
   document.getElementById('langToggle').addEventListener('click', ()=>{
     STATE.language = STATE.language === 'hi' ? 'en' : 'hi';
     saveProgress();
-    updateChrome();
     renderApp();
   });
 
@@ -3053,7 +3098,12 @@ function initEvents(){
       STATE.recentlyVisited = [];
       STATE.quizAnswers = {};
       STATE.notes = {};
+      STATE.premadeEdits = {};
+      STATE.notesLangOverride = null;
+      STATE.notesMotionPaused = null;
       STATE.resourcesOpened = {};
+      doubtHistory = [];
+      try{ localStorage.removeItem(DOUBT_HISTORY_KEY); }catch(e){}
       STATE.streak = 0;
       STATE.lastVisitDate = null;
       STATE.activityLog = {};

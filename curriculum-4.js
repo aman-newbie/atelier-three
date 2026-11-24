@@ -441,7 +441,7 @@ const CURRICULUM_4 = [
           {
             "type": "Video",
             "title": "How to ACTUALLY Use Layer Blend Modes",
-            "creator": "8edhead (CLIP STUDIO TIPS)",
+            "creator": "khloe 🧸🎀 (CLIP STUDIO TIPS)",
             "url": "https://www.youtube.com/watch?v=GxxJ2OkRdFg",
             "why": "A free 7-minute walkthrough of the most useful blend modes, with a written version on Clip Studio TIPS.",
             "summary": "Explains blend modes as a non-destructive way to change how a layer interacts with the layers beneath it, then demonstrates Multiply for dim lighting and shadow, Screen for highlights, snow, and rain textures, and Overlay for adding soft, vibrant color washes over a finished illustration.",
@@ -3596,7 +3596,7 @@ const CURRICULUM_4 = [
     "status": "soon",
     "order": 11,
     "desc": "Editorial illustration, comics, manga, webtoon, visual development, concept art, game art, animation pre-production, print production, and client work.",
-    "moduleCount": 11,
+    "moduleCount": 9,
     "sample": [
       "Comic Art",
       "Manga",

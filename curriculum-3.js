@@ -570,9 +570,9 @@ const CURRICULUM_3 = [
           },
           {
             "type": "Reference Tool",
-            "title": "Figure drawing practice tool",
+            "title": "Hands & feet practice tool",
             "creator": "Line of Action",
-            "url": "https://line-of-action.com/practice-tools/app/figure-drawing",
+            "url": "https://line-of-action.com/practice-tools/app/hands-feet",
             "why": "The same free timed reference tool used in earlier modules. This link opens its general figure-drawing mode, not a hands-specific one.",
             "verified": true
           }
@@ -661,9 +661,9 @@ const CURRICULUM_3 = [
         "resources": [
           {
             "type": "Reference Tool",
-            "title": "Figure drawing practice tool",
+            "title": "Hands & feet practice tool",
             "creator": "Line of Action",
-            "url": "https://line-of-action.com/practice-tools/app/figure-drawing",
+            "url": "https://line-of-action.com/practice-tools/app/hands-feet",
             "why": "The same free timed reference tool used in the previous module. This link opens its general figure-drawing mode, not a hands-specific one.",
             "verified": true
           },
@@ -2275,7 +2275,7 @@ const CURRICULUM_3 = [
             "type": "Article",
             "title": "Water Reflections, Part 1",
             "creator": "James Gurney",
-            "url": "http://gurneyjourney.blogspot.com/2007/12/water-reflections-part-1.html",
+            "url": "https://gurneyjourney.blogspot.com/2007/12/water-reflections-part-1.html",
             "why": "Explains Fresnel reflection physics, viewing angle compression, and value relationships between skies and calm water.",
             "verified": true
           },
@@ -2871,10 +2871,10 @@ const CURRICULUM_3 = [
           },
           {
             "type": "Article",
-            "title": "How to Render Rocks and Stones",
-            "creator": "Longstride Illustration",
-            "url": "https://longstrideillustration.com/how-to-render-rocks-and-stones/",
-            "why": "A free, in-depth walkthrough of ten pen-and-ink hatch styles for rendering stone and rock texture, directly complementing the brick-pattern lesson above.",
+            "title": "How to Draw Stone and Rock Textures",
+            "creator": "Envato Tuts+",
+            "url": "https://design.tutsplus.com/tutorials/how-to-draw-stonerock-texture--cms-28120",
+            "why": "A free, step-by-step illustrated guide to drawing stone and rock surface textures with graphite, complementing the masonry and brick-pattern lesson above.",
             "verified": true
           }
         ],
@@ -3267,7 +3267,7 @@ const CURRICULUM_3 = [
             "type": "Site",
             "title": "Architecture Detective: What types of architecture can you find in your neighborhood?",
             "creator": "Rachel Wintemberg — The Helpful Art Teacher",
-            "url": "http://thehelpfulartteacher.blogspot.com/2013/08/architecture-detective-what-types-of.html",
+            "url": "https://thehelpfulartteacher.blogspot.com/2013/08/architecture-detective-what-types-of.html",
             "why": "A free lesson in observing and recording the varied, mixed architecture of a real street, reinforcing this module's emphasis on repetition-with-variation.",
             "verified": true
           }
@@ -4683,7 +4683,7 @@ const CURRICULUM_3 = [
             "type": "Read",
             "title": "Landscape Maquettes",
             "creator": "James Gurney (Gurney Journey)",
-            "url": "http://gurneyjourney.blogspot.com/2007/09/landscape-maquettes.html",
+            "url": "https://gurneyjourney.blogspot.com/2007/09/landscape-maquettes.html",
             "why": "Shows the physical-maquette technique for getting real, un-inventable lighting truth into an environment before painting it.",
             "summary": "Gurney explains how he builds small physical models of a landscape's major forms out of clay, foam, or found materials, then lights that model with a real light source and paints from it — a shortcut to accurate, specific shadow and reflected-light information that is very hard to invent from imagination alone.",
             "verified": true
@@ -5726,11 +5726,11 @@ const CURRICULUM_3 = [
           },
           {
             "type": "Article",
-            "title": "A Worldbuilding Guide to Crafting Diverse Cultures",
-            "creator": "SFWA (Amelia Wiens)",
-            "url": "https://sfwa.org/2020/01/31/a-worldbuilding-guide-to-crafting-diverse-cultures/",
-            "why": "A free article from the Science Fiction and Fantasy Writers of America, giving a concrete, checkable framework (based on Trompenaars' cultural dimensions) for designing a fictional culture's values.",
-            "summary": "Provides a practical framework based on Trompenaars' model of cultural dimensions — including individualism versus communitarianism and how a society applies its moral principles — as a structured way to decide what a fictional culture actually values, instead of relying on vague, unconsciously default-to-your-own-culture assumptions.",
+            "title": "How to Create a Fictional Culture (With a Checklist)",
+            "creator": "Campfire Writing",
+            "url": "https://campfirewriting.com/learn/how-to-create-fictional-cultures",
+            "why": "A free, structured worldbuilding guide and checklist covering geography, values, architecture, clothing, traditions, and daily life so a fictional culture's visual design stays internally consistent.",
+            "summary": "Breaks fictional culture design into actionable dimensions — environment, belief systems, social norms, language, art, and material culture — with a practical checklist for translating cultural values into concrete visual details.",
             "verified": true
           }
         ],

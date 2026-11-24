@@ -1759,19 +1759,29 @@ ${resActions(r, m)}
 /* ============================================================
    NAVIGATION
    ============================================================ */
+function scrollPageTop(){
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+  try{ window.scrollTo({top:0, left:0, behavior:'instant'}); }catch(e){ window.scrollTo(0, 0); }
+  requestAnimationFrame(()=>{
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    try{ window.scrollTo({top:0, left:0, behavior:'instant'}); }catch(e){ window.scrollTo(0, 0); }
+  });
+}
 function navigateHome(){
   pauseTimer();
   flushNotesSave();
   STATE.route = {view:'home', pathId:null, moduleId:null, tab:'overview'};
   renderApp();
-  window.scrollTo({top:0, behavior:'auto'});
+  scrollPageTop();
 }
 function navigateView(view){
   if(view !== 'practice') pauseTimer();
   flushNotesSave();
   STATE.route = {view, pathId:null, moduleId:null, tab:'overview'};
   renderApp();
-  window.scrollTo({top:0, behavior:'auto'});
+  scrollPageTop();
   closeMobileSidebar();
 }
 function navigateModule(pathId, moduleId, tab){
@@ -1779,7 +1789,7 @@ function navigateModule(pathId, moduleId, tab){
   flushNotesSave();
   STATE.route = {view:'module', pathId, moduleId, tab: tab || 'overview'};
   renderApp();
-  window.scrollTo({top:0, behavior:'auto'});
+  scrollPageTop();
   closeMobileSidebar();
   closeMobileSearch();
 }

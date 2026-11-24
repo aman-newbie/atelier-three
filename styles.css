@@ -128,12 +128,12 @@ svg{display:block;}
 /* ============================================================
    LAYOUT
    ============================================================ */
-.app{display:grid; grid-template-columns:var(--sidebar-w) 1fr; min-height:calc(100vh - var(--topbar-h)); position:relative; z-index:1;}
+.app{display:grid; grid-template-columns:var(--sidebar-w) 1fr; min-height:calc(100vh - var(--topbar-h));}
 
 /* ---- Sidebar ---- */
 .sidebar{
   border-right:1px solid var(--border-soft); padding:var(--sp-5) var(--sp-4) var(--sp-8);
-  position:sticky; top:var(--topbar-h); height:calc(100vh - var(--topbar-h)); overflow-y:auto;
+  position:sticky; top:var(--topbar-h); height:calc(100vh - var(--topbar-h)); overflow-y:auto; z-index:2;
 }
 .sidebar::-webkit-scrollbar{width:8px;}
 .sidebar::-webkit-scrollbar-thumb{background:var(--border); border-radius:4px;}
@@ -164,7 +164,7 @@ svg{display:block;}
 .side-locked{opacity:.45; padding:var(--sp-1) var(--sp-3); font-size:calc(12.5px * var(--font-scale)); color:var(--text-faint); display:flex; justify-content:space-between;}
 
 /* ---- Main ---- */
-.main{padding:var(--sp-6) var(--sp-7) calc(var(--sp-9) + 56px); max-width:920px; min-width:0;}
+.main{position:relative; z-index:1; padding:var(--sp-6) var(--sp-7) calc(var(--sp-9) + 104px); max-width:920px; min-width:0;}
 
 /* ============================================================
    HERO / HOME VIEW
@@ -561,7 +561,7 @@ svg{display:block;}
 /* ============================================================
    FOOTER + misc floating UI
    ============================================================ */
-.site-footer{position:relative; z-index:1; border-top:1px solid var(--border-soft); padding:var(--sp-7) var(--sp-7); margin-top:var(--sp-9); font-size:calc(13px * var(--font-scale)); color:var(--text-faint); display:flex; justify-content:space-between; flex-wrap:wrap; gap:var(--sp-4);}
+.site-footer{position:relative; z-index:1; border-top:1px solid var(--border-soft); padding:var(--sp-6) var(--sp-7); margin-top:0; font-size:calc(13px * var(--font-scale)); color:var(--text-faint); display:flex; justify-content:space-between; flex-wrap:wrap; gap:var(--sp-4);}
 .site-footer a{color:var(--text-faint);}
 .footer-actions{display:flex; gap:var(--sp-4);}
 .footer-actions button{background:none; border:none; color:var(--text-faint); font-size:calc(13px * var(--font-scale)); text-decoration:underline; font-family:inherit; padding:0;}
@@ -833,7 +833,7 @@ svg{display:block;}
   --red:#B23F26; --red-ink:#F7E5DE; --red-soft:#F7E5DE;
 }
 [data-theme="custom"] .art-backdrop{
-  opacity:1; background-image:var(--custom-bg-image, none); background-size:cover;
+  opacity:1; height:100lvh; min-height:100vh; background-image:var(--custom-bg-image, none); background-size:cover;
   background-position:center;
   /* The photo itself is shown at full strength — readability now comes from
      detecting whether the photo is bright or dark (see applyCustomThemeColors in
@@ -852,6 +852,7 @@ svg{display:block;}
    there is a normal, expected pattern rather than a patchwork effect. */
 [data-theme="custom"] .sidebar{background:var(--bg-raised);}
 [data-theme="custom"] .topbar{background:var(--surface);}
+[data-theme="custom"] .site-footer{background:var(--bg-raised);}
 [data-theme="custom"] body, [data-theme="custom"] p, [data-theme="custom"] li, [data-theme="custom"] h1,
 [data-theme="custom"] h2, [data-theme="custom"] h3, [data-theme="custom"] h4, [data-theme="custom"] span,
 [data-theme="custom"] b, [data-theme="custom"] .stat b, [data-theme="custom"] .module-hook{
